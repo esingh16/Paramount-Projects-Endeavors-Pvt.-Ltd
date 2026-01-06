@@ -528,18 +528,29 @@ function renderDirectoryResults(items) {
 // 5. Sample work gallery (full images + download)
 
 const sampleImages = [
-  { file: "images/img1.png", label: "QSR high-street outlet" },
-  { file: "images/img2.png", label: "Mall food court fit-out" },
-  { file: "images/img3.png", label: "Electronics anchor store" },
-  { file: "images/img4.png", label: "Premium casual dining" },
-  { file: "images/img5.png", label: "High-street fashion facade" },
-  { file: "images/img6.png", label: "Compact kiosk format" },
-  { file: "images/img7.png", label: "Drive-thru configuration" },
-  { file: "images/img8.png", label: "Hospitality public area" },
-  { file: "images/img9.png", label: "Tier-2 city rollout" },
-  { file: "images/img10.png", label: "Before / after refurbishment" },
-  { file: "images/img11.png", label: "Transit hub outlet" },
-  { file: "images/img12.png", label: "Food court island counter" }
+  { file: "images/img1.png", label: "Alfredo's" },
+  { file: "images/img2.png", label: "Amoeba" },
+  { file: "images/img3.png", label: "Burger King" },
+  { file: "images/img4.png", label: "Burma Burma" },
+  { file: "images/img5.png", label: "Chaayos" },
+  { file: "images/img6.png", label: "Cinepolis" },
+  { file: "images/img7.png", label: "Copper Chimney" },
+  { file: "images/img8.png", label: "Croma" },
+  { file: "images/img10.png", label: "Dominos" },
+  { file: "images/img11.png", label: "Dr Agarwals" },
+  { file: "images/img12.png", label: "Izumi" },
+  { file: "images/img13.png", label: "KFC" },
+  { file: "images/img14.png", label: "Punjab Grill" },
+  { file: "images/img15.png", label: "You Mee" },
+  { file: "images/img16.png", label: "McD" },
+  { file: "images/img17.png", label: "Mr DIY" },
+  { file: "images/img18.png", label: "Pepe Jeans" },
+  { file: "images/img19.png", label: "Social" },
+  { file: "images/img20.png", label: "Subway" },
+  { file: "images/img21.png", label: "Taco Bell" },
+  { file: "images/img22.png", label: "The Hazelnut Factory" },
+  { file: "images/img23.png", label: "Timezone" },
+  { file: "images/img24.png", label: "Third Wave Coffee" }
 ];
 
 function renderSampleWork() {
