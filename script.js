@@ -1,221 +1,321 @@
 // script.js
-// Map, directory, project detail, sample work, contact
+// Unified clients data, map, directory, sample work, contact
 
-// 1. Project directory data
-// IMPORTANT: Keep extending this array with ALL rows from Project-details.xlsx
-// using the same structure (id, year, client, brand, city, region, location).
-// City and region are normalized manually. This array is PURE DATA.
+// 1. Clients directory data (no years)
+// One entry per brand–city pair, location kept short and descriptive.
 
-const projectDirectory = [
-  // Existing examples
-  {
-    id: "2013-KFCH-KATRAJ-PUNE",
-    year: 2013,
-    client: "KFCH",
-    brand: "KFC",
-    city: "Pune",
-    region: "West",
-    location: "Katraj, Pune"
-  },
-  {
-    id: "2013-KFCH-WAI-SATARA",
-    year: 2013,
-    client: "KFCH",
-    brand: "KFC",
-    city: "Satara",
-    region: "West",
-    location: "WAI, Satara"
-  },
-  {
-    id: "2015-BK-JANAKPURI-DELHI",
-    year: 2015,
-    client: "Burger King",
-    brand: "Burger King",
-    city: "Delhi",
-    region: "North",
-    location: "Janakpuri, Delhi"
-  },
-  {
-    id: "2015-CHAAYOS-TODI-MILLS",
-    year: 2015,
-    client: "Chaayos",
-    brand: "Chaayos",
-    city: "Mumbai",
-    region: "West",
-    location: "Todi mills, Lower Parel"
-  },
-  {
-    id: "2018-MCD-VILE-PARLE-MUMBAI",
-    year: 2018,
-    client: "McDonalds",
-    brand: "McDonalds",
-    city: "Mumbai",
-    region: "West",
-    location: "Vile Parle, Mumbai"
-  },
-  {
-    id: "2022-SUBWAY-BANGALORE",
-    year: 2022,
-    client: "SUBWAY",
-    brand: "Subway",
-    city: "Bengaluru",
-    region: "South",
-    location: "Bangalore"
-  },
-  {
-    id: "2023-CROMA-ANKLESHWAR",
-    year: 2023,
-    client: "CROMA",
-    brand: "Croma",
-    city: "Ankleshwar",
-    region: "West",
-    location: "Croma, Ankleshwar"
-  },
-  {
-    id: "2023-PEPE-SOUTH-CITY-KOLKATA",
-    year: 2023,
-    client: "PEPE JEANS",
-    brand: "Pepe Jeans",
-    city: "Kolkata",
-    region: "East",
-    location: "South City, Kolkata"
-  },
-  {
-    id: "2021-IZUMI-JUHU-MUMBAI",
-    year: 2021,
-    client: "IZUMI",
-    brand: "Izumi",
-    city: "Mumbai",
-    region: "West",
-    location: "Juhu, Mumbai"
-  },
-  {
-    id: "2021-TACOBELL-PUNE",
-    year: 2021,
-    client: "TACO BELL",
-    brand: "Taco Bell",
-    city: "Pune",
-    region: "West",
-    location: "Pune"
-  },
-  {
-    id: "2018-COPPER-CHIMNEY-DELUXE",
-    year: 2018,
-    client: "Copper Chimney",
-    brand: "Copper Chimney",
-    city: "Mumbai",
-    region: "West",
-    location: "Deluxe Caterers Pvt Ltd Mumbai"
-  },
-  {
-    id: "2024-CTR-BANGALORE",
-    year: 2024,
-    client: "CTR",
-    brand: "CTR",
-    city: "Bengaluru",
-    region: "South",
-    location: "Bangalore"
-  },
-  {
-    id: "2023-YOUMEE-INFINITI-ANDHERI",
-    year: 2023,
-    client: "LBF",
-    brand: "YouMee",
-    city: "Mumbai",
-    region: "West",
-    location: "YouMee, Infiniti Mall, Andheri"
-  }
+const clientsDirectory = [
+  // Domino's
+  { brand: "Domino's", client: "Domino's", city: "Pune", region: "West", location: "Pune" },
+  { brand: "Domino's", client: "Domino's", city: "Baramati", region: "West", location: "Baramati" },
+  { brand: "Domino's", client: "Domino's", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "Domino's", client: "Domino's", city: "Surat", region: "West", location: "Surat" },
+  { brand: "Domino's", client: "Domino's", city: "Goa", region: "West", location: "Goa" },
+  { brand: "Domino's", client: "Domino's", city: "Satara", region: "West", location: "Satara" },
+  { brand: "Domino's", client: "Domino's", city: "New Delhi", region: "North", location: "New Delhi" },
+  { brand: "Domino's", client: "Domino's", city: "Badlapur", region: "West", location: "Badlapur" },
+  { brand: "Domino's", client: "Domino's", city: "Dehradun", region: "North", location: "Dehradun" },
+  { brand: "Domino's", client: "Domino's", city: "Bhiwani", region: "North", location: "Bhiwani" },
+  { brand: "Domino's", client: "Domino's", city: "Muzaffarnagar", region: "North", location: "Muzaffarnagar" },
+  { brand: "Domino's", client: "Domino's", city: "Mandi", region: "North", location: "Mandi (HP)" },
+  { brand: "Domino's", client: "Domino's", city: "Gorakhpur", region: "North", location: "Gorakhpur" },
+  { brand: "Domino's", client: "Domino's", city: "Gurgaon", region: "North", location: "Gurgaon" },
+  { brand: "Domino's", client: "Domino's", city: "Shahjahanpur", region: "North", location: "Shahjahanpur" },
+  { brand: "Domino's", client: "Domino's", city: "Bhilwara", region: "North", location: "Bhilwara" },
+  { brand: "Domino's", client: "Domino's", city: "Rishikesh", region: "North", location: "Rishikesh" },
+  { brand: "Domino's", client: "Domino's", city: "Kashipur", region: "North", location: "Kashipur" },
+  { brand: "Domino's", client: "Domino's", city: "Faridabad", region: "North", location: "Faridabad" },
+  { brand: "Domino's", client: "Domino's", city: "Kanpur", region: "North", location: "Kanpur" },
+  { brand: "Domino's", client: "Domino's", city: "Maliya", region: "West", location: "Maliya" },
+  { brand: "Domino's", client: "Domino's", city: "Jaipur", region: "North", location: "Jaipur" },
+  { brand: "Domino's", client: "Domino's", city: "Ambala", region: "North", location: "Ambala" },
+  { brand: "Domino's", client: "Domino's", city: "Mugalsarai", region: "North", location: "Mugalsarai" },
+  { brand: "Domino's", client: "Domino's", city: "Varanasi", region: "North", location: "Varanasi" },
+  { brand: "Domino's", client: "Domino's", city: "Nagpur", region: "West", location: "Nagpur" },
+  { brand: "Domino's", client: "Domino's", city: "Faridkot", region: "North", location: "Faridkot" },
+  { brand: "Domino's", client: "Domino's", city: "Lucknow", region: "North", location: "Lucknow" },
+  { brand: "Domino's", client: "Domino's", city: "Ludhiana", region: "North", location: "Ludhiana" },
 
-  // TODO: Add all remaining rows from Project-details.xlsx here,
-  // following the same structure. Keep city spelling consistent with
-  // cityCoordinates below so every city shows on the map.
+  // KFC
+  { brand: "KFC", client: "KFC", city: "Pune", region: "West", location: "Pune" },
+  { brand: "KFC", client: "KFC", city: "Satara", region: "West", location: "Satara" },
+  { brand: "KFC", client: "KFC", city: "Thane", region: "West", location: "Thane" },
+  { brand: "KFC", client: "KFC", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "KFC", client: "KFC", city: "Nagpur", region: "West", location: "Nagpur" },
+  { brand: "KFC", client: "KFC", city: "Indore", region: "West", location: "Indore" },
+  { brand: "KFC", client: "KFC", city: "Korum", region: "West", location: "Korum Mall, Thane" },
+  { brand: "KFC", client: "KFC", city: "Chandigarh", region: "North", location: "Chandigarh" },
+  { brand: "KFC", client: "KFC", city: "Chennai", region: "South", location: "Chennai" },
+  { brand: "KFC", client: "KFC", city: "Hyderabad", region: "South", location: "Hyderabad" },
+  { brand: "KFC", client: "KFC", city: "Vashi", region: "West", location: "Vashi, Navi Mumbai" },
+
+  // Cinepolis
+  { brand: "Cinepolis", client: "Cinepolis", city: "Hubli", region: "South", location: "Hubli" },
+
+  // Chaayos
+  { brand: "Chaayos", client: "Chaayos", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "Chaayos", client: "Chaayos", city: "Gurgaon", region: "North", location: "Gurgaon" },
+
+  // Pressto
+  { brand: "Pressto", client: "Pressto", city: "Thane", region: "West", location: "Thane" },
+
+  // Burger King
+  { brand: "Burger King", client: "Burger King", city: "Delhi", region: "North", location: "Delhi" },
+  { brand: "Burger King", client: "Burger King", city: "Amritsar", region: "North", location: "Amritsar" },
+  { brand: "Burger King", client: "Burger King", city: "Huda City", region: "North", location: "Huda City" },
+  { brand: "Burger King", client: "Burger King", city: "Saket", region: "North", location: "Saket" },
+  { brand: "Burger King", client: "Burger King", city: "Dholakun", region: "North", location: "Dholakun" },
+  { brand: "Burger King", client: "Burger King", city: "Jaipur", region: "North", location: "Jaipur" },
+  { brand: "Burger King", client: "Burger King", city: "Vashi", region: "West", location: "Vashi, Navi Mumbai" },
+  { brand: "Burger King", client: "Burger King", city: "Dwarka", region: "North", location: "Dwarka" },
+  { brand: "Burger King", client: "Burger King", city: "Noida", region: "North", location: "Noida" },
+  { brand: "Burger King", client: "Burger King", city: "Manesar", region: "North", location: "Manesar (Haryana)" },
+  { brand: "Burger King", client: "Burger King", city: "Ghaziabad", region: "North", location: "Ghaziabad" },
+  { brand: "Burger King", client: "Burger King", city: "Kolkata", region: "East", location: "Kolkata" },
+  { brand: "Burger King", client: "Burger King", city: "Prayagraj", region: "North", location: "Prayagraj" },
+  { brand: "Burger King", client: "Burger King", city: "Gurgaon", region: "North", location: "Gurgaon" },
+  { brand: "Burger King", client: "Burger King", city: "Bangalore", region: "South", location: "Bangalore" },
+  { brand: "Burger King", client: "Burger King", city: "Varanasi", region: "North", location: "Varanasi" },
+  { brand: "Burger King", client: "Burger King", city: "Kanpur", region: "North", location: "Kanpur" },
+  { brand: "Burger King", client: "Burger King", city: "Lucknow", region: "North", location: "Lucknow" },
+  { brand: "Burger King", client: "Burger King", city: "Guwahati", region: "East", location: "Guwahati" },
+  { brand: "Burger King", client: "Burger King", city: "Siliguri", region: "East", location: "Siliguri" },
+  { brand: "Burger King", client: "Burger King", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "Burger King", client: "Burger King", city: "Mathura", region: "North", location: "Mathura" },
+  { brand: "Burger King", client: "Burger King", city: "Mangalore", region: "South", location: "Mangalore" },
+  { brand: "Burger King", client: "Burger King", city: "Hassan", region: "South", location: "Hassan" },
+  { brand: "Burger King", client: "Burger King", city: "Vidyaranyapura", region: "South", location: "Vidyaranyapura" },
+  { brand: "Burger King", client: "Burger King", city: "Ranchi", region: "East", location: "Ranchi" },
+  { brand: "Burger King", client: "Burger King", city: "Patna", region: "East", location: "Patna" },
+  { brand: "Burger King", client: "Burger King", city: "Gangtok", region: "East", location: "Gangtok" },
+  { brand: "Burger King", client: "Burger King", city: "Ludhiana", region: "North", location: "Ludhiana" },
+  { brand: "Burger King", client: "Burger King", city: "Lake Town", region: "East", location: "Lake Town" },
+  { brand: "Burger King", client: "Burger King", city: "Dimapur", region: "East", location: "Dimapur" },
+  { brand: "Burger King", client: "Burger King", city: "Itanagar", region: "East", location: "Itanagar" },
+  { brand: "Burger King", client: "Burger King", city: "Khatauli", region: "North", location: "Khatauli" },
+
+  // McDonald's
+  { brand: "McDonald's", client: "McDonald's", city: "Manipal", region: "South", location: "Manipal" },
+  { brand: "McDonald's", client: "McDonald's", city: "Kadugodi", region: "South", location: "Kadugodi" },
+
+  // Impresario
+  { brand: "Impresario", client: "Impresario", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "Impresario", client: "Impresario", city: "Pune", region: "West", location: "Pune" },
+  { brand: "Impresario", client: "Impresario", city: "New Delhi", region: "North", location: "New Delhi" },
+
+  // Sapphire
+  { brand: "Sapphire", client: "Sapphire", city: "Hyderabad", region: "South", location: "Hyderabad" },
+  { brand: "Sapphire", client: "Sapphire", city: "Kanpur", region: "North", location: "Kanpur" },
+
+  // Copper Chimney
+  { brand: "Copper Chimney", client: "Copper Chimney", city: "Mumbai", region: "West", location: "Mumbai" },
+
+  // Keer Hotels
+  { brand: "Keer Hotels", client: "Keer Hotels", city: "Alfredo", region: "West", location: "Alfredo" },
+
+  // DIY / Alfredo DIY
+  { brand: "DIY", client: "DIY", city: "Dwarka", region: "North", location: "Dwarka" },
+  { brand: "DIY", client: "DIY", city: "Rajouri", region: "North", location: "Rajouri" },
+  { brand: "DIY", client: "DIY", city: "Najafgarh", region: "North", location: "Najafgarh" },
+  { brand: "DIY", client: "DIY", city: "Bhopal", region: "Central", location: "Bhopal" },
+  { brand: "DIY", client: "DIY", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "DIY", client: "DIY", city: "Indore", region: "West", location: "Indore" },
+  { brand: "DIY", client: "DIY", city: "Pune", region: "West", location: "Pune" },
+  { brand: "DIY", client: "DIY", city: "Zirakpur", region: "North", location: "Zirakpur" },
+  { brand: "DIY", client: "DIY", city: "Bareilly", region: "North", location: "Bareilly" },
+  { brand: "DIY", client: "DIY", city: "Ganganagar", region: "North", location: "Ganganagar" },
+  { brand: "DIY", client: "DIY", city: "Bhuj", region: "West", location: "Bhuj" },
+  { brand: "DIY", client: "DIY", city: "Nikol", region: "West", location: "Nikol" },
+  { brand: "DIY", client: "DIY", city: "Patiala", region: "North", location: "Patiala" },
+  { brand: "DIY", client: "DIY", city: "Bilaspur", region: "North", location: "Bilaspur" },
+  { brand: "DIY", client: "DIY", city: "Hanumangarh", region: "North", location: "Hanumangarh" },
+  { brand: "DIY", client: "DIY", city: "Jodhpur", region: "North", location: "Jodhpur" },
+  { brand: "DIY", client: "DIY", city: "Ahmedabad", region: "West", location: "Ahmedabad" },
+  { brand: "DIY", client: "DIY", city: "Akola", region: "West", location: "Akola" },
+  { brand: "DIY", client: "DIY", city: "Noida", region: "North", location: "Noida" },
+  { brand: "DIY", client: "DIY", city: "Rudrapur", region: "North", location: "Rudrapur" },
+  { brand: "DIY", client: "DIY", city: "Nashik", region: "West", location: "Nashik" },
+  { brand: "DIY", client: "DIY", city: "Jalgaon", region: "West", location: "Jalgaon" },
+  { brand: "DIY", client: "DIY", city: "Amritsar", region: "North", location: "Amritsar" },
+  { brand: "DIY", client: "DIY", city: "Nagpur", region: "West", location: "Nagpur" },
+
+  // Talli Turmeric (brand mention only; add cities when available)
+  { brand: "Talli Turmeric", client: "Talli Turmeric", city: "Mumbai", region: "West", location: "Mumbai" },
+
+  // Izumi
+  { brand: "Izumi", client: "Izumi", city: "Mumbai", region: "West", location: "Mumbai" },
+
+  // Taco Bell
+  { brand: "Taco Bell", client: "Taco Bell", city: "Pune", region: "West", location: "Pune" },
+  { brand: "Taco Bell", client: "Taco Bell", city: "Indirapuram", region: "North", location: "Indirapuram" },
+
+  // Subway
+  { brand: "Subway", client: "Subway", city: "Bangalore", region: "South", location: "Bangalore" },
+
+  // Croma
+  { brand: "Croma", client: "Croma", city: "Ankleshwar", region: "West", location: "Ankleshwar" },
+  { brand: "Croma", client: "Croma", city: "Palakkad", region: "South", location: "Palakkad" },
+  { brand: "Croma", client: "Croma", city: "Hathijan", region: "West", location: "Hathijan" },
+  { brand: "Croma", client: "Croma", city: "Cuttack", region: "East", location: "Cuttack" },
+  { brand: "Croma", client: "Croma", city: "Nana Chiloda", region: "West", location: "Nana Chiloda" },
+  { brand: "Croma", client: "Croma", city: "Vadodara", region: "West", location: "Vadodara" },
+  { brand: "Croma", client: "Croma", city: "Surat", region: "West", location: "Surat" },
+  { brand: "Croma", client: "Croma", city: "Kochi", region: "South", location: "Kochi" },
+  { brand: "Croma", client: "Croma", city: "Rajkot", region: "West", location: "Rajkot" },
+  { brand: "Croma", client: "Croma", city: "Jamnagar", region: "West", location: "Jamnagar" },
+
+  // LBF / YouMee
+  { brand: "LBF / YouMee", client: "LBF", city: "Kanpur", region: "North", location: "Kanpur" },
+  { brand: "LBF / YouMee", client: "LBF", city: "Mumbai", region: "West", location: "Mumbai" },
+
+  // Amoeba
+  { brand: "Amoeba", client: "Amoeba", city: "Mumbai", region: "West", location: "Mumbai" },
+  { brand: "Amoeba", client: "Amoeba", city: "Bangalore", region: "South", location: "Bangalore" },
+
+  // Pepe Jeans
+  { brand: "Pepe Jeans", client: "Pepe Jeans", city: "Kolkata", region: "East", location: "Kolkata" },
+
+  // Dr. Agarwal
+  { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Virar", region: "West", location: "Virar" },
+  { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Hennur", region: "South", location: "Hennur" },
+  { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Lucknow", region: "North", location: "Lucknow" },
+  { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Hassan", region: "South", location: "Hassan" },
+
+  // Timezone
+  { brand: "Timezone", client: "Timezone", city: "Hubli", region: "South", location: "Hubli" },
+
+  // CTR
+  { brand: "CTR", client: "CTR", city: "Bangalore", region: "South", location: "Bangalore" },
+
+  // Hazelnut Factory
+  { brand: "Hazelnut Factory", client: "Hazelnut Factory", city: "Prayagraj", region: "North", location: "Prayagraj" },
+  { brand: "Hazelnut Factory", client: "Hazelnut Factory", city: "Agra", region: "North", location: "Agra" },
+  { brand: "Hazelnut Factory", client: "Hazelnut Factory", city: "Meerut", region: "North", location: "Meerut" }
 ];
 
-// 2. Sample work images (large cards + download)
-// These filenames must exist in your repo (e.g. images/img1.png ... images/img24.png)
-
-const sampleImages = [
-  { file: "images/img1.png", label: "Multi-brand QSR fit-out" },
-  { file: "images/img2.png", label: "High-street retail facade" },
-  { file: "images/img3.png", label: "Mall interior food court" },
-  { file: "images/img4.png", label: "Electronics anchor store" },
-  { file: "images/img5.png", label: "Premium casual dining" },
-  { file: "images/img6.png", label: "Compact kiosk format" },
-  { file: "images/img7.png", label: "Drive-thru prototype" },
-  { file: "images/img8.png", label: "Flagship restaurant layout" },
-  { file: "images/img9.png", label: "Fashion retail rollout" },
-  { file: "images/img10.png", label: "Co-branded mall frontage" },
-  { file: "images/img11.png", label: "Tier-2 city high street" },
-  { file: "images/img12.png", label: "Transit hub outlet" },
-  { file: "images/img13.png", label: "Food court island counter" },
-  { file: "images/img14.png", label: "Café and bakery concept" },
-  { file: "images/img15.png", label: "Electronics store remodel" },
-  { file: "images/img16.png", label: "Quick renovation program" },
-  { file: "images/img17.png", label: "High-visibility corner site" },
-  { file: "images/img18.png", label: "Mall atrium installation" },
-  { file: "images/img19.png", label: "Restaurant back-of-house" },
-  { file: "images/img20.png", label: "Facade refresh before/after" },
-  { file: "images/img21.png", label: "Compact high street box" },
-  { file: "images/img22.png", label: "Hospitality lobby area" },
-  { file: "images/img23.png", label: "Fit-out progress snapshot" },
-  { file: "images/img24.png", label: "Completed multi-store rollout" }
-];
-
-// 3. City aggregation for map markers
+// 2. Map city aggregation
 
 function buildCityAggregation() {
   const cityMap = new Map();
-  projectDirectory.forEach((p) => {
+  clientsDirectory.forEach((p) => {
     if (!p.city) return;
     const key = p.city.toLowerCase();
     if (!cityMap.has(key)) {
       cityMap.set(key, {
         city: p.city,
         region: p.region,
-        projects: []
+        clients: []
       });
     }
-    cityMap.get(key).projects.push(p);
+    cityMap.get(key).clients.push(p);
   });
   return Array.from(cityMap.values());
 }
 
-// City → approximate coordinates
-// Extend this list whenever a new city is added in projectDirectory.
+// Basic city → coordinates mapping
+// Approximate; extend or tweak as needed.
+
 const cityCoordinates = {
-  "Mumbai": [19.076, 72.8777],
-  "Navi Mumbai": [19.033, 73.0297],
   "Pune": [18.5204, 73.8567],
-  "Satara": [17.6914, 74.0003],
-  "Thane": [19.2183, 72.9781],
-  "Delhi": [28.6139, 77.209],
-  "Gurgaon": [28.4595, 77.0266],
-  "Noida": [28.5355, 77.391],
-  "Greater Noida": [28.4744, 77.503],
-  "Kanpur": [26.4499, 80.3319],
-  "Lucknow": [26.8467, 80.9462],
-  "Varanasi": [25.3176, 82.9739],
-  "Prayagraj": [25.4358, 81.8463],
-  "Jaipur": [26.9124, 75.7873],
-  "Indore": [22.7196, 75.8577],
-  "Ahmedabad": [23.0225, 72.5714],
+  "Baramati": [18.1517, 74.5777],
+  "Mumbai": [19.076, 72.8777],
   "Surat": [21.1702, 72.8311],
-  "Ankleshwar": [21.6269, 72.9994],
+  "Goa": [15.2993, 74.124],
+  "Satara": [17.6914, 74.0003],
+  "New Delhi": [28.6139, 77.209],
+  "Delhi": [28.6139, 77.209],
+  "Badlapur": [19.155, 73.265],
+  "Dehradun": [30.3165, 78.0322],
+  "Bhiwani": [28.793, 76.1391],
+  "Muzaffarnagar": [29.4727, 77.7085],
+  "Mandi": [31.708, 76.932],
+  "Gorakhpur": [26.7606, 83.3732],
+  "Gurgaon": [28.4595, 77.0266],
+  "Shahjahanpur": [27.8815, 79.9109],
+  "Bhilwara": [25.3463, 74.6364],
+  "Rishikesh": [30.0869, 78.2676],
+  "Kashipur": [29.213, 78.9567],
+  "Faridabad": [28.4089, 77.3178],
+  "Kanpur": [26.4499, 80.3319],
+  "Maliya": [23.0846, 70.7455],
+  "Jaipur": [26.9124, 75.7873],
+  "Ambala": [30.3752, 76.7821],
+  "Mugalsarai": [25.2837, 83.1198],
+  "Varanasi": [25.3176, 82.9739],
+  "Nagpur": [21.1458, 79.0882],
+  "Faridkot": [30.676, 74.7539],
+  "Lucknow": [26.8467, 80.9462],
+  "Ludhiana": [30.9009, 75.8573],
+  "Thane": [19.2183, 72.9781],
+  "Korum": [19.2183, 72.9781],
+  "Chandigarh": [30.7333, 76.7794],
+  "Chennai": [13.0827, 80.2707],
+  "Hyderabad": [17.385, 78.4867],
+  "Vashi": [19.0771, 73.0297],
+  "Hubli": [15.3647, 75.124],
+  "Pressto": [19.2183, 72.9781],
+  "Amritsar": [31.634, 74.8723],
+  "Huda City": [28.4595, 77.0266],
+  "Saket": [28.5286, 77.2197],
+  "Dholakun": [28.6139, 77.209],
+  "Dwarka": [28.5921, 77.046],
+  "Noida": [28.5355, 77.391],
+  "Manesar": [28.357, 76.9383],
+  "Ghaziabad": [28.6692, 77.4538],
   "Kolkata": [22.5726, 88.3639],
-  "Siliguri": [26.7271, 88.3953],
+  "Prayagraj": [25.4358, 81.8463],
   "Guwahati": [26.1445, 91.7362],
+  "Siliguri": [26.7271, 88.3953],
+  "Mathura": [27.4924, 77.6737],
+  "Mangalore": [12.9141, 74.856],
+  "Hassan": [13.0072, 76.0962],
+  "Vidyaranyapura": [13.065, 77.551],
+  "Ranchi": [23.3441, 85.3096],
+  "Patna": [25.5941, 85.1376],
+  "Gangtok": [27.3389, 88.6065],
+  "Lake Town": [22.606, 88.4023],
   "Dimapur": [25.9117, 93.7266],
   "Itanagar": [27.0844, 93.6053],
-  "Gangtok": [27.3389, 88.6065],
-  "Bengaluru": [12.9716, 77.5946],
-  "Hyderabad": [17.385, 78.4867],
-  "Chennai": [13.0827, 80.2707],
-  "Mangalore": [12.9141, 74.856],
+  "Khatauli": [29.2784, 77.7323],
+  "Manipal": [13.352, 74.7923],
+  "Kadugodi": [12.996, 77.7586],
+  "Hyderabad Sapphire": [17.385, 78.4867],
+  "Kanpur Sapphire": [26.4499, 80.3319],
+  "Alfredo": [19.076, 72.8777],
+  "Rajouri": [28.649, 77.1177],
+  "Najafgarh": [28.609, 76.9798],
+  "Bhopal": [23.2599, 77.4126],
+  "Zirakpur": [30.6425, 76.8173],
+  "Bareilly": [28.367, 79.4304],
+  "Ganganagar": [29.9038, 73.8772],
+  "Bhuj": [23.2419, 69.6669],
+  "Nikol": [23.0275, 72.6625],
+  "Patiala": [30.3398, 76.3869],
+  "Bilaspur": [22.0797, 82.1391],
+  "Hanumangarh": [29.581, 74.3294],
+  "Jodhpur": [26.2389, 73.0243],
+  "Ahmedabad": [23.0225, 72.5714],
+  "Akola": [20.7002, 77.0082],
+  "Rudrapur": [28.987, 79.415],
+  "Nashik": [19.9975, 73.7898],
+  "Jalgaon": [21.0077, 75.5626],
+  "Palakkad": [10.7867, 76.6548],
+  "Hathijan": [22.955, 72.668],
+  "Cuttack": [20.4625, 85.8828],
+  "Nana Chiloda": [23.073, 72.665],
+  "Vadodara": [22.3072, 73.1812],
   "Kochi": [9.9312, 76.2673],
-  "Hubli": [15.3647, 75.124]
+  "Rajkot": [22.3039, 70.8022],
+  "Jamnagar": [22.4707, 70.0577],
+  "Kanpur LBF": [26.4499, 80.3319],
+  "Virar": [19.4559, 72.8114],
+  "Hennur": [13.028, 77.642],
+  "Agra": [27.1767, 78.0081],
+  "Meerut": [28.9845, 77.7064],
+  "Bangalore": [12.9716, 77.5946]
 };
 
-// 4. Map initialisation (index.html only)
+// 3. Map initialisation
 
 let map;
 const mapElement = document.getElementById("map");
@@ -229,9 +329,7 @@ if (mapElement) {
     inertiaDeceleration: 2000
   }).setView([22.9734, 78.6569], 5);
 
-  L.control
-    .zoom({ position: "bottomright" })
-    .addTo(map);
+  L.control.zoom({ position: "bottomright" }).addTo(map);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -242,7 +340,10 @@ if (mapElement) {
   const allLatLngs = [];
 
   cityAgg.forEach((c) => {
-    const coords = cityCoordinates[c.city] || null;
+    const coords =
+      cityCoordinates[c.city] ||
+      cityCoordinates[`${c.city} ${c.brand}`] ||
+      null;
     if (!coords) return;
 
     const marker = L.circleMarker(coords, {
@@ -254,18 +355,11 @@ if (mapElement) {
     }).addTo(map);
 
     const brands = Array.from(
-      new Set(c.projects.map((p) => p.brand || p.client))
+      new Set(c.clients.map((p) => p.brand || p.client))
     ).join(", ");
-    const yearsList = c.projects.map((p) => p.year).filter(Boolean);
-    const minYear = yearsList.length ? Math.min(...yearsList) : "";
-    const maxYear = yearsList.length ? Math.max(...yearsList) : "";
-    const years =
-      minYear && maxYear && minYear !== maxYear
-        ? `${minYear} – ${maxYear}`
-        : minYear || maxYear || "";
 
     marker.bindPopup(
-      `<strong>${c.city}</strong><br>Brands: ${brands}<br>Years: ${years}`
+      `<strong>${c.city}</strong><br>Brands: ${brands}`
     );
 
     marker.onclick = () => {
@@ -274,7 +368,7 @@ if (mapElement) {
         cityFilter.value = c.city;
         applyDirectoryFilters();
       }
-      const directorySection = document.getElementById("projects-directory");
+      const directorySection = document.getElementById("clients");
       if (directorySection) {
         directorySection.scrollIntoView({ behavior: "smooth" });
       }
@@ -289,9 +383,8 @@ if (mapElement) {
   }
 }
 
-// 5. Directory filters and rendering (index.html only)
+// 4. Directory filters and rendering
 
-const yearFilter = document.getElementById("filter-year");
 const brandFilter = document.getElementById("filter-brand");
 const cityFilter = document.getElementById("filter-city");
 const regionFilter = document.getElementById("filter-region");
@@ -303,22 +396,8 @@ const summaryEl = document.getElementById("directory-summary");
 function initDirectoryFilters() {
   if (!resultsContainer) return;
 
-  const years = Array.from(
-    new Set(projectDirectory.map((p) => p.year).filter(Boolean))
-  ).sort((a, b) => b - a);
-  years.forEach((y) => {
-    const opt = document.createElement("option");
-    opt.value = String(y);
-    opt.textContent = String(y);
-    yearFilter.appendChild(opt);
-  });
-
   const brands = Array.from(
-    new Set(
-      projectDirectory
-        .map((p) => p.brand || p.client)
-        .filter(Boolean)
-    )
+    new Set(clientsDirectory.map((p) => p.brand || p.client).filter(Boolean))
   ).sort();
   brands.forEach((b) => {
     const opt = document.createElement("option");
@@ -328,7 +407,7 @@ function initDirectoryFilters() {
   });
 
   const cities = Array.from(
-    new Set(projectDirectory.map((p) => p.city).filter(Boolean))
+    new Set(clientsDirectory.map((p) => p.city).filter(Boolean))
   ).sort();
   cities.forEach((c) => {
     const opt = document.createElement("option");
@@ -338,7 +417,7 @@ function initDirectoryFilters() {
   });
 
   const regions = Array.from(
-    new Set(projectDirectory.map((p) => p.region).filter(Boolean))
+    new Set(clientsDirectory.map((p) => p.region).filter(Boolean))
   ).sort();
   regions.forEach((r) => {
     const opt = document.createElement("option");
@@ -347,14 +426,12 @@ function initDirectoryFilters() {
     regionFilter.appendChild(opt);
   });
 
-  yearFilter.addEventListener("change", applyDirectoryFilters);
   brandFilter.addEventListener("change", applyDirectoryFilters);
   cityFilter.addEventListener("change", applyDirectoryFilters);
   regionFilter.addEventListener("change", applyDirectoryFilters);
   searchInput.addEventListener("input", applyDirectoryFilters);
 
   clearBtn.addEventListener("click", () => {
-    yearFilter.value = "";
     brandFilter.value = "";
     cityFilter.value = "";
     regionFilter.value = "";
@@ -368,28 +445,27 @@ function initDirectoryFilters() {
 function applyDirectoryFilters() {
   if (!resultsContainer) return;
 
-  const yearVal = yearFilter.value;
   const brandVal = brandFilter.value;
   const cityVal = cityFilter.value;
   const regionVal = regionFilter.value;
   const query = searchInput.value.trim().toLowerCase();
 
-  let filtered = projectDirectory.slice();
+  let filtered = clientsDirectory.slice();
 
-  if (yearVal) {
-    filtered = filtered.filter((p) => String(p.year) === yearVal);
-  }
   if (brandVal) {
     filtered = filtered.filter(
       (p) => (p.brand || p.client) === brandVal
     );
   }
+
   if (cityVal) {
     filtered = filtered.filter((p) => p.city === cityVal);
   }
+
   if (regionVal) {
     filtered = filtered.filter((p) => p.region === regionVal);
   }
+
   if (query) {
     filtered = filtered.filter((p) =>
       (p.location || "").toLowerCase().includes(query)
@@ -401,11 +477,11 @@ function applyDirectoryFilters() {
 
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
-  summaryEl.textContent = `${items.length} site(s) matching current filters`;
+  summaryEl.textContent = `${items.length} client site(s) matching current filters`;
 
   if (!items.length) {
     resultsContainer.innerHTML =
-      "<p>No projects match the selected filters.</p>";
+      "<p>No client locations match the selected filters.</p>";
     return;
   }
 
@@ -421,12 +497,12 @@ function renderDirectoryResults(items) {
     title.className = "directory-card-title";
     title.textContent = p.location || "Location not specified";
 
-    const yearBadge = document.createElement("div");
-    yearBadge.className = "directory-card-meta";
-    yearBadge.textContent = p.year || "";
+    const metaRight = document.createElement("div");
+    metaRight.className = "directory-card-meta";
+    metaRight.textContent = p.city || "";
 
     header.appendChild(title);
-    header.appendChild(yearBadge);
+    header.appendChild(metaRight);
 
     const subtitle = document.createElement("div");
     subtitle.className = "directory-card-subtitle";
@@ -440,65 +516,31 @@ function renderDirectoryResults(items) {
     meta.className = "directory-card-meta";
     meta.textContent = `Client: ${p.client || "-"}`;
 
-    const link = document.createElement("a");
-    link.href = `projects.html?id=${encodeURIComponent(p.id)}`;
-    link.className = "pill-button";
-    link.style.marginTop = "6px";
-    link.style.alignSelf = "flex-start";
-    link.textContent = "View details";
-
     card.appendChild(header);
     card.appendChild(subtitle);
     card.appendChild(brandEl);
     card.appendChild(meta);
-    card.appendChild(link);
 
     resultsContainer.appendChild(card);
   });
 }
 
-// 6. Project detail page (projects.html)
+// 5. Sample work gallery (full images + download)
 
-function populateProjectDetail() {
-  const container = document.getElementById("project-detail-container");
-  if (!container) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-  const project = projectDirectory.find((p) => p.id === id);
-
-  if (!project) {
-    container.innerHTML =
-      "<p>Project details not found. Please return to the Projects Directory.</p>";
-    return;
-  }
-
-  const imgHtml = project.image
-    ? `<img src="${project.image}" alt="${project.brand}" class="project-image">`
-    : "";
-
-  container.innerHTML = `
-    <section class="project-detail-layout" data-aos="fade-up">
-      <article class="project-detail-main">
-        <h3>${project.brand || project.client}</h3>
-        ${imgHtml}
-        <p>${project.location || ""}</p>
-      </article>
-      <aside class="project-detail-sidebar">
-        <h3>Key Metrics</h3>
-        <ul class="project-metrics">
-          <li><strong>Year</strong> ${project.year || "-"}</li>
-          <li><strong>Client</strong> ${project.client || "-"}</li>
-          <li><strong>Brand</strong> ${project.brand || project.client || "-"}</li>
-          <li><strong>City</strong> ${project.city || "NA"}</li>
-          <li><strong>Region</strong> ${project.region || "NA"}</li>
-        </ul>
-      </aside>
-    </section>
-  `;
-}
-
-// 7. Sample work gallery (index.html)
+const sampleImages = [
+  { file: "images/img1.png", label: "QSR high-street outlet" },
+  { file: "images/img2.png", label: "Mall food court fit-out" },
+  { file: "images/img3.png", label: "Electronics anchor store" },
+  { file: "images/img4.png", label: "Premium casual dining" },
+  { file: "images/img5.png", label: "High-street fashion facade" },
+  { file: "images/img6.png", label: "Compact kiosk format" },
+  { file: "images/img7.png", label: "Drive-thru configuration" },
+  { file: "images/img8.png", label: "Hospitality public area" },
+  { file: "images/img9.png", label: "Tier-2 city rollout" },
+  { file: "images/img10.png", label: "Before / after refurbishment" },
+  { file: "images/img11.png", label: "Transit hub outlet" },
+  { file: "images/img12.png", label: "Food court island counter" }
+];
 
 function renderSampleWork() {
   const grid = document.getElementById("sample-work-grid");
@@ -537,20 +579,15 @@ function renderSampleWork() {
 
     card.appendChild(img);
     card.appendChild(body);
-
     grid.appendChild(card);
   });
 }
 
-// 8. Init on DOM ready
+// 6. DOM ready
 
 document.addEventListener("DOMContentLoaded", () => {
   if (resultsContainer) {
     initDirectoryFilters();
-  }
-
-  if (document.getElementById("project-detail-container")) {
-    populateProjectDetail();
   }
 
   if (document.getElementById("sample-work-grid")) {
