@@ -1,552 +1,505 @@
-/* styles.css – Paramount theme */
-
-/* Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  color: #f4f4f4;
-  background: #2f3840;
-}
-
-/* Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 24px;
-  background: #30363d;
-  border-bottom: 2px solid #f7931e;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, #34c0c9, #f7931e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.logo-letter {
-  transform: translateY(-1px);
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-name {
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
-  color: #ffffff;
-}
-
-.brand-tagline {
-  font-size: 0.75rem;
-  color: #d1d5db;
-}
-
-/* Navigation */
-.main-nav a {
-  margin-left: 18px;
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.main-nav a:hover {
-  color: #34c0c9;
-}
-
-/* Sections */
-.section {
-  padding: 48px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-alt {
-  background: #262c32;
-}
-
-.section h2 {
-  margin-top: 0;
-  color: #ffffff;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 1rem;
-}
-
-/* Hero layout */
-.section-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
-.hero-left h1 {
-  font-size: 1.8rem;
-  margin-top: 0;
-  color: #ffffff;
-}
-
-.hero-lead {
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.hero-sub {
-  font-size: 0.92rem;
-  color: #e5e7eb;
-}
-
-.hero-stats {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-
-/* Shared card transitions */
-.service-card,
-.project-card,
-.info-card,
-.contact-card,
-.map-card,
-#info-panel {
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.service-card:hover,
-.project-card:hover,
-.info-card:hover,
-.contact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
-  border-color: #34c0c9;
-}
-
-.stat-card {
-  background: #30363d;
-  border-radius: 10px;
-  padding: 10px 14px;
-  border-left: 3px solid #f7931e;
-  min-width: 120px;
-}
-
-.stat-number {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #34c0c9;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: #d1d5db;
-}
-
-/* Map card */
-.hero-map {
-  width: 100%;
-}
-
-.map-card {
-  background: #30363d;
-  border-radius: 16px;
-  padding: 0;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
-  border: 1px solid #34c0c9;
-  overflow: hidden;
-}
-
-#map {
-  width: 100%;
-  height: 340px;
-}
-
-/* Dark Leaflet tint */
-.leaflet-container {
-  background: #1f252b;
-}
-
-.leaflet-tile-pane {
-  filter: brightness(0.6) saturate(1.3) hue-rotate(-15deg);
-}
-
-/* Info panel */
-#info-panel {
-  background: #30363d;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-  border: 1px solid #f7931e;
-}
-
-#info-title {
-  margin-top: 0;
-  font-size: 1rem;
-  color: #ffffff;
-}
-
-#info-content {
-  font-size: 0.9rem;
-  color: #e5e7eb;
-  margin-bottom: 12px;
-}
-
-.city-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 8px 0 0;
-  font-size: 0.88rem;
-}
-
-.city-item {
-  cursor: pointer;
-  padding: 6px 0;
-  color: #cbd5f5;
-  transition: color 0.2s ease;
-}
-
-.city-item:hover {
-  color: #34c0c9;
-}
-
-.pill-button {
-  background: linear-gradient(90deg, #f7931e, #34c0c9);
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
-  padding: 7px 14px;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-bottom: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.pill-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
-}
-
-/* Lists & cards */
-.list {
-  padding-left: 18px;
-  font-size: 0.9rem;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
-}
-
-.info-card {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 14px;
-  border-top: 3px solid #34c0c9;
-}
-
-.small-note {
-  font-size: 0.8rem;
-  color: #d1d5db;
-  margin-top: 8px;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.service-card {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 14px;
-  border-top: 3px solid #f7931e;
-}
-
-/* Projects */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.project-card {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 14px;
-  border-left: 3px solid #34c0c9;
-}
-
-/* Table */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-  font-size: 0.9rem;
-}
-
-.data-table th,
-.data-table td {
-  border: 1px solid #4b5563;
-  padding: 8px 10px;
-}
-
-.data-table thead {
-  background: #30363d;
-  color: #ffffff;
-}
-
-.data-table tbody tr:nth-child(even) {
-  background: #262c32;
-}
-
-/* Contact */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
-  align-items: start;
-}
-
-.contact-card {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 14px;
-  border-top: 3px solid #34c0c9;
-  font-size: 0.9rem;
-}
-
-.contact-form {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 16px;
-  border-top: 3px solid #f7931e;
-  font-size: 0.9rem;
-}
-
-.form-row {
-  margin-bottom: 10px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border-radius: 6px;
-  border: 1px solid #4b5563;
-  padding: 7px 8px;
-  font-size: 0.85rem;
-  background: #262c32;
-  color: #f9fafb;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #34c0c9;
-}
-
-/* Project detail layout */
-.project-detail-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 18px;
-  margin-top: 18px;
-}
-
-.project-detail-main {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 16px;
-  border-left: 3px solid #34c0c9;
-}
-
-.project-detail-sidebar {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 16px;
-  border-top: 3px solid #f7931e;
-}
-
-.project-metrics {
-  list-style: none;
-  padding-left: 0;
-  font-size: 0.9rem;
-}
-
-.project-metrics li {
-  margin-bottom: 6px;
-}
-
-.project-image {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-
-/* Directory filters */
-.directory-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 18px 0 10px;
-}
-
-.directory-filters select,
-.directory-filters input {
-  border-radius: 6px;
-  border: 1px solid #4b5563;
-  padding: 6px 8px;
-  font-size: 0.85rem;
-  background: #262c32;
-  color: #f9fafb;
-}
-
-.directory-filters select:focus,
-.directory-filters input:focus {
-  outline: none;
-  border-color: #34c0c9;
-}
-
-.directory-summary {
-  font-size: 0.85rem;
-  color: #d1d5db;
-  margin-bottom: 8px;
-}
-
-.directory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 14px;
-  margin-top: 8px;
-}
-
-.directory-card {
-  background: #30363d;
-  border-radius: 12px;
-  padding: 12px;
-  border-left: 3px solid #34c0c9;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.directory-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6px;
-}
-
-.directory-card-title {
-  font-size: 0.98rem;
-  font-weight: 600;
-}
-
-.directory-card-subtitle {
-  font-size: 0.82rem;
-  color: #d1d5db;
-}
-
-.directory-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 6px;
-  object-fit: cover;
-}
-
-.directory-card-meta {
-  font-size: 0.8rem;
-  color: #d1d5db;
-}
-
-.directory-card-brand {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #34c0c9;
-}
-
-/* Footer */
-.site-footer {
-  padding: 14px 24px;
-  text-align: center;
-  background: #262c32;
-  color: #9ca3af;
-  font-size: 0.8rem;
-  border-top: 2px solid #f7931e;
-}
-
-/* Responsive */
-@media (max-width: 980px) {
-  .section-hero {
-    grid-template-columns: 1fr;
+// script.js – map, directory, project detail, sample work, contact
+
+// 1. Project directory data
+// For now this has example rows; extend/replace with your full Dominos/KFC/BK/etc. list.
+const projectDirectory = [
+  {
+    id: "2013-KFCH-KATRAJ-PUNE",
+    year: 2013,
+    client: "KFCH",
+    brand: "KFC",
+    city: "Pune",
+    region: "West",
+    location: "Katraj, Pune"
+  },
+  {
+    id: "2013-KFCH-WAI-SATARA",
+    year: 2013,
+    client: "KFCH",
+    brand: "KFC",
+    city: "Satara",
+    region: "West",
+    location: "WAI, Satara"
+  },
+  {
+    id: "2015-BK-JANAKPURI-DELHI",
+    year: 2015,
+    client: "Burger king",
+    brand: "Burger King",
+    city: "Delhi",
+    region: "North",
+    location: "Janakpuri, Delhi"
+  },
+  {
+    id: "2015-CHAAYOS-TODI-MILLS",
+    year: 2015,
+    client: "Chaayos",
+    brand: "Chaayos",
+    city: "Mumbai",
+    region: "West",
+    location: "Todi mills, Lower Parel"
+  },
+  {
+    id: "2018-MCD-VILE-PARLE-MUMBAI",
+    year: 2018,
+    client: "McDonalds",
+    brand: "McDonald’s",
+    city: "Mumbai",
+    region: "West",
+    location: "Vile Parle, Mumbai"
+  },
+  {
+    id: "2022-SUBWAY-BANGALORE",
+    year: 2022,
+    client: "SUBWAY",
+    brand: "Subway",
+    city: "Bengaluru",
+    region: "South",
+    location: "Bangalore"
+  },
+  {
+    id: "2023-CROMA-ANKLESHWAR",
+    year: 2023,
+    client: "CROMA",
+    brand: "Croma",
+    city: "Ankleshwar",
+    region: "West",
+    location: "Croma, Ankleshwar"
+  },
+  {
+    id: "2023-PEPE-SOUTH-CITY-KOLKATA",
+    year: 2023,
+    client: "PEPE JEANS",
+    brand: "Pepe Jeans",
+    city: "Kolkata",
+    region: "East",
+    location: "South City, Kolkata"
+  },
+  {
+    id: "2021-IZUMI-JUHU-MUMBAI",
+    year: 2021,
+    client: "IZUMI",
+    brand: "Izumi",
+    city: "Mumbai",
+    region: "West",
+    location: "Juhu, Mumbai"
+  },
+  {
+    id: "2021-TACOBELL-PUNE",
+    year: 2021,
+    client: "TACO BELL",
+    brand: "Taco Bell",
+    city: "Pune",
+    region: "West",
+    location: "Pune"
+  },
+  {
+    id: "2018-COPPER-CHIMNEY-DELUXE",
+    year: 2018,
+    client: "Copper Chimney",
+    brand: "Copper Chimney",
+    city: "Mumbai",
+    region: "West",
+    location: "Deluxe Caterers Pvt Ltd (Mumbai)"
+  },
+  {
+    id: "2024-CTR-BANGALORE",
+    year: 2024,
+    client: "CTR",
+    brand: "CTR",
+    city: "Bengaluru",
+    region: "South",
+    location: "Bangalore"
+  },
+  {
+    id: "2023-YOUMEE-INFINITI-ANDHERI",
+    year: 2023,
+    client: "LBF",
+    brand: "YouMee",
+    city: "Mumbai",
+    region: "West",
+    location: "YouMee, Infiniti Mall, Andheri"
+  }
+];
+
+// 2. Sample images – using img1.png … img24.png
+const sampleImages = [
+  { brand: "Sample 1", file: "img1.png", label: "Sample project 1" },
+  { brand: "Sample 2", file: "img2.png", label: "Sample project 2" },
+  { brand: "Sample 3", file: "img3.png", label: "Sample project 3" },
+  { brand: "Sample 4", file: "img4.png", label: "Sample project 4" },
+  { brand: "Sample 5", file: "img5.png", label: "Sample project 5" },
+  { brand: "Sample 6", file: "img6.png", label: "Sample project 6" },
+  { brand: "Sample 7", file: "img7.png", label: "Sample project 7" },
+  { brand: "Sample 8", file: "img8.png", label: "Sample project 8" },
+  { brand: "Sample 9", file: "img9.png", label: "Sample project 9" },
+  { brand: "Sample 10", file: "img10.png", label: "Sample project 10" },
+  { brand: "Sample 11", file: "img11.png", label: "Sample project 11" },
+  { brand: "Sample 12", file: "img12.png", label: "Sample project 12" },
+  { brand: "Sample 13", file: "img13.png", label: "Sample project 13" },
+  { brand: "Sample 14", file: "img14.png", label: "Sample project 14" },
+  { brand: "Sample 15", file: "img15.png", label: "Sample project 15" },
+  { brand: "Sample 16", file: "img16.png", label: "Sample project 16" },
+  { brand: "Sample 17", file: "img17.png", label: "Sample project 17" },
+  { brand: "Sample 18", file: "img18.png", label: "Sample project 18" },
+  { brand: "Sample 19", file: "img19.png", label: "Sample project 19" },
+  { brand: "Sample 20", file: "img20.png", label: "Sample project 20" },
+  { brand: "Sample 21", file: "img21.png", label: "Sample project 21" },
+  { brand: "Sample 22", file: "img22.png", label: "Sample project 22" },
+  { brand: "Sample 23", file: "img23.png", label: "Sample project 23" },
+  { brand: "Sample 24", file: "img24.png", label: "Sample project 24" }
+];
+
+// 3. Map & city aggregation
+function buildCityAggregation() {
+  const cityMap = new Map();
+  projectDirectory.forEach((p) => {
+    if (!p.city) return;
+    const key = p.city.toLowerCase();
+    if (!cityMap.has(key)) {
+      cityMap.set(key, {
+        city: p.city,
+        region: p.region,
+        projects: []
+      });
+    }
+    cityMap.get(key).projects.push(p);
+  });
+  return Array.from(cityMap.values());
+}
+
+// City -> approximate coordinates
+const cityCoordinates = {
+  Mumbai: [19.076, 72.8777],
+  "Navi Mumbai": [19.033, 73.0297],
+  Pune: [18.5204, 73.8567],
+  Satara: [17.6914, 74.0003],
+  Thane: [19.2183, 72.9781],
+  Delhi: [28.6139, 77.209],
+  Gurgaon: [28.4595, 77.0266],
+  Noida: [28.5355, 77.391],
+  "Greater Noida": [28.4744, 77.503],
+  Kanpur: [26.4499, 80.3319],
+  Lucknow: [26.8467, 80.9462],
+  Varanasi: [25.3176, 82.9739],
+  Prayagraj: [25.4358, 81.8463],
+  Jaipur: [26.9124, 75.7873],
+  Indore: [22.7196, 75.8577],
+  Ahmedabad: [23.0225, 72.5714],
+  Surat: [21.1702, 72.8311],
+  Ankleshwar: [21.6269, 72.9994],
+  Kolkata: [22.5726, 88.3639],
+  Siliguri: [26.7271, 88.3953],
+  Guwahati: [26.1445, 91.7362],
+  Dimapur: [25.9117, 93.7266],
+  Itanagar: [27.0844, 93.6053],
+  Gangtok: [27.3389, 88.6065],
+  Bengaluru: [12.9716, 77.5946],
+  Hyderabad: [17.385, 78.4867],
+  Chennai: [13.0827, 80.2707],
+  Mangalore: [12.9141, 74.856],
+  Kochi: [9.9312, 76.2673],
+  Hubli: [15.3647, 75.124]
+};
+
+let map;
+const mapElement = document.getElementById("map");
+if (mapElement && typeof L !== "undefined") {
+  map = L.map("map", {
+    zoomControl: false,
+    zoomAnimation: true,
+    zoomAnimationThreshold: 4,
+    inertia: true,
+    inertiaDeceleration: 2000
+  }).setView([22.9734, 78.6569], 5);
+
+  L.control.zoom({ position: "bottomright" }).addTo(map);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "© OpenStreetMap contributors"
+  }).addTo(map);
+
+  const cityAgg = buildCityAggregation();
+  cityAgg.forEach((c) => {
+    const coords = cityCoordinates[c.city] || null;
+    if (!coords) return;
+
+    const marker = L.circleMarker(coords, {
+      radius: 7,
+      color: "#000",
+      weight: 2,
+      fillColor: "#34c0c9",
+      fillOpacity: 0.9
+    }).addTo(map);
+
+    const brands = Array.from(
+      new Set(c.projects.map((p) => p.brand || p.client))
+    ).join(", ");
+    const years = `${Math.min(
+      ...c.projects.map((p) => p.year)
+    )} – ${Math.max(...c.projects.map((p) => p.year))}`;
+
+    marker.bindPopup(
+      `<strong>${c.city}</strong><br/>Brands: ${brands}<br/>Years: ${years}`
+    );
+
+    marker.on("click", () => {
+      const cityFilter = document.getElementById("filter-city");
+      if (cityFilter) {
+        cityFilter.value = c.city;
+        applyDirectoryFilters();
+        const directorySection =
+          document.getElementById("projects-directory");
+        if (directorySection) {
+          directorySection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  });
+}
+
+// 4. Directory filters and rendering
+const yearFilter = document.getElementById("filter-year");
+const brandFilter = document.getElementById("filter-brand");
+const cityFilter = document.getElementById("filter-city");
+const regionFilter = document.getElementById("filter-region");
+const searchInput = document.getElementById("filter-search");
+const clearBtn = document.getElementById("filter-clear");
+const resultsContainer = document.getElementById("directory-results");
+const summaryEl = document.getElementById("directory-summary");
+
+function initDirectoryFilters() {
+  if (!resultsContainer) return;
+
+  const years = Array.from(
+    new Set(projectDirectory.map((p) => p.year).filter(Boolean))
+  ).sort((a, b) => a - b);
+  years.forEach((y) => {
+    const opt = document.createElement("option");
+    opt.value = String(y);
+    opt.textContent = String(y);
+    if (yearFilter) yearFilter.appendChild(opt);
+  });
+
+  const brands = Array.from(
+    new Set(projectDirectory.map((p) => p.brand || p.client).filter(Boolean))
+  ).sort();
+  brands.forEach((b) => {
+    const opt = document.createElement("option");
+    opt.value = b;
+    opt.textContent = b;
+    if (brandFilter) brandFilter.appendChild(opt);
+  });
+
+  const cities = Array.from(
+    new Set(projectDirectory.map((p) => p.city).filter(Boolean))
+  ).sort();
+  cities.forEach((c) => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    if (cityFilter) cityFilter.appendChild(opt);
+  });
+
+  if (yearFilter) yearFilter.addEventListener("change", applyDirectoryFilters);
+  if (brandFilter) brandFilter.addEventListener("change", applyDirectoryFilters);
+  if (cityFilter) cityFilter.addEventListener("change", applyDirectoryFilters);
+  if (regionFilter)
+    regionFilter.addEventListener("change", applyDirectoryFilters);
+  if (searchInput)
+    searchInput.addEventListener("input", applyDirectoryFilters);
+  if (clearBtn)
+    clearBtn.addEventListener("click", () => {
+      if (yearFilter) yearFilter.value = "";
+      if (brandFilter) brandFilter.value = "";
+      if (cityFilter) cityFilter.value = "";
+      if (regionFilter) regionFilter.value = "";
+      if (searchInput) searchInput.value = "";
+      applyDirectoryFilters();
+    });
+
+  applyDirectoryFilters();
+}
+
+function applyDirectoryFilters() {
+  if (!resultsContainer) return;
+
+  const yearVal = yearFilter ? yearFilter.value : "";
+  const brandVal = brandFilter ? brandFilter.value : "";
+  const cityVal = cityFilter ? cityFilter.value : "";
+  const regionVal = regionFilter ? regionFilter.value : "";
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+
+  let filtered = projectDirectory.slice();
+
+  if (yearVal) {
+    filtered = filtered.filter((p) => String(p.year) === yearVal);
+  }
+  if (brandVal) {
+    filtered = filtered.filter(
+      (p) => (p.brand || p.client) === brandVal
+    );
+  }
+  if (cityVal) {
+    filtered = filtered.filter((p) => p.city === cityVal);
+  }
+  if (regionVal) {
+    filtered = filtered.filter((p) => p.region === regionVal);
+  }
+  if (query) {
+    filtered = filtered.filter((p) =>
+      (p.location || "").toLowerCase().includes(query)
+    );
   }
 
-  .main-nav a {
-    margin-left: 10px;
-    font-size: 0.8rem;
-  }
-
-  #map {
-    height: 260px;
-  }
-
-  .brand-name {
-    font-size: 0.72rem;
-  }
+  renderDirectoryResults(filtered);
 }
 
-@media (max-width: 900px) {
-  .project-detail-layout {
-    grid-template-columns: 1fr;
+function renderDirectoryResults(items) {
+  resultsContainer.innerHTML = "";
+  if (summaryEl) {
+    summaryEl.textContent = `${items.length} site(s) matching current filters`;
   }
+
+  if (!items.length) {
+    resultsContainer.innerHTML =
+      "<p>No projects match the selected filters.</p>";
+    return;
+  }
+
+  items.forEach((p) => {
+    const card = document.createElement("article");
+    card.className = "directory-card";
+
+    const header = document.createElement("div");
+    header.className = "directory-card-header";
+
+    const title = document.createElement("div");
+    title.className = "directory-card-title";
+    title.textContent = p.location || "(Location not specified)";
+
+    const yearBadge = document.createElement("div");
+    yearBadge.className = "directory-card-meta";
+    yearBadge.textContent = p.year;
+
+    header.appendChild(title);
+    header.appendChild(yearBadge);
+
+    const subtitle = document.createElement("div");
+    subtitle.className = "directory-card-subtitle";
+    subtitle.textContent = `${p.city || "City N/A"} • ${
+      p.region || "Region N/A"
+    }`;
+
+    const brandEl = document.createElement("div");
+    brandEl.className = "directory-card-brand";
+    brandEl.textContent = p.brand || p.client;
+
+    const meta = document.createElement("div");
+    meta.className = "directory-card-meta";
+    meta.textContent = `Client: ${p.client}`;
+
+    const link = document.createElement("a");
+    link.href = `projects.html?id=${encodeURIComponent(p.id)}`;
+    link.className = "pill-button";
+    link.style.marginTop = "6px";
+    link.style.alignSelf = "flex-start";
+    link.textContent = "View details";
+
+    card.appendChild(header);
+    card.appendChild(subtitle);
+    card.appendChild(brandEl);
+    card.appendChild(meta);
+    card.appendChild(link);
+
+    resultsContainer.appendChild(card);
+  });
 }
 
-@media (max-width: 720px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+// 5. Project detail page
+(function () {
+  const container = document.getElementById("project-detail-container");
+  if (!container) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const project = projectDirectory.find((p) => p.id === id);
+
+  if (!project) {
+    container.innerHTML =
+      "<p>Project details not found. Please return to the Projects Directory.</p>";
+    return;
   }
 
-  .main-nav {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 4px;
-  }
+  container.innerHTML = `
+    <article class="project-detail-main">
+      <h3>${project.brand || project.client}</h3>
+      <p>${project.location || ""}</p>
+    </article>
+    <aside class="project-detail-sidebar">
+      <h3>Key Metrics</h3>
+      <ul class="project-metrics">
+        <li><strong>Year:</strong> ${project.year}</li>
+        <li><strong>Client:</strong> ${project.client}</li>
+        <li><strong>Brand:</strong> ${project.brand || project.client}</li>
+        <li><strong>City:</strong> ${project.city || "N/A"}</li>
+        <li><strong>Region:</strong> ${project.region || "N/A"}</li>
+      </ul>
+    </aside>
+  `;
+})();
+
+// 6. Sample work gallery
+function renderSampleWork() {
+  const grid = document.getElementById("sample-work-grid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+  sampleImages.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "directory-card";
+
+    const title = document.createElement("div");
+    title.className = "directory-card-title";
+    title.textContent = item.brand;
+
+    const img = document.createElement("img");
+    img.src = item.file;
+    img.alt = item.label;
+
+    const subtitle = document.createElement("div");
+    subtitle.className = "directory-card-subtitle";
+    subtitle.textContent = item.label;
+
+    card.appendChild(title);
+    card.appendChild(img);
+    card.appendChild(subtitle);
+
+    grid.appendChild(card);
+  });
+}
+
+// 7. Init on index.html
+if (document.getElementById("directory-results")) {
+  initDirectoryFilters();
+}
+if (document.getElementById("sample-work-grid")) {
+  renderSampleWork();
+}
+
+// 8. Current year for footer
+const yearSpan = document.getElementById("current-year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear().toString();
+}
+
+// 9. Simple notification after form submission
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function () {
+    setTimeout(() => {
+      alert("Thank you. Your enquiry has been submitted.");
+    }, 400);
+  });
 }
