@@ -1,4 +1,5 @@
-/* styles.css – Paramount theme */
+/* styles.css */
+/* Paramount theme */
 
 /* Reset */
 *,
@@ -9,13 +10,13 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #f4f4f4;
   background: #2f3840;
 }
 
 /* Header */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -68,6 +69,7 @@ body {
 }
 
 /* Navigation */
+
 .main-nav a {
   margin-left: 18px;
   color: #e5e7eb;
@@ -82,6 +84,7 @@ body {
 }
 
 /* Sections */
+
 .section {
   padding: 48px 24px;
   max-width: 1200px;
@@ -101,6 +104,7 @@ body {
 }
 
 /* Hero layout */
+
 .section-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr);
@@ -132,24 +136,30 @@ body {
 }
 
 /* Shared card transitions */
+
 .service-card,
 .project-card,
 .info-card,
 .contact-card,
 .map-card,
-#info-panel {
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease;
+.info-panel,
+.directory-card,
+.sample-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .service-card:hover,
 .project-card:hover,
 .info-card:hover,
-.contact-card:hover {
+.contact-card:hover,
+.directory-card:hover,
+.sample-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
   border-color: #34c0c9;
 }
+
+/* Stat cards */
 
 .stat-card {
   background: #30363d;
@@ -171,6 +181,7 @@ body {
 }
 
 /* Map card */
+
 .hero-map {
   width: 100%;
 }
@@ -190,6 +201,7 @@ body {
 }
 
 /* Dark Leaflet tint */
+
 .leaflet-container {
   background: #1f252b;
 }
@@ -199,7 +211,8 @@ body {
 }
 
 /* Info panel */
-#info-panel {
+
+.info-panel {
   background: #30363d;
   border-radius: 16px;
   padding: 16px;
@@ -237,6 +250,8 @@ body {
   color: #34c0c9;
 }
 
+/* Buttons */
+
 .pill-button {
   background: linear-gradient(90deg, #f7931e, #34c0c9);
   color: #ffffff;
@@ -248,6 +263,10 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
@@ -256,11 +275,14 @@ body {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
 }
 
-/* Lists & cards */
-.list {
-  padding-left: 18px;
-  font-size: 0.9rem;
+/* Secondary pill for downloads */
+
+.pill-button-secondary {
+  background: #262c32;
+  border: 1px solid #f7931e;
 }
+
+/* Info & service grids */
 
 .info-grid {
   display: grid;
@@ -296,7 +318,8 @@ body {
   border-top: 3px solid #f7931e;
 }
 
-/* Projects */
+/* Project summary grid */
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -312,6 +335,7 @@ body {
 }
 
 /* Table */
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -335,6 +359,7 @@ body {
 }
 
 /* Contact */
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -363,6 +388,13 @@ body {
   margin-bottom: 10px;
 }
 
+.contact-form label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -380,7 +412,8 @@ body {
   border-color: #34c0c9;
 }
 
-/* Project detail layout */
+/* Project detail layout (projects.html) */
+
 .project-detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -419,7 +452,8 @@ body {
   object-fit: cover;
 }
 
-/* Directory filters */
+/* Directory filters and cards (index.html) */
+
 .directory-filters {
   display: flex;
   flex-wrap: wrap;
@@ -449,7 +483,8 @@ body {
   margin-bottom: 8px;
 }
 
-.directory-grid {
+.directory-grid,
+#directory-results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 14px;
@@ -501,7 +536,53 @@ body {
   color: #34c0c9;
 }
 
+/* Sample work gallery – full-image cards */
+
+.sample-grid,
+#sample-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.sample-card {
+  background: #30363d;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #4b5563;
+  display: flex;
+  flex-direction: column;
+}
+
+.sample-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.sample-body {
+  padding: 10px 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sample-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f9fafb;
+}
+
+.sample-actions {
+  display: flex;
+  align-items: center;
+}
+
 /* Footer */
+
 .site-footer {
   padding: 14px 24px;
   text-align: center;
@@ -512,6 +593,7 @@ body {
 }
 
 /* Responsive */
+
 @media (max-width: 980px) {
   .section-hero {
     grid-template-columns: 1fr;
