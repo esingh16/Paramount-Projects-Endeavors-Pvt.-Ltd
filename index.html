@@ -4,446 +4,246 @@
   <meta charset="UTF-8" />
   <title>Paramount Project Endeavors Pvt. Ltd.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Paramount Project Endeavors Private Limited is a Mumbai-based business services company transforming vision into action through project execution, engineering, and management."
-  />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""
   />
-  <link
-    href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-    rel="stylesheet"
-  />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Paramount Project Endeavors Pvt. Ltd." />
-  <meta
-    property="og:description"
-    content="Paramount Project Endeavors Private Limited is a Mumbai-based business services company transforming vision into action through project execution, engineering, and management."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.ppepl.co.in/" />
-  <meta
-    property="og:site_name"
-    content="Paramount Project Endeavors Pvt. Ltd."
-  />
-  <meta
-    property="og:image"
-    content="https://www.ppepl.co.in/images/og-paramount.jpg"
-  />
-  <meta property="og:image:alt" content="Paramount Project Endeavors logo" />
+  <!-- AOS (animations) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-  <!-- Twitter cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Paramount Project Endeavors Pvt. Ltd." />
-  <meta
-    name="twitter:description"
-    content="Transforming vision into action through project execution, engineering and management services across India."
-  />
-  <meta
-    name="twitter:image"
-    content="https://www.ppepl.co.in/images/og-paramount.jpg"
-  />
-
-  <!-- Organization structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Paramount Project Endeavors Private Limited",
-    "legalName": "Paramount Project Endeavors Private Limited",
-    "alternateName": "Paramount Project Endeavors Pvt. Ltd.",
-    "url": "https://www.ppepl.co.in/",
-    "logo": "https://www.ppepl.co.in/images/og-paramount.jpg",
-    "description": "Paramount Project Endeavors Private Limited is a private, unlisted Indian business services company providing project execution, civil works, engineering and management support for residential, commercial and infrastructure projects.",
-    "foundingDate": "2013-01-28",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "13 Ajay Apartment CHSL, 3rd Floor, 2nd Kasturba Cross Road, Malad (West)",
-      "addressLocality": "Mumbai",
-      "addressRegion": "Maharashtra",
-      "postalCode": "400064",
-      "addressCountry": "IN"
-    },
-    "telephone": "+91-22-28792177",
-    "email": "info@ppepl.co.in",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-9920479027",
-      "email": "pradeep.singh@ppepl.co.in",
-      "contactType": "sales",
-      "areaServed": "IN"
-    }
-  }
-  </script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <div class="brand">
       <div class="logo-circle">
         <span class="logo-letter">P</span>
       </div>
       <div class="brand-text">
-        <div class="brand-name">
-          PARAMOUNT PROJECT ENDEAVORS PVT. LTD.
-        </div>
-        <div class="brand-tagline">Transforming Vision into Action</div>
+        <span class="brand-name">PARAMOUNT PROJECT ENDEAVORS PVT. LTD.</span>
+        <span class="brand-tagline">Transforming vision into action</span>
       </div>
     </div>
-
     <nav class="main-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Company</a>
+      <a href="#company">Company</a>
       <a href="#services">Services</a>
-      <a href="#projects-directory">Projects</a>
+      <a href="#clients">Clients</a>
       <a href="#sample-work">Sample Work</a>
       <a href="#governance">Governance</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero + map -->
-  <main id="home" class="section section-hero" data-aos="fade-up">
-    <div class="hero-left">
+  <!-- Hero with map -->
+  <section id="company" class="section section-hero">
+    <div class="hero-left" data-aos="fade-right">
       <h1>Paramount Project Endeavors Private Limited</h1>
       <p class="hero-lead">
-        A private, unlisted Indian <strong>business</strong> services company that has
-        been transforming complex projects into tangible outcomes since
-        January&nbsp;2013. [web:8][web:10][web:11][web:12]
+        A private Indian business services company delivering end‑to‑end project,
+        fit‑out and rollout support for leading retail, QSR and hospitality brands across India.
       </p>
       <p class="hero-sub">
-        Through project execution, civil works, financial facilitation and
-        end‑to‑end management, Paramount delivers on‑time, quality outcomes for
-        residential, commercial and infrastructure initiatives. [web:9][web:11]
+        From site identification to handover, Paramount coordinates civil works, vendor interfaces and
+        timelines to help brands scale faster in metros, tier‑2 and emerging locations.
       </p>
-
       <div class="hero-stats">
         <div class="stat-card">
           <div class="stat-number">2013</div>
-          <div class="stat-label">Year of Incorporation</div>
+          <div class="stat-label">Year of incorporation</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">Active</div>
-          <div class="stat-label">Company Status</div>
+          <div class="stat-label">Company status</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">CIN</div>
-          <div class="stat-label">U74999MH2013PTC240009</div>
+          <div class="stat-number">PAN‑India</div>
+          <div class="stat-label">Client footprint</div>
         </div>
       </div>
     </div>
 
-    <div class="hero-map" data-aos="fade-up" data-aos-delay="100">
+    <div class="hero-map" data-aos="fade-up">
       <div class="map-card">
         <div id="map"></div>
       </div>
     </div>
 
-    <aside
-      class="hero-info"
-      id="info-panel"
-      data-aos="fade-up"
-      data-aos-delay="150"
-    >
-      <h2 id="info-title">Projects Across India</h2>
+    <aside id="info-panel" data-aos="fade-left">
+      <h2 id="info-title">Projects across India</h2>
       <div id="info-content">
-        City markers aggregate key branded roll‑outs across India for Domino’s,
-        KFC, Burger King, McDonald’s, Chaayos, Croma and other clients.
+        <p>
+          City markers aggregate key branded roll‑outs across India for Domino’s, KFC,
+          Burger King, McDonald’s, Chaayos, Croma and other clients. Click a marker to
+          focus the client list for that city.
+        </p>
       </div>
     </aside>
-  </main>
-
-  <!-- Company section -->
-  <section id="about" class="section section-alt" data-aos="fade-up">
-    <h2>Company Profile</h2>
-    <p>
-      Paramount Project Endeavors Private Limited is an active, private,
-      non‑government company registered with the Registrar of Companies,
-      Mumbai, Maharashtra, India. [web:9][web:11][web:12][web:19]
-    </p>
-    <p>
-      Incorporated on 28&nbsp;January&nbsp;2013, the company is classified as a
-      company limited by shares and operates primarily under “Other Business
-      Activities (Business Services)”. [web:8][web:10][web:11][web:12]
-    </p>
-
-    <div class="info-grid">
-      <article class="info-card" data-aos="fade-up" data-aos-delay="0">
-        <h3>Registered Identity</h3>
-        <ul class="list">
-          <li>Corporate Identity Number: U74999MH2013PTC240009</li>
-          <li>Incorporation date: 28 January 2013</li>
-          <li>Company status: Active</li>
-          <li>Company class: Private</li>
-        </ul>
-      </article>
-
-      <article class="info-card" data-aos="fade-up" data-aos-delay="80">
-        <h3>Registered Office</h3>
-        <p>
-          13 Ajay Apartment CHSL, 3rd Floor,<br />
-          2nd Kasturba Cross Road, Malad (West),<br />
-          Mumbai – 400064, Maharashtra, India. [web:11][web:19][web:20]
-        </p>
-      </article>
-
-      <article class="info-card" data-aos="fade-up" data-aos-delay="160">
-        <h3>Directors</h3>
-        <p>
-          The board includes experienced professionals responsible for strategy,
-          operations, and financial discipline within the organisation. [web:9][web:11]
-        </p>
-        <p class="small-note">
-          Detailed director information is available in public MCA records and
-          compliance filings.
-        </p>
-      </article>
-    </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="section" data-aos="fade-up">
-    <h2>Core Services</h2>
-    <p>
-      Paramount offers integrated project, engineering, and business support
-      services to institutions, developers, and individual clients across
-      India. [web:9][web:11]
-    </p>
-
+  <section id="services" class="section section-alt">
+    <h2>Services</h2>
     <div class="service-grid">
-      <article class="service-card" data-aos="fade-up" data-aos-delay="0">
-        <h3>Project Execution</h3>
-        <ul class="list">
-          <li>Interior fit‑outs and turnkey implementation</li>
-          <li>Retail, F&amp;B and hospitality roll‑outs</li>
-          <li>Mall and high‑street store delivery</li>
-        </ul>
+      <article class="service-card" data-aos="fade-up">
+        <h3>End‑to‑end fit‑out coordination</h3>
+        <p>
+          Single‑window coordination for civil works, MEP, vendor interfaces and statutory
+          approvals across high‑street, mall and transit locations.
+        </p>
       </article>
-
       <article class="service-card" data-aos="fade-up" data-aos-delay="80">
-        <h3>Engineering &amp; Civil Works</h3>
-        <ul class="list">
-          <li>Civil construction and retrofit projects</li>
-          <li>Coordination with MEP and specialist vendors</li>
-          <li>Site supervision and quality control</li>
-        </ul>
+        <h3>Multi‑city roll‑out support</h3>
+        <p>
+          Structured playbooks and local networks to execute parallel openings across metros
+          and emerging cities while protecting brand standards.
+        </p>
       </article>
-
-      <article class="service-card" data-aos="fade-up" data-aos-delay="160">
-        <h3>Business Support</h3>
-        <ul class="list">
-          <li>Vendor management and procurement support</li>
-          <li>Multi‑location rollout coordination</li>
-          <li>Documentation and handover packages</li>
-        </ul>
+      <article class="service-card" data-aos="fade-up" data-aos-delay="140">
+        <h3>Project monitoring & reporting</h3>
+        <p>
+          Site‑level tracking, progress reviews and reporting so client teams have a clear
+          view of cost, timelines and risks across the network.
+        </p>
       </article>
     </div>
   </section>
 
-  <!-- Projects Directory -->
-  <section id="projects-directory" class="section section-alt" data-aos="fade-up">
-    <h2>Projects Directory</h2>
+  <!-- Our Clients (directory) -->
+  <section id="clients" class="section">
+    <h2>Our Clients</h2>
     <p>
-      Explore Paramount’s presence across Indian cities for brands such as
-      Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma and others. Filter
-      by brand, city, region or search by mall, street or locality.
+      Explore Paramount’s client network across Indian cities for brands such as Domino’s, KFC,
+      Burger King, McDonald’s, Chaayos, Croma and others. Filter by brand, city or region, or
+      search by locality. Click a city on the map to pre‑filter this list.
     </p>
 
-    <div class="directory-filters">
-      <select id="filter-year">
-        <option value="">All years</option>
-      </select>
-
+    <div class="directory-filters" data-aos="fade-up">
       <select id="filter-brand">
         <option value="">All brands/clients</option>
       </select>
-
       <select id="filter-city">
         <option value="">All cities</option>
       </select>
-
       <select id="filter-region">
         <option value="">All regions</option>
-        <option value="North">North</option>
-        <option value="West">West</option>
-        <option value="South">South</option>
-        <option value="East">East</option>
-        <option value="Central">Central</option>
       </select>
-
       <input
         id="filter-search"
         type="text"
         placeholder="Search location, mall, street..."
       />
-
-      <button id="filter-clear" class="pill-button">
-        Clear filters
-      </button>
+      <button id="filter-clear" class="pill-button">Clear filters</button>
     </div>
 
     <div id="directory-summary" class="directory-summary"></div>
     <div id="directory-results" class="directory-grid"></div>
   </section>
 
-  <!-- Sample Work gallery (using img1.png … img24.png) -->
-  <section id="sample-work" class="section" data-aos="fade-up">
+  <!-- Sample work -->
+  <section id="sample-work" class="section section-alt">
     <h2>Sample Work</h2>
     <p>
-      A compact gallery of representative outlets, using numbered assets
-      (img1.png … img24.png) to illustrate the breadth of fit‑outs without
-      affecting search or map data.
+      A compact gallery of representative outlets across QSR, retail and hospitality formats.
+      Images are indicative and do not list individual sites.
     </p>
-    <div id="sample-work-grid" class="directory-grid"></div>
+    <div id="sample-work-grid" class="sample-grid"></div>
   </section>
 
-  <!-- Governance snapshot -->
-  <section id="governance" class="section section-alt" data-aos="fade-up">
-    <h2>Governance Snapshot</h2>
-    <p>
-      Key company information compiled from publicly available filings and
-      corporate records. [web:8][web:9][web:11][web:12]
-    </p>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Field</th>
-          <th>Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Legal name</td>
-          <td>Paramount Project Endeavors Private Limited</td>
-        </tr>
-        <tr>
-          <td>Company type</td>
-          <td>Private, limited by shares, non‑government</td>
-        </tr>
-        <tr>
-          <td>Incorporation</td>
-          <td>28 January 2013, Maharashtra, India</td>
-        </tr>
-        <tr>
-          <td>Industry classification</td>
-          <td>Other Business Activities (Business Services)</td>
-        </tr>
-        <tr>
-          <td>Registrar of Companies</td>
-          <td>RoC – Mumbai</td>
-        </tr>
-        <tr>
-          <td>CIN</td>
-          <td>U74999MH2013PTC240009</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Governance / company snapshot -->
+  <section id="governance" class="section">
+    <h2>Company Snapshot</h2>
+    <div class="info-grid">
+      <article class="info-card" data-aos="fade-up">
+        <h3>Registered identity</h3>
+        <ul class="list">
+          <li>CIN: U74999MH2013PTC240009</li>
+          <li>Registrar of Companies: Mumbai, Maharashtra</li>
+          <li>Company class: Private, limited by shares</li>
+        </ul>
+      </article>
+      <article class="info-card" data-aos="fade-up" data-aos-delay="80">
+        <h3>Registered office</h3>
+        <p>
+          13 Ajay Apartment CHSL, 3rd Floor, 2nd Kasturba Cross Road, Malad (West),
+          Mumbai – 400064, Maharashtra, India.
+        </p>
+      </article>
+      <article class="info-card" data-aos="fade-up" data-aos-delay="140">
+        <h3>Board & governance</h3>
+        <p>
+          The board provides oversight on strategy, operations and financial discipline,
+          supported by external professionals and advisors as required.
+        </p>
+      </article>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section" data-aos="fade-up">
+  <section id="contact" class="section section-alt">
     <h2>Contact</h2>
-    <p>
-      Reach out to discuss upcoming projects, consulting requirements, or
-      partnership opportunities with Paramount Project Endeavors. [web:11][web:20]
-    </p>
-
     <div class="contact-grid">
-      <div class="contact-card" data-aos="fade-up" data-aos-delay="0">
-        <h3>Registered Office</h3>
+      <article class="contact-card" data-aos="fade-up">
+        <h3>Connect with Paramount</h3>
+        <p>
+          Reach out to discuss upcoming projects, consulting requirements, or partnership
+          opportunities.
+        </p>
         <p>
           Paramount Project Endeavors Pvt. Ltd.<br />
           13 Ajay Apartment CHSL, 3rd Floor,<br />
           2nd Kasturba Cross Road, Malad (W),<br />
-          Mumbai – 400064, Maharashtra, India. [web:11][web:19][web:20]
+          Mumbai – 400064, Maharashtra, India.
         </p>
-      </div>
-
-      <div class="contact-card" data-aos="fade-up" data-aos-delay="80">
-        <h3>Key Contacts</h3>
-        <p>
-          Pradeep Singh – Director<br />
-          M: +91 9920479027<br />
-          Alok Mishra – Director<br />
-          M: +91 9004281651
-        </p>
-      </div>
-
-      <div class="contact-card" data-aos="fade-up" data-aos-delay="160">
-        <h3>General Communication</h3>
         <p>
           Email: igs.paramount@gmail.com<br />
-          Website:
-          <a href="https://www.ppepl.co.in" target="_blank" rel="noopener">
-            www.ppepl.co.in
-          </a>
+          Directors: Pradeep Singh, Alok Mishra
         </p>
-      </div>
+      </article>
 
       <form
         class="contact-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/your-form-id"
         method="POST"
         data-aos="fade-up"
-        data-aos-delay="240"
+        data-aos-delay="100"
       >
-        <h3>Quick Enquiry</h3>
         <div class="form-row">
-          <input type="text" name="name" placeholder="Full name" required />
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
         </div>
         <div class="form-row">
-          <input type="email" name="email" placeholder="Work email" required />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
         </div>
         <div class="form-row">
-          <input
-            type="text"
-            name="organisation"
-            placeholder="Organisation / Project"
-          />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <div class="form-row">
-          <textarea
-            rows="4"
-            name="message"
-            placeholder="How can we help?"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="pill-button">
-          Submit enquiry
-        </button>
+        <button type="submit" class="pill-button">Submit enquiry</button>
       </form>
     </div>
   </section>
 
   <footer class="site-footer">
-    <span>
-      © <span id="current-year"></span> Paramount Project Endeavors Pvt. Ltd.
-      All rights reserved.
-    </span>
+    &copy; <span id="current-year"></span> Paramount Project Endeavors Pvt. Ltd.
+    All rights reserved.
   </footer>
 
+  <!-- Scripts -->
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""
   ></script>
-  <script src="script.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 700,
-      once: true,
-      offset: 80
-    });
+    AOS.init({ once: true, duration: 700, easing: "ease-out-quart" });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
