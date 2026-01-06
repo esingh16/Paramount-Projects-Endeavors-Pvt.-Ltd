@@ -1,8 +1,13 @@
-// script.js – map, directory, project detail, sample work, contact
+// script.js
+// Map, directory, project detail, sample work, contact
 
 // 1. Project directory data
-// For now this has example rows; extend/replace with your full Dominos/KFC/BK/etc. list.
+// IMPORTANT: Keep extending this array with ALL rows from Project-details.xlsx
+// using the same structure (id, year, client, brand, city, region, location).
+// City and region are normalized manually. This array is PURE DATA.
+
 const projectDirectory = [
+  // Existing examples
   {
     id: "2013-KFCH-KATRAJ-PUNE",
     year: 2013,
@@ -24,7 +29,7 @@ const projectDirectory = [
   {
     id: "2015-BK-JANAKPURI-DELHI",
     year: 2015,
-    client: "Burger king",
+    client: "Burger King",
     brand: "Burger King",
     city: "Delhi",
     region: "North",
@@ -43,7 +48,7 @@ const projectDirectory = [
     id: "2018-MCD-VILE-PARLE-MUMBAI",
     year: 2018,
     client: "McDonalds",
-    brand: "McDonald’s",
+    brand: "McDonalds",
     city: "Mumbai",
     region: "West",
     location: "Vile Parle, Mumbai"
@@ -100,7 +105,7 @@ const projectDirectory = [
     brand: "Copper Chimney",
     city: "Mumbai",
     region: "West",
-    location: "Deluxe Caterers Pvt Ltd (Mumbai)"
+    location: "Deluxe Caterers Pvt Ltd Mumbai"
   },
   {
     id: "2024-CTR-BANGALORE",
@@ -120,37 +125,44 @@ const projectDirectory = [
     region: "West",
     location: "YouMee, Infiniti Mall, Andheri"
   }
+
+  // TODO: Add all remaining rows from Project-details.xlsx here,
+  // following the same structure. Keep city spelling consistent with
+  // cityCoordinates below so every city shows on the map.
 ];
 
-// 2. Sample images – using img1.png … img24.png
+// 2. Sample work images (large cards + download)
+// These filenames must exist in your repo (e.g. images/img1.png ... images/img24.png)
+
 const sampleImages = [
-  { brand: "Sample 1", file: "img1.png", label: "Sample project 1" },
-  { brand: "Sample 2", file: "img2.png", label: "Sample project 2" },
-  { brand: "Sample 3", file: "img3.png", label: "Sample project 3" },
-  { brand: "Sample 4", file: "img4.png", label: "Sample project 4" },
-  { brand: "Sample 5", file: "img5.png", label: "Sample project 5" },
-  { brand: "Sample 6", file: "img6.png", label: "Sample project 6" },
-  { brand: "Sample 7", file: "img7.png", label: "Sample project 7" },
-  { brand: "Sample 8", file: "img8.png", label: "Sample project 8" },
-  { brand: "Sample 9", file: "img9.png", label: "Sample project 9" },
-  { brand: "Sample 10", file: "img10.png", label: "Sample project 10" },
-  { brand: "Sample 11", file: "img11.png", label: "Sample project 11" },
-  { brand: "Sample 12", file: "img12.png", label: "Sample project 12" },
-  { brand: "Sample 13", file: "img13.png", label: "Sample project 13" },
-  { brand: "Sample 14", file: "img14.png", label: "Sample project 14" },
-  { brand: "Sample 15", file: "img15.png", label: "Sample project 15" },
-  { brand: "Sample 16", file: "img16.png", label: "Sample project 16" },
-  { brand: "Sample 17", file: "img17.png", label: "Sample project 17" },
-  { brand: "Sample 18", file: "img18.png", label: "Sample project 18" },
-  { brand: "Sample 19", file: "img19.png", label: "Sample project 19" },
-  { brand: "Sample 20", file: "img20.png", label: "Sample project 20" },
-  { brand: "Sample 21", file: "img21.png", label: "Sample project 21" },
-  { brand: "Sample 22", file: "img22.png", label: "Sample project 22" },
-  { brand: "Sample 23", file: "img23.png", label: "Sample project 23" },
-  { brand: "Sample 24", file: "img24.png", label: "Sample project 24" }
+  { file: "images/img1.png", label: "Multi-brand QSR fit-out" },
+  { file: "images/img2.png", label: "High-street retail facade" },
+  { file: "images/img3.png", label: "Mall interior food court" },
+  { file: "images/img4.png", label: "Electronics anchor store" },
+  { file: "images/img5.png", label: "Premium casual dining" },
+  { file: "images/img6.png", label: "Compact kiosk format" },
+  { file: "images/img7.png", label: "Drive-thru prototype" },
+  { file: "images/img8.png", label: "Flagship restaurant layout" },
+  { file: "images/img9.png", label: "Fashion retail rollout" },
+  { file: "images/img10.png", label: "Co-branded mall frontage" },
+  { file: "images/img11.png", label: "Tier-2 city high street" },
+  { file: "images/img12.png", label: "Transit hub outlet" },
+  { file: "images/img13.png", label: "Food court island counter" },
+  { file: "images/img14.png", label: "Café and bakery concept" },
+  { file: "images/img15.png", label: "Electronics store remodel" },
+  { file: "images/img16.png", label: "Quick renovation program" },
+  { file: "images/img17.png", label: "High-visibility corner site" },
+  { file: "images/img18.png", label: "Mall atrium installation" },
+  { file: "images/img19.png", label: "Restaurant back-of-house" },
+  { file: "images/img20.png", label: "Facade refresh before/after" },
+  { file: "images/img21.png", label: "Compact high street box" },
+  { file: "images/img22.png", label: "Hospitality lobby area" },
+  { file: "images/img23.png", label: "Fit-out progress snapshot" },
+  { file: "images/img24.png", label: "Completed multi-store rollout" }
 ];
 
-// 3. Map & city aggregation
+// 3. City aggregation for map markers
+
 function buildCityAggregation() {
   const cityMap = new Map();
   projectDirectory.forEach((p) => {
@@ -168,43 +180,47 @@ function buildCityAggregation() {
   return Array.from(cityMap.values());
 }
 
-// City -> approximate coordinates
+// City → approximate coordinates
+// Extend this list whenever a new city is added in projectDirectory.
 const cityCoordinates = {
-  Mumbai: [19.076, 72.8777],
+  "Mumbai": [19.076, 72.8777],
   "Navi Mumbai": [19.033, 73.0297],
-  Pune: [18.5204, 73.8567],
-  Satara: [17.6914, 74.0003],
-  Thane: [19.2183, 72.9781],
-  Delhi: [28.6139, 77.209],
-  Gurgaon: [28.4595, 77.0266],
-  Noida: [28.5355, 77.391],
+  "Pune": [18.5204, 73.8567],
+  "Satara": [17.6914, 74.0003],
+  "Thane": [19.2183, 72.9781],
+  "Delhi": [28.6139, 77.209],
+  "Gurgaon": [28.4595, 77.0266],
+  "Noida": [28.5355, 77.391],
   "Greater Noida": [28.4744, 77.503],
-  Kanpur: [26.4499, 80.3319],
-  Lucknow: [26.8467, 80.9462],
-  Varanasi: [25.3176, 82.9739],
-  Prayagraj: [25.4358, 81.8463],
-  Jaipur: [26.9124, 75.7873],
-  Indore: [22.7196, 75.8577],
-  Ahmedabad: [23.0225, 72.5714],
-  Surat: [21.1702, 72.8311],
-  Ankleshwar: [21.6269, 72.9994],
-  Kolkata: [22.5726, 88.3639],
-  Siliguri: [26.7271, 88.3953],
-  Guwahati: [26.1445, 91.7362],
-  Dimapur: [25.9117, 93.7266],
-  Itanagar: [27.0844, 93.6053],
-  Gangtok: [27.3389, 88.6065],
-  Bengaluru: [12.9716, 77.5946],
-  Hyderabad: [17.385, 78.4867],
-  Chennai: [13.0827, 80.2707],
-  Mangalore: [12.9141, 74.856],
-  Kochi: [9.9312, 76.2673],
-  Hubli: [15.3647, 75.124]
+  "Kanpur": [26.4499, 80.3319],
+  "Lucknow": [26.8467, 80.9462],
+  "Varanasi": [25.3176, 82.9739],
+  "Prayagraj": [25.4358, 81.8463],
+  "Jaipur": [26.9124, 75.7873],
+  "Indore": [22.7196, 75.8577],
+  "Ahmedabad": [23.0225, 72.5714],
+  "Surat": [21.1702, 72.8311],
+  "Ankleshwar": [21.6269, 72.9994],
+  "Kolkata": [22.5726, 88.3639],
+  "Siliguri": [26.7271, 88.3953],
+  "Guwahati": [26.1445, 91.7362],
+  "Dimapur": [25.9117, 93.7266],
+  "Itanagar": [27.0844, 93.6053],
+  "Gangtok": [27.3389, 88.6065],
+  "Bengaluru": [12.9716, 77.5946],
+  "Hyderabad": [17.385, 78.4867],
+  "Chennai": [13.0827, 80.2707],
+  "Mangalore": [12.9141, 74.856],
+  "Kochi": [9.9312, 76.2673],
+  "Hubli": [15.3647, 75.124]
 };
+
+// 4. Map initialisation (index.html only)
 
 let map;
 const mapElement = document.getElementById("map");
-if (mapElement && typeof L !== "undefined") {
+
+if (mapElement) {
   map = L.map("map", {
     zoomControl: false,
     zoomAnimation: true,
@@ -213,14 +229,18 @@ if (mapElement && typeof L !== "undefined") {
     inertiaDeceleration: 2000
   }).setView([22.9734, 78.6569], 5);
 
-  L.control.zoom({ position: "bottomright" }).addTo(map);
+  L.control
+    .zoom({ position: "bottomright" })
+    .addTo(map);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: "© OpenStreetMap contributors"
+    attribution: "OpenStreetMap contributors"
   }).addTo(map);
 
   const cityAgg = buildCityAggregation();
+  const allLatLngs = [];
+
   cityAgg.forEach((c) => {
     const coords = cityCoordinates[c.city] || null;
     if (!coords) return;
@@ -236,30 +256,41 @@ if (mapElement && typeof L !== "undefined") {
     const brands = Array.from(
       new Set(c.projects.map((p) => p.brand || p.client))
     ).join(", ");
-    const years = `${Math.min(
-      ...c.projects.map((p) => p.year)
-    )} – ${Math.max(...c.projects.map((p) => p.year))}`;
+    const yearsList = c.projects.map((p) => p.year).filter(Boolean);
+    const minYear = yearsList.length ? Math.min(...yearsList) : "";
+    const maxYear = yearsList.length ? Math.max(...yearsList) : "";
+    const years =
+      minYear && maxYear && minYear !== maxYear
+        ? `${minYear} – ${maxYear}`
+        : minYear || maxYear || "";
 
     marker.bindPopup(
-      `<strong>${c.city}</strong><br/>Brands: ${brands}<br/>Years: ${years}`
+      `<strong>${c.city}</strong><br>Brands: ${brands}<br>Years: ${years}`
     );
 
-    marker.on("click", () => {
+    marker.onclick = () => {
       const cityFilter = document.getElementById("filter-city");
       if (cityFilter) {
         cityFilter.value = c.city;
         applyDirectoryFilters();
-        const directorySection =
-          document.getElementById("projects-directory");
-        if (directorySection) {
-          directorySection.scrollIntoView({ behavior: "smooth" });
-        }
       }
-    });
+      const directorySection = document.getElementById("projects-directory");
+      if (directorySection) {
+        directorySection.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    allLatLngs.push(coords);
   });
+
+  if (allLatLngs.length) {
+    const bounds = L.latLngBounds(allLatLngs);
+    map.fitBounds(bounds, { padding: [30, 30] });
+  }
 }
 
-// 4. Directory filters and rendering
+// 5. Directory filters and rendering (index.html only)
+
 const yearFilter = document.getElementById("filter-year");
 const brandFilter = document.getElementById("filter-brand");
 const cityFilter = document.getElementById("filter-city");
@@ -274,22 +305,26 @@ function initDirectoryFilters() {
 
   const years = Array.from(
     new Set(projectDirectory.map((p) => p.year).filter(Boolean))
-  ).sort((a, b) => a - b);
+  ).sort((a, b) => b - a);
   years.forEach((y) => {
     const opt = document.createElement("option");
     opt.value = String(y);
     opt.textContent = String(y);
-    if (yearFilter) yearFilter.appendChild(opt);
+    yearFilter.appendChild(opt);
   });
 
   const brands = Array.from(
-    new Set(projectDirectory.map((p) => p.brand || p.client).filter(Boolean))
+    new Set(
+      projectDirectory
+        .map((p) => p.brand || p.client)
+        .filter(Boolean)
+    )
   ).sort();
   brands.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b;
     opt.textContent = b;
-    if (brandFilter) brandFilter.appendChild(opt);
+    brandFilter.appendChild(opt);
   });
 
   const cities = Array.from(
@@ -299,25 +334,33 @@ function initDirectoryFilters() {
     const opt = document.createElement("option");
     opt.value = c;
     opt.textContent = c;
-    if (cityFilter) cityFilter.appendChild(opt);
+    cityFilter.appendChild(opt);
   });
 
-  if (yearFilter) yearFilter.addEventListener("change", applyDirectoryFilters);
-  if (brandFilter) brandFilter.addEventListener("change", applyDirectoryFilters);
-  if (cityFilter) cityFilter.addEventListener("change", applyDirectoryFilters);
-  if (regionFilter)
-    regionFilter.addEventListener("change", applyDirectoryFilters);
-  if (searchInput)
-    searchInput.addEventListener("input", applyDirectoryFilters);
-  if (clearBtn)
-    clearBtn.addEventListener("click", () => {
-      if (yearFilter) yearFilter.value = "";
-      if (brandFilter) brandFilter.value = "";
-      if (cityFilter) cityFilter.value = "";
-      if (regionFilter) regionFilter.value = "";
-      if (searchInput) searchInput.value = "";
-      applyDirectoryFilters();
-    });
+  const regions = Array.from(
+    new Set(projectDirectory.map((p) => p.region).filter(Boolean))
+  ).sort();
+  regions.forEach((r) => {
+    const opt = document.createElement("option");
+    opt.value = r;
+    opt.textContent = r;
+    regionFilter.appendChild(opt);
+  });
+
+  yearFilter.addEventListener("change", applyDirectoryFilters);
+  brandFilter.addEventListener("change", applyDirectoryFilters);
+  cityFilter.addEventListener("change", applyDirectoryFilters);
+  regionFilter.addEventListener("change", applyDirectoryFilters);
+  searchInput.addEventListener("input", applyDirectoryFilters);
+
+  clearBtn.addEventListener("click", () => {
+    yearFilter.value = "";
+    brandFilter.value = "";
+    cityFilter.value = "";
+    regionFilter.value = "";
+    searchInput.value = "";
+    applyDirectoryFilters();
+  });
 
   applyDirectoryFilters();
 }
@@ -325,11 +368,11 @@ function initDirectoryFilters() {
 function applyDirectoryFilters() {
   if (!resultsContainer) return;
 
-  const yearVal = yearFilter ? yearFilter.value : "";
-  const brandVal = brandFilter ? brandFilter.value : "";
-  const cityVal = cityFilter ? cityFilter.value : "";
-  const regionVal = regionFilter ? regionFilter.value : "";
-  const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const yearVal = yearFilter.value;
+  const brandVal = brandFilter.value;
+  const cityVal = cityFilter.value;
+  const regionVal = regionFilter.value;
+  const query = searchInput.value.trim().toLowerCase();
 
   let filtered = projectDirectory.slice();
 
@@ -358,9 +401,7 @@ function applyDirectoryFilters() {
 
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
-  if (summaryEl) {
-    summaryEl.textContent = `${items.length} site(s) matching current filters`;
-  }
+  summaryEl.textContent = `${items.length} site(s) matching current filters`;
 
   if (!items.length) {
     resultsContainer.innerHTML =
@@ -371,34 +412,33 @@ function renderDirectoryResults(items) {
   items.forEach((p) => {
     const card = document.createElement("article");
     card.className = "directory-card";
+    card.setAttribute("data-aos", "fade-up");
 
     const header = document.createElement("div");
     header.className = "directory-card-header";
 
     const title = document.createElement("div");
     title.className = "directory-card-title";
-    title.textContent = p.location || "(Location not specified)";
+    title.textContent = p.location || "Location not specified";
 
     const yearBadge = document.createElement("div");
     yearBadge.className = "directory-card-meta";
-    yearBadge.textContent = p.year;
+    yearBadge.textContent = p.year || "";
 
     header.appendChild(title);
     header.appendChild(yearBadge);
 
     const subtitle = document.createElement("div");
     subtitle.className = "directory-card-subtitle";
-    subtitle.textContent = `${p.city || "City N/A"} • ${
-      p.region || "Region N/A"
-    }`;
+    subtitle.textContent = `${p.city || "City NA"} • ${p.region || "Region NA"}`;
 
     const brandEl = document.createElement("div");
     brandEl.className = "directory-card-brand";
-    brandEl.textContent = p.brand || p.client;
+    brandEl.textContent = p.brand || p.client || "";
 
     const meta = document.createElement("div");
     meta.className = "directory-card-meta";
-    meta.textContent = `Client: ${p.client}`;
+    meta.textContent = `Client: ${p.client || "-"}`;
 
     const link = document.createElement("a");
     link.href = `projects.html?id=${encodeURIComponent(p.id)}`;
@@ -417,8 +457,9 @@ function renderDirectoryResults(items) {
   });
 }
 
-// 5. Project detail page
-(function () {
+// 6. Project detail page (projects.html)
+
+function populateProjectDetail() {
   const container = document.getElementById("project-detail-container");
   if (!container) return;
 
@@ -432,25 +473,33 @@ function renderDirectoryResults(items) {
     return;
   }
 
-  container.innerHTML = `
-    <article class="project-detail-main">
-      <h3>${project.brand || project.client}</h3>
-      <p>${project.location || ""}</p>
-    </article>
-    <aside class="project-detail-sidebar">
-      <h3>Key Metrics</h3>
-      <ul class="project-metrics">
-        <li><strong>Year:</strong> ${project.year}</li>
-        <li><strong>Client:</strong> ${project.client}</li>
-        <li><strong>Brand:</strong> ${project.brand || project.client}</li>
-        <li><strong>City:</strong> ${project.city || "N/A"}</li>
-        <li><strong>Region:</strong> ${project.region || "N/A"}</li>
-      </ul>
-    </aside>
-  `;
-})();
+  const imgHtml = project.image
+    ? `<img src="${project.image}" alt="${project.brand}" class="project-image">`
+    : "";
 
-// 6. Sample work gallery
+  container.innerHTML = `
+    <section class="project-detail-layout" data-aos="fade-up">
+      <article class="project-detail-main">
+        <h3>${project.brand || project.client}</h3>
+        ${imgHtml}
+        <p>${project.location || ""}</p>
+      </article>
+      <aside class="project-detail-sidebar">
+        <h3>Key Metrics</h3>
+        <ul class="project-metrics">
+          <li><strong>Year</strong> ${project.year || "-"}</li>
+          <li><strong>Client</strong> ${project.client || "-"}</li>
+          <li><strong>Brand</strong> ${project.brand || project.client || "-"}</li>
+          <li><strong>City</strong> ${project.city || "NA"}</li>
+          <li><strong>Region</strong> ${project.region || "NA"}</li>
+        </ul>
+      </aside>
+    </section>
+  `;
+}
+
+// 7. Sample work gallery (index.html)
+
 function renderSampleWork() {
   const grid = document.getElementById("sample-work-grid");
   if (!grid) return;
@@ -458,48 +507,67 @@ function renderSampleWork() {
   grid.innerHTML = "";
   sampleImages.forEach((item) => {
     const card = document.createElement("article");
-    card.className = "directory-card";
-
-    const title = document.createElement("div");
-    title.className = "directory-card-title";
-    title.textContent = item.brand;
+    card.className = "sample-card";
+    card.setAttribute("data-aos", "zoom-in-up");
 
     const img = document.createElement("img");
     img.src = item.file;
     img.alt = item.label;
+    img.className = "sample-image";
 
-    const subtitle = document.createElement("div");
-    subtitle.className = "directory-card-subtitle";
-    subtitle.textContent = item.label;
+    const body = document.createElement("div");
+    body.className = "sample-body";
 
-    card.appendChild(title);
+    const title = document.createElement("div");
+    title.className = "sample-title";
+    title.textContent = item.label;
+
+    const actions = document.createElement("div");
+    actions.className = "sample-actions";
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = item.file;
+    downloadLink.download = "";
+    downloadLink.className = "pill-button pill-button-secondary";
+    downloadLink.textContent = "Download image";
+
+    actions.appendChild(downloadLink);
+    body.appendChild(title);
+    body.appendChild(actions);
+
     card.appendChild(img);
-    card.appendChild(subtitle);
+    card.appendChild(body);
 
     grid.appendChild(card);
   });
 }
 
-// 7. Init on index.html
-if (document.getElementById("directory-results")) {
-  initDirectoryFilters();
-}
-if (document.getElementById("sample-work-grid")) {
-  renderSampleWork();
-}
+// 8. Init on DOM ready
 
-// 8. Current year for footer
-const yearSpan = document.getElementById("current-year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear().toString();
-}
+document.addEventListener("DOMContentLoaded", () => {
+  if (resultsContainer) {
+    initDirectoryFilters();
+  }
 
-// 9. Simple notification after form submission
-const contactForm = document.querySelector(".contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", function () {
-    setTimeout(() => {
-      alert("Thank you. Your enquiry has been submitted.");
-    }, 400);
-  });
-}
+  if (document.getElementById("project-detail-container")) {
+    populateProjectDetail();
+  }
+
+  if (document.getElementById("sample-work-grid")) {
+    renderSampleWork();
+  }
+
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear().toString();
+  }
+
+  const contactForm = document.querySelector(".contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function () {
+      setTimeout(() => {
+        alert("Thank you. Your enquiry has been submitted.");
+      }, 400);
+    });
+  }
+});
