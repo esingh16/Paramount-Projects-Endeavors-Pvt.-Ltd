@@ -50,7 +50,7 @@ body {
   box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.8);
 }
 
-/* new: logo image inside the circle */
+/* logo image inside circle */
 .logo-image {
   width: 100%;
   height: 100%;
@@ -58,7 +58,7 @@ body {
   object-fit: cover;
 }
 
-/* kept for fallback, no letter now */
+/* fallback letter (not used now) */
 .logo-circle .logo-letter {
   width: 100%;
   height: 100%;
@@ -119,7 +119,7 @@ body {
   width: 100%;
 }
 
-/* new: social icons in header */
+/* social icons in header */
 .social-icon {
   margin-left: 10px;
   display: inline-flex;
@@ -168,10 +168,10 @@ body {
   font-size: 0.98rem;
 }
 
-/* Hero layout */
+/* Hero layout: 3 equal columns (text, map, info) */
 .section-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: start;
 }
@@ -506,7 +506,7 @@ body {
   color: #38bdf8;
 }
 
-/* Sample work / best projects gallery */
+/* Best projects gallery */
 .sample-grid,
 #sample-work-grid {
   display: grid;
@@ -550,7 +550,7 @@ body {
   align-items: center;
 }
 
-/* new: client logos box */
+/* client logos box */
 .client-logo-box {
   margin-top: 22px;
   padding: 18px 16px;
@@ -600,7 +600,7 @@ body {
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
 }
 
-/* new: clickable address styling */
+/* clickable address & email links */
 .address-link {
   color: #38bdf8;
   text-decoration: none;
