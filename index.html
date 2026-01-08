@@ -42,6 +42,7 @@
         <a href="#clients">Our Clients</a>
         <a href="#contact">Contact</a>
 
+        <!-- social icons -->
         <a
           href="https://www.linkedin.com/in/paramount-projects-25942b25b"
           class="social-icon"
@@ -67,13 +68,14 @@
           rel="noopener noreferrer"
           aria-label="Website"
         >
-          <img src="images/web.png" alt="Website" />
+          <img src="images/global.png" alt="Website" />
         </a>
       </nav>
     </header>
 
     <!-- Hero / About -->
     <section id="about" class="section section-hero">
+      <!-- Left: intro text -->
       <div class="hero-left" data-aos="fade-right">
         <h1>
           Paramount Project Endeavors – turnkey partners for pan‑India rollouts
@@ -107,14 +109,57 @@
         </div>
       </div>
 
-      <!-- Map in centre -->
+      <!-- Centre: map + filters + directory -->
       <div class="hero-map" data-aos="fade-up">
         <article class="map-card">
           <div id="map"></div>
         </article>
+
+        <section id="clients" class="section section-alt hero-clients">
+          <h2>Our clients & locations</h2>
+          <p>
+            Explore Paramount’s client network across Indian cities for brands
+            such as Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma, Dr
+            Agarwal’s, The Hazelnut Factory, Mr DIY and others. Filter by brand,
+            city or region, or search by locality. Click a city on the map to
+            pre‑filter this list.
+          </p>
+
+          <div class="directory-filters" data-aos="fade-up">
+            <select id="filter-brand">
+              <option value="">All brands</option>
+            </select>
+
+            <select id="filter-city">
+              <option value="">All cities</option>
+            </select>
+
+            <select id="filter-region">
+              <option value="">All regions</option>
+              <option value="North">North</option>
+              <option value="South">South</option>
+              <option value="East">East</option>
+              <option value="West">West</option>
+              <option value="Central">Central</option>
+            </select>
+
+            <input
+              type="text"
+              id="filter-search"
+              placeholder="Search by city / locality"
+            />
+
+            <button id="filter-clear" class="pill-button pill-button-secondary">
+              Clear filters
+            </button>
+          </div>
+
+          <div id="directory-summary" class="directory-summary"></div>
+          <div id="directory-results" class="directory-grid"></div>
+        </section>
       </div>
 
-      <!-- Info panel right -->
+      <!-- Right: info panel -->
       <aside id="info-panel" data-aos="fade-left">
         <h2 id="info-title">Coordinated fit‑outs, one window</h2>
         <p id="info-content">
@@ -137,8 +182,8 @@
           </li>
         </ul>
         <p class="small-note">
-          Explore active locations on the live map and filter the directory to
-          see city‑wise work done for different brands.
+          Use the live map and the filters below it to explore locations and
+          brands where Paramount has delivered projects.
         </p>
       </aside>
     </section>
@@ -191,23 +236,6 @@
       </p>
 
       <div id="sample-work-grid" class="sample-grid"></div>
-    </section>
-
-    <!-- Our Clients: dynamic logo wall only -->
-    <section id="clients" class="section section-alt">
-      <h2>Our valuable clients</h2>
-      <p>
-        A quick view of some of the brands that trust Paramount for turnkey
-        rollouts and interior coordination across India.
-      </p>
-
-      <!-- Optional full screenshot reference image -->
-      <!-- <div class="clients-screenshot" data-aos="zoom-in">
-        <img src="images/clients-screenshot.jpg" alt="Our valuable clients" />
-      </div> -->
-
-      <!-- Dynamic grid of individual logos -->
-      <div id="client-logo-grid" class="client-logo-grid-large"></div>
     </section>
 
     <!-- Contact -->
