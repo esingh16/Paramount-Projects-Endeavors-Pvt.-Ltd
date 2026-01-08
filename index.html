@@ -1,249 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Paramount Project Endeavors Pvt. Ltd.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paramount Project Endeavors Pvt. Ltd.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Leaflet -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
 
-  <!-- AOS (animations) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <!-- AOS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    />
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="brand">
-      <div class="logo-circle">
-        <span class="logo-letter">P</span>
-      </div>
-      <div class="brand-text">
-        <span class="brand-name">PARAMOUNT PROJECT ENDEAVORS PVT. LTD.</span>
-        <span class="brand-tagline">Transforming vision into action</span>
-      </div>
-    </div>
-    <nav class="main-nav">
-      <a href="#company">Company</a>
-      <a href="#services">Services</a>
-      <a href="#clients">Clients</a>
-      <a href="#sample-work">Sample Work</a>
-      <a href="#governance">Governance</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero with map -->
-  <section id="company" class="section section-hero">
-    <div class="hero-left" data-aos="fade-right">
-      <h1>Paramount Project Endeavors Private Limited</h1>
-      <p class="hero-lead">
-        A private Indian business services company delivering end‑to‑end project,
-        fit‑out and rollout support for leading retail, QSR and hospitality brands across India.
-      </p>
-      <p class="hero-sub">
-        From site identification to handover, Paramount coordinates civil works, vendor interfaces and
-        timelines to help brands scale faster in metros, tier‑2 and emerging locations.
-      </p>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-number">2013</div>
-          <div class="stat-label">Year of incorporation</div>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand">
+        <!-- replace letter with logo image -->
+        <div class="logo-circle">
+          <img src="logo.jpg" alt="Paramount Logo" class="logo-image" />
         </div>
-        <div class="stat-card">
-          <div class="stat-number">Active</div>
-          <div class="stat-label">Company status</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">PAN‑India</div>
-          <div class="stat-label">Client footprint</div>
+        <div class="brand-text">
+          <span class="brand-name">PARAMOUNT PROJECT ENDEAVORS PVT. LTD.</span>
+          <span class="brand-tagline"
+            >Turnkey interiors • Rollout coordination • Pan‑India delivery</span
+          >
         </div>
       </div>
-    </div>
 
-    <div class="hero-map" data-aos="fade-up">
-      <div class="map-card">
-        <div id="map"></div>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Best Projects</a>
+        <a href="#clients">Our Clients</a>
+        <a href="#contact">Contact</a>
+
+        <!-- social icons -->
+        <a
+          href="https://www.linkedin.com/in/paramount-projects-25942b25b"
+          class="social-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img src="images/linkedin.png" alt="LinkedIn" />
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100083787632637"
+          class="social-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a
+          href="https://www.ppepl.co.in"
+          class="social-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Website"
+        >
+          <img src="images/web.png" alt="Website" />
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero / About -->
+    <section id="about" class="section section-hero">
+      <div class="hero-left" data-aos="fade-right">
+        <h1>Turnkey project partners for pan‑India rollouts</h1>
+        <p class="hero-lead">
+          Paramount Plans, Manages and Coordinates turnkey interior works for
+          retail, QSR and hospitality brands, aligning civil, MEP and vendor
+          teams across locations. We execute time‑bound fit‑outs so new outlets
+          open on schedule with consistent brand standards.
+        </p>
+        <p class="hero-sub">
+          From the first concept discussion to handover, our team implements and
+          executes town‑key interior works, vendor interfaces and site
+          coordination across malls, high streets and transit hubs.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number">Projects across India</div>
+            <div class="stat-label">
+              Multi‑city experience from metros to tier‑2 & emerging locations
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">City‑wise presence</div>
+            <div class="stat-label">
+              Markers for brands such as Dr Agarwal’s Eye Hospital, Burger King,
+              The Hazelnut Factory, Mr DIY and more
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <aside id="info-panel" data-aos="fade-left">
-      <h2 id="info-title">Projects across India</h2>
-      <div id="info-content">
-        <p>
-          City markers aggregate key branded roll‑outs across India for Domino’s, KFC,
-          Burger King, McDonald’s, Chaayos, Croma and other clients. Click a marker to
-          focus the client list for that city.
+      <!-- Info panel -->
+      <aside id="info-panel" data-aos="fade-up">
+        <h2 id="info-title">Coordinated fit‑outs, one window</h2>
+        <p id="info-content">
+          Paramount manages the day‑to‑day coordination between landlords,
+          design teams, contractors and vendors so client project teams can
+          focus on brand and business decisions.
         </p>
-      </div>
-    </aside>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="section section-alt">
-    <h2>Services</h2>
-    <div class="service-grid">
-      <article class="service-card" data-aos="fade-up">
-        <h3>End‑to‑end fit‑out coordination</h3>
-        <p>
-          Single‑window coordination for civil works, MEP, vendor interfaces and statutory
-          approvals across high‑street, mall and transit locations.
-        </p>
-      </article>
-      <article class="service-card" data-aos="fade-up" data-aos-delay="80">
-        <h3>Multi‑city roll‑out support</h3>
-        <p>
-          Structured playbooks and local networks to execute parallel openings across metros
-          and emerging cities while protecting brand standards.
-        </p>
-      </article>
-      <article class="service-card" data-aos="fade-up" data-aos-delay="140">
-        <h3>Project monitoring & reporting</h3>
-        <p>
-          Site‑level tracking, progress reviews and reporting so client teams have a clear
-          view of cost, timelines and risks across the network.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Our Clients (directory) -->
-  <section id="clients" class="section">
-    <h2>Our Clients</h2>
-    <p>
-      Explore Paramount’s client network across Indian cities for brands such as Domino’s, KFC,
-      Burger King, McDonald’s, Chaayos, Croma and others. Filter by brand, city or region, or
-      search by locality. Click a city on the map to pre‑filter this list.
-    </p>
-
-    <div class="directory-filters" data-aos="fade-up">
-      <select id="filter-brand">
-        <option value="">All brands/clients</option>
-      </select>
-      <select id="filter-city">
-        <option value="">All cities</option>
-      </select>
-      <select id="filter-region">
-        <option value="">All regions</option>
-      </select>
-      <input
-        id="filter-search"
-        type="text"
-        placeholder="Search location, mall, street..."
-      />
-      <button id="filter-clear" class="pill-button">Clear filters</button>
-    </div>
-
-    <div id="directory-summary" class="directory-summary"></div>
-    <div id="directory-results" class="directory-grid"></div>
-  </section>
-
-  <!-- Sample work -->
-  <section id="sample-work" class="section section-alt">
-    <h2>Sample Work</h2>
-    <p>
-      A compact gallery of representative outlets across QSR, retail and hospitality formats.
-      Images are indicative and do not list individual sites.
-    </p>
-    <div id="sample-work-grid" class="sample-grid"></div>
-  </section>
-
-  <!-- Governance / company snapshot -->
-  <section id="governance" class="section">
-    <h2>Company Snapshot</h2>
-    <div class="info-grid">
-      <article class="info-card" data-aos="fade-up">
-        <h3>Registered identity</h3>
         <ul class="list">
-          <li>CIN: U74999MH2013PTC240009</li>
-          <li>Registrar of Companies: Mumbai, Maharashtra</li>
-          <li>Company class: Private, limited by shares</li>
+          <li>
+            Single point of contact for civil works, interiors, MEP and
+            statutory approvals.
+          </li>
+          <li>
+            Structured playbooks and checklists for repeatable rollouts across
+            multiple cities.
+          </li>
+          <li>
+            Site‑level tracking, progress reviews and reporting for clear
+            visibility on timelines and risk.
+          </li>
         </ul>
-      </article>
-      <article class="info-card" data-aos="fade-up" data-aos-delay="80">
-        <h3>Registered office</h3>
-        <p>
-          13 Ajay Apartment CHSL, 3rd Floor, 2nd Kasturba Cross Road, Malad (West),
-          Mumbai – 400064, Maharashtra, India.
+        <p class="small-note">
+          Explore active locations on the live map and filter the directory to
+          see city‑wise work done for different brands.
         </p>
-      </article>
-      <article class="info-card" data-aos="fade-up" data-aos-delay="140">
-        <h3>Board & governance</h3>
-        <p>
-          The board provides oversight on strategy, operations and financial discipline,
-          supported by external professionals and advisors as required.
-        </p>
-      </article>
-    </div>
-  </section>
+      </aside>
 
-  <!-- Contact -->
-  <section id="contact" class="section section-alt">
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      <article class="contact-card" data-aos="fade-up">
-        <h3>Connect with Paramount</h3>
-        <p>
-          Reach out to discuss upcoming projects, consulting requirements, or partnership
-          opportunities.
-        </p>
-        <p>
-          Paramount Project Endeavors Pvt. Ltd.<br />
-          13 Ajay Apartment CHSL, 3rd Floor,<br />
-          2nd Kasturba Cross Road, Malad (W),<br />
-          Mumbai – 400064, Maharashtra, India.
-        </p>
-        <p>
-          Email: igs.paramount@gmail.com<br />
-          Directors: Pradeep Singh, Alok Mishra
-        </p>
-      </article>
+      <!-- Map -->
+      <div class="hero-map" data-aos="fade-left">
+        <article class="map-card">
+          <div id="map"></div>
+        </article>
+      </div>
+    </section>
 
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/your-form-id"
-        method="POST"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input id="name" name="name" required />
+    <!-- Services -->
+    <section class="section section-alt">
+      <h2>What Paramount delivers</h2>
+      <div class="service-grid">
+        <article class="service-card" data-aos="fade-up">
+          <h3>End‑to‑end interior execution</h3>
+          <p>
+            Coordinated civil, interior and MEP works from shell to store
+            opening, with clear sequencing and milestone sign‑offs.
+          </p>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>Vendor & stakeholder interfaces</h3>
+          <p>
+            Interfaces with client vendors, landlords, mall teams and agencies
+            to keep drawings, deliveries and approvals aligned.
+          </p>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="140">
+          <h3>Multi‑city rollout management</h3>
+          <p>
+            Parallel openings managed through standardized checklists, local
+            networks and robust progress reporting.
+          </p>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Brand & quality assurance</h3>
+          <p>
+            Attention to detailing so finishes, layouts and services match
+            brand standards across formats and locations.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Best Projects (instead of Sample Work) -->
+    <section id="projects" class="section">
+      <h2>Some of our best projects</h2>
+      <p>
+        A curated snapshot of completed outlets that represent the quality and
+        variety of work delivered across QSR, retail and experience formats.
+        Images are indicative and do not list individual sites.
+      </p>
+
+      <div id="sample-work-grid" class="sample-grid"></div>
+    </section>
+
+    <!-- Our Clients + logos box -->
+    <section id="clients" class="section section-alt">
+      <h2>Our clients & locations</h2>
+      <p>
+        Explore Paramount’s client network across Indian cities for brands such
+        as Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma, Dr
+        Agarwal’s, The Hazelnut Factory, Mr DIY and others. Filter by brand,
+        city or region, or search by locality. Click a city on the map to
+        pre‑filter this list.
+      </p>
+
+      <!-- Logo box similar to sample image -->
+      <div class="client-logo-box" data-aos="zoom-in">
+        <h3>Some of our key clients</h3>
+        <div class="client-logo-grid">
+          <div class="client-logo-item">
+            <img src="mcd.png" alt="McDonald's" />
+          </div>
+          <div class="client-logo-item">
+            <img src="bk.png" alt="Burger King" />
+          </div>
+          <div class="client-logo-item">
+            <img src="chaayos.png" alt="Chaayos" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/croma.png" alt="Croma" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/dr.png" alt="Dr Agarwal's Eye Hospital" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/hazelnut.png" alt="The Hazelnut Factory" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/mrdiy.png" alt="Mr DIY" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/amoeba.png" alt="Amoeba" />
+          </div>
+          <div class="client-logo-item">
+            <img src="images/familytree.png" alt="Family Tree" />
+          </div>
         </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="pill-button">Submit enquiry</button>
-      </form>
-    </div>
-  </section>
+      </div>
 
-  <footer class="site-footer">
-    &copy; <span id="current-year"></span> Paramount Project Endeavors Pvt. Ltd.
-    All rights reserved.
-  </footer>
+      <!-- Directory filters + results (existing logic kept) -->
+      <div class="directory-filters" data-aos="fade-up">
+        <select id="brand-filter">
+          <option value="">All brands</option>
+        </select>
 
-  <!-- Scripts -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ once: true, duration: 700, easing: "ease-out-quart" });
-  </script>
-  <script src="script.js"></script>
-</body>
+        <select id="region-filter">
+          <option value="">All regions</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
+          <option value="Central">Central</option>
+        </select>
+
+        <input
+          type="text"
+          id="city-search"
+          placeholder="Search by city / locality"
+        />
+      </div>
+
+      <div id="directory-summary" class="directory-summary"></div>
+      <div id="directory-results" class="directory-grid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>Get in touch</h2>
+      <p>
+        Reach out to discuss upcoming rollouts, fit‑out requirements or
+        long‑term coordination support across India.
+      </p>
+
+      <div class="contact-grid">
+        <article class="contact-card" data-aos="fade-right">
+          <h3>Head Office – Mumbai</h3>
+          <p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=13A%2C+3rd+Floor%2C+Ajay+Apartments%2C+Next+to+Ruia+Hall%2C+Anand+Road%2C+Malad+West%2C+Mumbai+-+400064"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="address-link"
+            >
+              13A, 3rd Floor, Ajay Apartments, Next to Ruia Hall, Anand Road,
+              Malad West, Mumbai - 400064.
+            </a>
+          </p>
+          <p>Telephone: +91 - 2228812177</p>
+          <p>Email: info@ppepl.co.in</p>
+        </article>
+
+        <article class="contact-card" data-aos="fade-up">
+          <h3>North Office – New Delhi</h3>
+          <p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Plot+No.+70%2F60%2C+Upper+Ground+Floor%2C+Mangolpuri%2C+New+Delhi+-+110085"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="address-link"
+            >
+              Plot No. 70/60, Upper Ground Floor, Mangolpuri, New Delhi - 110
+              085.
+            </a>
+          </p>
+        </article>
+
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mwkgyrwd"
+          method="POST"
+          data-aos="fade-left"
+        >
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+          <div class="form-row">
+            <label for="message">Project / enquiry details</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="pill-button">Submit enquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span>
+        © <span id="current-year"></span> Paramount Project Endeavors Pvt. Ltd.
+        All rights reserved.
+      </span>
+    </footer>
+
+    <!-- Leaflet -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 700,
+        once: true,
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
 </html>
