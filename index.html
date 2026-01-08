@@ -109,54 +109,11 @@
         </div>
       </div>
 
-      <!-- Centre: map + filters + directory -->
+      <!-- Centre: map only -->
       <div class="hero-map" data-aos="fade-up">
         <article class="map-card">
           <div id="map"></div>
         </article>
-
-        <section id="clients" class="section section-alt hero-clients">
-          <h2>Our clients & locations</h2>
-          <p>
-            Explore Paramount’s client network across Indian cities for brands
-            such as Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma, Dr
-            Agarwal’s, The Hazelnut Factory, Mr DIY and others. Filter by brand,
-            city or region, or search by locality. Click a city on the map to
-            pre‑filter this list.
-          </p>
-
-          <div class="directory-filters" data-aos="fade-up">
-            <select id="filter-brand">
-              <option value="">All brands</option>
-            </select>
-
-            <select id="filter-city">
-              <option value="">All cities</option>
-            </select>
-
-            <select id="filter-region">
-              <option value="">All regions</option>
-              <option value="North">North</option>
-              <option value="South">South</option>
-              <option value="East">East</option>
-              <option value="West">West</option>
-              <option value="Central">Central</option>
-            </select>
-
-            <input
-              type="text"
-              id="filter-search"
-              placeholder="Search by city / locality"
-            />
-
-            <button id="filter-clear" class="pill-button pill-button-secondary">
-              Clear filters
-            </button>
-          </div>
-
-          <div id="directory-summary" class="directory-summary"></div>
-          <div id="directory-results" class="directory-grid"></div>
-        </section>
       </div>
 
       <!-- Right: info panel -->
@@ -182,10 +139,54 @@
           </li>
         </ul>
         <p class="small-note">
-          Use the live map and the filters below it to explore locations and
-          brands where Paramount has delivered projects.
+          Use the live map above to understand spread, then scroll to the
+          directory below for a city‑wise view of sites delivered.
         </p>
       </aside>
+    </section>
+
+    <!-- Our clients & locations: full-width directory below hero -->
+    <section id="clients" class="section section-alt">
+      <h2>Our clients & locations</h2>
+      <p>
+        Explore Paramount’s client network across Indian cities for brands such
+        as Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma, Dr
+        Agarwal’s, The Hazelnut Factory, Mr DIY and others. Filter by brand,
+        city or region, or search by locality. Click a city on the map to
+        pre‑filter this list.
+      </p>
+
+      <div class="directory-filters">
+        <select id="filter-brand">
+          <option value="">All brands</option>
+        </select>
+
+        <select id="filter-city">
+          <option value="">All cities</option>
+        </select>
+
+        <select id="filter-region">
+          <option value="">All regions</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
+          <option value="Central">Central</option>
+        </select>
+
+        <input
+          type="text"
+          id="filter-search"
+          placeholder="Search by city / locality"
+        />
+
+        <button id="filter-clear" class="pill-button pill-button-secondary">
+          Clear filters
+        </button>
+      </div>
+
+      <div id="directory-summary" class="directory-summary"></div>
+      <div id="directory-results" class="directory-grid"></div>
     </section>
 
     <!-- Services -->
