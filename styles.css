@@ -168,7 +168,7 @@ body {
   font-size: 0.98rem;
 }
 
-/* Hero layout: 3 columns (text, map+filters, info) */
+/* Hero layout: 3 columns (text, map, info) */
 .section-hero {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -258,12 +258,6 @@ body {
 #map {
   width: 100%;
   height: 360px;
-}
-
-/* place directory block just below the map but inside same column */
-.hero-clients {
-  margin-top: 18px;
-  padding-inline: 0;
 }
 
 /* Dark Leaflet tint */
@@ -446,36 +440,20 @@ body {
   text-decoration: underline;
 }
 
-/* Directory filters & cards (below map) */
-/* 2 compact rows: first row = 3 dropdowns, second row = search + clear */
+/* Directory filters & cards (full-width below hero) */
 .directory-filters {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: auto;
-  gap: 6px 8px;
-  margin: 12px 0 8px;
-}
-
-#filter-brand,
-#filter-city,
-#filter-region {
-  width: 100%;
-}
-
-#filter-search {
-  grid-column: 1 / span 2;
-}
-
-#filter-clear {
-  grid-column: 3 / span 1;
-  justify-self: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 8px;
 }
 
 .directory-filters select,
 .directory-filters input {
   border-radius: 999px;
   border: 1px solid #4b5563;
-  padding: 6px 10px;
+  padding: 6px 12px;
   font-size: 0.78rem;
   background: #020617;
   color: #f9fafb;
@@ -500,8 +478,8 @@ body {
 .directory-grid,
 #directory-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
   margin-top: 8px;
 }
 
@@ -634,24 +612,5 @@ body {
     display: flex;
     flex-wrap: wrap;
     row-gap: 4px;
-  }
-
-  .directory-filters {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #filter-brand,
-  #filter-city,
-  #filter-region {
-    grid-column: span 1;
-  }
-
-  #filter-search {
-    grid-column: 1 / span 2;
-  }
-
-  #filter-clear {
-    grid-column: 2 / span 1;
-    justify-self: flex-end;
   }
 }
