@@ -1,7 +1,6 @@
 /* styles.css – enhanced Paramount theme */
 
 /* Reset */
-
 *,
 *::before,
 *::after {
@@ -17,7 +16,6 @@ body {
 }
 
 /* Header */
-
 .site-header {
   position: sticky;
   top: 0;
@@ -41,11 +39,26 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 999px;
-  background: conic-gradient(from 200deg, #34c0c9, #f97316, #22c55e, #34c0c9);
+  background: conic-gradient(
+    from 200deg,
+    #34c0c9,
+    #f97316,
+    #22c55e,
+    #34c0c9
+  );
   padding: 2px;
   box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.8);
 }
 
+/* new: logo image inside the circle */
+.logo-image {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+/* kept for fallback, no letter now */
 .logo-circle .logo-letter {
   width: 100%;
   height: 100%;
@@ -77,7 +90,6 @@ body {
 }
 
 /* Navigation */
-
 .main-nav a {
   margin-left: 18px;
   color: #e5e7eb;
@@ -107,8 +119,35 @@ body {
   width: 100%;
 }
 
-/* Sections */
+/* new: social icons in header */
+.social-icon {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #4b5563;
+  padding: 3px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
 
+.social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.social-icon:hover {
+  transform: translateY(-1px);
+  border-color: #38bdf8;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+}
+
+/* Sections */
 .section {
   padding: 52px 24px;
   max-width: 1200px;
@@ -130,7 +169,6 @@ body {
 }
 
 /* Hero layout */
-
 .section-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr);
@@ -162,7 +200,6 @@ body {
 }
 
 /* Shared card transitions */
-
 .service-card,
 .info-card,
 .contact-card,
@@ -185,7 +222,6 @@ body {
 }
 
 /* Stat cards */
-
 .stat-card {
   background: radial-gradient(circle at top left, #22c55e33, #020617);
   border-radius: 12px;
@@ -206,7 +242,6 @@ body {
 }
 
 /* Map card */
-
 .hero-map {
   width: 100%;
 }
@@ -226,7 +261,6 @@ body {
 }
 
 /* Dark Leaflet tint */
-
 .leaflet-container {
   background: #020617;
 }
@@ -236,7 +270,6 @@ body {
 }
 
 /* Info panel */
-
 #info-panel {
   background: radial-gradient(circle at top left, #0f172a, #020617);
   border-radius: 18px;
@@ -255,6 +288,11 @@ body {
   font-size: 0.9rem;
   color: #e5e7eb;
   margin-bottom: 12px;
+}
+
+.list {
+  padding-left: 18px;
+  font-size: 0.9rem;
 }
 
 .city-list {
@@ -276,7 +314,6 @@ body {
 }
 
 /* Buttons */
-
 .pill-button {
   background: linear-gradient(120deg, #f97316, #22c55e, #38bdf8);
   color: #ffffff;
@@ -306,12 +343,6 @@ body {
 }
 
 /* Info & service grids */
-
-.list {
-  padding-left: 18px;
-  font-size: 0.9rem;
-}
-
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -347,7 +378,6 @@ body {
 }
 
 /* Contact */
-
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -401,7 +431,6 @@ body {
 }
 
 /* Directory filters & cards (Our Clients) */
-
 .directory-filters {
   display: flex;
   flex-wrap: wrap;
@@ -477,8 +506,7 @@ body {
   color: #38bdf8;
 }
 
-/* Sample work gallery */
-
+/* Sample work / best projects gallery */
 .sample-grid,
 #sample-work-grid {
   display: grid;
@@ -522,8 +550,67 @@ body {
   align-items: center;
 }
 
-/* Footer */
+/* new: client logos box */
+.client-logo-box {
+  margin-top: 22px;
+  padding: 18px 16px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left, #0b1120, #020617);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+}
 
+.client-logo-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 0.96rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f9fafb;
+}
+
+.client-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.client-logo-item {
+  background: #020617;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #4b5563;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.client-logo-item img {
+  max-width: 100%;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+.client-logo-item:hover {
+  transform: translateY(-3px);
+  border-color: #f97316;
+  background: radial-gradient(circle at top, #111827, #020617);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* new: clickable address styling */
+.address-link {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.address-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
 .site-footer {
   padding: 14px 24px;
   text-align: center;
@@ -534,7 +621,6 @@ body {
 }
 
 /* Responsive */
-
 @media (max-width: 980px) {
   .section-hero {
     grid-template-columns: 1fr;
