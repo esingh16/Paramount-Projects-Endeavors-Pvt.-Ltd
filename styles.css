@@ -449,19 +449,27 @@ body {
 /* Directory filters & cards (below map) */
 .directory-filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
   margin: 18px 0 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .directory-filters select,
 .directory-filters input {
   border-radius: 999px;
   border: 1px solid #4b5563;
-  padding: 6px 12px;
-  font-size: 0.85rem;
+  padding: 6px 10px;
+  font-size: 0.78rem;
   background: #020617;
   color: #f9fafb;
+  white-space: nowrap;
+}
+
+.directory-filters button {
+  flex-shrink: 0;
 }
 
 .directory-filters select:focus,
@@ -613,5 +621,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     row-gap: 4px;
+  }
+
+  .directory-filters {
+    flex-wrap: wrap;
   }
 }
