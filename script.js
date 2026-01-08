@@ -528,23 +528,23 @@ function renderDirectoryResults(items) {
 // 5. Sample work gallery (full images + download)
 
 const sampleImages = [
-  { file: "images/aldfredos.png", label: "Alfredo's" },
+  { file: "images/alfredos.png", label: "Alfredo's" },
   { file: "images/amoeba.png", label: "Amoeba" },
-  { file: "images/bk.png", label: "Burger King" },
+  { file: "bk.png", label: "Burger King" },
   { file: "images/burma.png", label: "Burma Burma" },
-  { file: "images/chaayos.png", label: "Chaayos" },
+  { file: "chaayos.png", label: "Chaayos" },
   { file: "images/cinepolis.png", label: "Cinepolis" },
-  { file: "images/copper.png", label: "Copper Chimney" },
+  { file: "copper.png", label: "Copper Chimney" },
   { file: "images/croma.png", label: "Croma" },
   { file: "images/dr.png", label: "Dr Agarwals" },
-  { file: "images/izumi.png", label: "Izumi" },
-  { file: "images/kfc.png", label: "KFC" },
-  { file: "images/punjab.png", label: "Punjab Grill" },
-  { file: "images/ume.png", label: "You Mee" },
-  { file: "images/mcd.png", label: "McD" },
+  { file: "izumi.png", label: "Izumi" },
+  { file: "kfc.png", label: "KFC" },
+  { file: "punjab.png", label: "Punjab Grill" },
+  { file: "images/youme.png", label: "You Mee" },
+  { file: "mcd.png", label: "McD" },
   { file: "images/mrdiy.png", label: "Mr DIY" },
   { file: "images/pepe.png", label: "Pepe Jeans" },
-  { file: "images/subway.png", label: "Subway" },
+  { file: "subway.png", label: "Subway" },
   { file: "images/taco.png", label: "Taco Bell" },
   { file: "images/hazelnut.png", label: "The Hazelnut Factory" },
   { file: "images/timezone.png", label: "Timezone" },
@@ -552,7 +552,7 @@ const sampleImages = [
   { file: "images/timezone.png", label: "Timezone" },
   { file: "images/tulli.png", label: "Tulli Turmeric" },
   { file: "images/familytree.png", label: "Family Tree" },
-  { file: "images/twc.png", label: "Third Wave Coffee" }
+  { file: "twc.png", label: "Third Wave Coffee" }
 ];
 
 function renderSampleWork() {
