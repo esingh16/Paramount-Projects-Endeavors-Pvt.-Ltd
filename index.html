@@ -40,6 +40,7 @@
         <a href="#about">About</a>
         <a href="#projects">Best Projects</a>
         <a href="#clients">Our Clients</a>
+        <a href="#pillars">Pillars</a>
         <a href="#contact">Contact</a>
 
         <!-- social icons -->
@@ -235,6 +236,128 @@
       <div id="sample-work-grid" class="sample-grid"></div>
     </section>
 
+    <!-- Pillars of Paramount -->
+    <section id="pillars" class="section section-alt">
+      <h2>Pillars of Paramount</h2>
+      <p>
+        The leadership and specialist heads who translate brand intent into
+        on‑ground execution across sites and cities.
+      </p>
+
+      <div class="pillars-strip" data-aos="fade-up">
+        <button class="pillars-nav pillars-nav-left" aria-label="Scroll left">
+          ‹
+        </button>
+
+        <div class="pillars-track">
+          <!-- each card has data-aos for subtle staggered animation -->
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="images/pradeep.png" alt="Pradeep Singh" />
+            <div class="pillar-info">
+              <div class="pillar-name">Pradeep Singh</div>
+              <div class="pillar-role">Director</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="40">
+            <img src="images/alok.png" alt="Alok Mishra" />
+            <div class="pillar-info">
+              <div class="pillar-name">Alok Mishra</div>
+              <div class="pillar-role">Director – Accounts &amp; Finance</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="80">
+            <img src="images/vishal.png" alt="Vishal Singh" />
+            <div class="pillar-info">
+              <div class="pillar-name">Vishal Singh</div>
+              <div class="pillar-role">Associate &amp; Project Head</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="120">
+            <img src="images/abhishek.png" alt="Abhishek Singh" />
+            <div class="pillar-info">
+              <div class="pillar-name">Abhishek Singh</div>
+              <div class="pillar-role">Head Project – North &amp; East</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="160">
+            <img src="images/radhe.png" alt="Radhe Mahato" />
+            <div class="pillar-info">
+              <div class="pillar-name">Radhe Mahato</div>
+              <div class="pillar-role">
+                Head – Procurement &amp; Vendor Development
+              </div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="images/nirali.png" alt="Nirali Kothari" />
+            <div class="pillar-info">
+              <div class="pillar-name">Nirali Kothari</div>
+              <div class="pillar-role">Head – Finance &amp; Taxation</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="240">
+            <img src="images/anees.png" alt="Anees Shaikh" />
+            <div class="pillar-info">
+              <div class="pillar-name">Anees Shaikh</div>
+              <div class="pillar-role">Head – Electrical</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="280">
+            <img src="images/gaurav.png" alt="Gaurav Rajput" />
+            <div class="pillar-info">
+              <div class="pillar-name">Gaurav Rajput</div>
+              <div class="pillar-role">Head – AC &amp; Ventilation System</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="320">
+            <img src="images/amarjeet.png" alt="Amarjeet Nishad" />
+            <div class="pillar-info">
+              <div class="pillar-name">Amarjeet Nishad</div>
+              <div class="pillar-role">
+                Head – Plumbing &amp; Drainage System
+              </div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="360">
+            <img src="images/mangana.png" alt="Managana Ram Chowdhary" />
+            <div class="pillar-info">
+              <div class="pillar-name">Managana Ram Chowdhary</div>
+              <div class="pillar-role">Head Project</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="images/shirish.png" alt="Shirish Kamble" />
+            <div class="pillar-info">
+              <div class="pillar-name">Shirish Kamble</div>
+              <div class="pillar-role">Head – Billing</div>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="440">
+            <img src="images/priteshsingh.png" alt="Pritesh Singh" />
+            <div class="pillar-info">
+              <div class="pillar-name">Pritesh Singh</div>
+              <div class="pillar-role">Senior Project Manager</div>
+            </div>
+          </article>
+        </div>
+
+        <button class="pillars-nav pillars-nav-right" aria-label="Scroll right">
+          ›
+        </button>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="section">
       <h2>Get in touch</h2>
@@ -331,6 +454,50 @@
         duration: 700,
         once: true
       });
+    </script>
+
+    <script>
+      // Simple interactive scroll for Pillars strip
+      const track = document.querySelector(".pillars-track");
+      const leftBtn = document.querySelector(".pillars-nav-left");
+      const rightBtn = document.querySelector(".pillars-nav-right");
+
+      function scrollTrack(delta) {
+        if (!track) return;
+        track.scrollBy({ left: delta, behavior: "smooth" });
+      }
+
+      if (leftBtn && rightBtn && track) {
+        leftBtn.addEventListener("click", () => scrollTrack(-320));
+        rightBtn.addEventListener("click", () => scrollTrack(320));
+
+        // drag to scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener("mousedown", (e) => {
+          isDown = true;
+          track.classList.add("pillars-dragging");
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        window.addEventListener("mouseup", () => {
+          isDown = false;
+          track.classList.remove("pillars-dragging");
+        });
+        track.addEventListener("mouseleave", () => {
+          isDown = false;
+          track.classList.remove("pillars-dragging");
+        });
+        track.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 1.1;
+          track.scrollLeft = scrollLeft - walk;
+        });
+      }
     </script>
 
     <script src="script.js"></script>
