@@ -25,9 +25,9 @@
     <!-- Header -->
     <header class="site-header">
       <div class="brand">
-        <!-- replace letter with logo image -->
         <div class="logo-circle">
-          <img src="logo.jpg" alt="Paramount Logo" class="logo-image" />
+          <!-- logo from /images folder -->
+          <img src="images/logo.png" alt="Paramount Logo" class="logo-image" />
         </div>
         <div class="brand-text">
           <span class="brand-name">PARAMOUNT PROJECT ENDEAVORS PVT. LTD.</span>
@@ -74,10 +74,13 @@
       </nav>
     </header>
 
-    <!-- Hero / About -->
+    <!-- Hero / About: text left, map centre, info right -->
     <section id="about" class="section section-hero">
+      <!-- Left: intro text -->
       <div class="hero-left" data-aos="fade-right">
-        <h1>Turnkey project partners for pan‑India rollouts</h1>
+        <h1>
+          Paramount Project Endeavors – turnkey partners for pan‑India rollouts
+        </h1>
         <p class="hero-lead">
           Paramount Plans, Manages and Coordinates turnkey interior works for
           retail, QSR and hospitality brands, aligning civil, MEP and vendor
@@ -107,8 +110,15 @@
         </div>
       </div>
 
-      <!-- Info panel -->
-      <aside id="info-panel" data-aos="fade-up">
+      <!-- Centre: map -->
+      <div class="hero-map" data-aos="fade-up">
+        <article class="map-card">
+          <div id="map"></div>
+        </article>
+      </div>
+
+      <!-- Right: info panel -->
+      <aside id="info-panel" data-aos="fade-left">
         <h2 id="info-title">Coordinated fit‑outs, one window</h2>
         <p id="info-content">
           Paramount manages the day‑to‑day coordination between landlords,
@@ -134,13 +144,6 @@
           see city‑wise work done for different brands.
         </p>
       </aside>
-
-      <!-- Map -->
-      <div class="hero-map" data-aos="fade-left">
-        <article class="map-card">
-          <div id="map"></div>
-        </article>
-      </div>
     </section>
 
     <!-- Services -->
@@ -181,7 +184,7 @@
       </div>
     </section>
 
-    <!-- Best Projects (instead of Sample Work) -->
+    <!-- Best Projects -->
     <section id="projects" class="section">
       <h2>Some of our best projects</h2>
       <p>
@@ -193,7 +196,7 @@
       <div id="sample-work-grid" class="sample-grid"></div>
     </section>
 
-    <!-- Our Clients + logos box -->
+    <!-- Our Clients + logos box + working filters -->
     <section id="clients" class="section section-alt">
       <h2>Our clients & locations</h2>
       <p>
@@ -204,18 +207,18 @@
         pre‑filter this list.
       </p>
 
-      <!-- Logo box similar to sample image -->
+      <!-- Logo box -->
       <div class="client-logo-box" data-aos="zoom-in">
         <h3>Some of our key clients</h3>
         <div class="client-logo-grid">
           <div class="client-logo-item">
-            <img src="mcd.png" alt="McDonald's" />
+            <img src="images/mcd.png" alt="McDonald's" />
           </div>
           <div class="client-logo-item">
-            <img src="bk.png" alt="Burger King" />
+            <img src="images/bk.png" alt="Burger King" />
           </div>
           <div class="client-logo-item">
-            <img src="chaayos.png" alt="Chaayos" />
+            <img src="images/chaayos.png" alt="Chaayos" />
           </div>
           <div class="client-logo-item">
             <img src="images/croma.png" alt="Croma" />
@@ -238,13 +241,17 @@
         </div>
       </div>
 
-      <!-- Directory filters + results (existing logic kept) -->
+      <!-- Filters with original IDs so script.js works -->
       <div class="directory-filters" data-aos="fade-up">
-        <select id="brand-filter">
+        <select id="filter-brand">
           <option value="">All brands</option>
         </select>
 
-        <select id="region-filter">
+        <select id="filter-city">
+          <option value="">All cities</option>
+        </select>
+
+        <select id="filter-region">
           <option value="">All regions</option>
           <option value="North">North</option>
           <option value="South">South</option>
@@ -255,9 +262,13 @@
 
         <input
           type="text"
-          id="city-search"
+          id="filter-search"
           placeholder="Search by city / locality"
         />
+
+        <button id="filter-clear" class="pill-button pill-button-secondary">
+          Clear filters
+        </button>
       </div>
 
       <div id="directory-summary" class="directory-summary"></div>
@@ -287,7 +298,12 @@
             </a>
           </p>
           <p>Telephone: +91 - 2228812177</p>
-          <p>Email: info@ppepl.co.in</p>
+          <p>
+            Email:
+            <a href="mailto:info@ppepl.co.in" class="address-link"
+              >info@ppepl.co.in</a
+            >
+          </p>
         </article>
 
         <article class="contact-card" data-aos="fade-up">
@@ -353,7 +369,7 @@
     <script>
       AOS.init({
         duration: 700,
-        once: true,
+        once: true
       });
     </script>
 
