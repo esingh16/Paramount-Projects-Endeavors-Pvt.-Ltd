@@ -176,15 +176,28 @@ body {
   align-items: start;
 }
 
-.hero-left h1 {
-  font-size: 2rem;
-  margin-top: 0;
-  color: #f9fafb;
+/* hero title + subtitle centred + glow */
+.hero-left {
+  text-align: center;
 }
 
-.hero-lead {
-  font-size: 0.98rem;
-  line-height: 1.7;
+.hero-title-glow {
+  font-size: 2.3rem;
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #f9fafb;
+  text-shadow:
+    0 0 10px rgba(56, 189, 248, 0.7),
+    0 0 22px rgba(249, 115, 22, 0.6),
+    0 0 38px rgba(15, 23, 42, 0.9);
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 14px;
 }
 
 .hero-sub {
@@ -197,6 +210,7 @@ body {
   gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Shared card transitions */
@@ -612,5 +626,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     row-gap: 4px;
+  }
+
+  .hero-stats {
+    justify-content: center;
   }
 }
