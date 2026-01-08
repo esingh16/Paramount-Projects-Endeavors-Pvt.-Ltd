@@ -26,7 +26,6 @@
     <header class="site-header">
       <div class="brand">
         <div class="logo-circle">
-          <!-- logo from /images folder -->
           <img src="images/logo.png" alt="Paramount Logo" class="logo-image" />
         </div>
         <div class="brand-text">
@@ -43,7 +42,6 @@
         <a href="#clients">Our Clients</a>
         <a href="#contact">Contact</a>
 
-        <!-- social icons -->
         <a
           href="https://www.linkedin.com/in/paramount-projects-25942b25b"
           class="social-icon"
@@ -74,9 +72,8 @@
       </nav>
     </header>
 
-    <!-- Hero / About: text left, map centre, info right -->
+    <!-- Hero / About -->
     <section id="about" class="section section-hero">
-      <!-- Left: intro text -->
       <div class="hero-left" data-aos="fade-right">
         <h1>
           Paramount Project Endeavors – turnkey partners for pan‑India rollouts
@@ -110,14 +107,14 @@
         </div>
       </div>
 
-      <!-- Centre: map -->
+      <!-- Map in centre -->
       <div class="hero-map" data-aos="fade-up">
         <article class="map-card">
           <div id="map"></div>
         </article>
       </div>
 
-      <!-- Right: info panel -->
+      <!-- Info panel right -->
       <aside id="info-panel" data-aos="fade-left">
         <h2 id="info-title">Coordinated fit‑outs, one window</h2>
         <p id="info-content">
@@ -196,83 +193,21 @@
       <div id="sample-work-grid" class="sample-grid"></div>
     </section>
 
-    <!-- Our Clients + logos box + working filters -->
+    <!-- Our Clients: dynamic logo wall only -->
     <section id="clients" class="section section-alt">
-      <h2>Our clients & locations</h2>
+      <h2>Our valuable clients</h2>
       <p>
-        Explore Paramount’s client network across Indian cities for brands such
-        as Domino’s, KFC, Burger King, McDonald’s, Chaayos, Croma, Dr
-        Agarwal’s, The Hazelnut Factory, Mr DIY and others. Filter by brand,
-        city or region, or search by locality. Click a city on the map to
-        pre‑filter this list.
+        A quick view of some of the brands that trust Paramount for turnkey
+        rollouts and interior coordination across India.
       </p>
 
-      <!-- Logo box -->
-      <div class="client-logo-box" data-aos="zoom-in">
-        <h3>Some of our key clients</h3>
-        <div class="client-logo-grid">
-          <div class="client-logo-item">
-            <img src="images/mcd.png" alt="McDonald's" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/bk.png" alt="Burger King" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/chaayos.png" alt="Chaayos" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/croma.png" alt="Croma" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/dr.png" alt="Dr Agarwal's Eye Hospital" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/hazelnut.png" alt="The Hazelnut Factory" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/mrdiy.png" alt="Mr DIY" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/amoeba.png" alt="Amoeba" />
-          </div>
-          <div class="client-logo-item">
-            <img src="images/familytree.png" alt="Family Tree" />
-          </div>
-        </div>
-      </div>
+      <!-- Optional full screenshot reference image -->
+      <!-- <div class="clients-screenshot" data-aos="zoom-in">
+        <img src="images/clients-screenshot.jpg" alt="Our valuable clients" />
+      </div> -->
 
-      <!-- Filters with original IDs so script.js works -->
-      <div class="directory-filters" data-aos="fade-up">
-        <select id="filter-brand">
-          <option value="">All brands</option>
-        </select>
-
-        <select id="filter-city">
-          <option value="">All cities</option>
-        </select>
-
-        <select id="filter-region">
-          <option value="">All regions</option>
-          <option value="North">North</option>
-          <option value="South">South</option>
-          <option value="East">East</option>
-          <option value="West">West</option>
-          <option value="Central">Central</option>
-        </select>
-
-        <input
-          type="text"
-          id="filter-search"
-          placeholder="Search by city / locality"
-        />
-
-        <button id="filter-clear" class="pill-button pill-button-secondary">
-          Clear filters
-        </button>
-      </div>
-
-      <div id="directory-summary" class="directory-summary"></div>
-      <div id="directory-results" class="directory-grid"></div>
+      <!-- Dynamic grid of individual logos -->
+      <div id="client-logo-grid" class="client-logo-grid-large"></div>
     </section>
 
     <!-- Contact -->
