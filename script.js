@@ -534,7 +534,6 @@ const sampleImages = [
   { file: "images/burma.png", label: "Burma Burma" },
   { file: "chaayos.png", label: "Chaayos" },
   { file: "images/cinepolis.png", label: "Cinepolis" },
-  { file: "copperchimney.jpg", label: "Copper Chimney" },
   { file: "images/croma.png", label: "Croma" },
   { file: "images/dr.png", label: "Dr Agarwals" },
   { file: "izumi.png", label: "Izumi" },
