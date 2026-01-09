@@ -1,4 +1,4 @@
-/* styles.css – matches visiting card colours, moving background, looped typewriter */
+/* styles.css – matte dark grey, teal cards with orange accents */
 
 /* Reset */
 *,
@@ -12,7 +12,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   color: #f3f4f6;
-  background: #4b4f54; /* card dark grey */
+  background: #15171a; /* dark matte grey */
 }
 
 /* animated background layer */
@@ -21,13 +21,11 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at -10% 20%, #00b6c9 0, transparent 40%),
-    radial-gradient(circle at 110% 80%, #f5861f 0, transparent 45%),
-    radial-gradient(circle at 30% 120%, #00b6c9 0, transparent 40%),
-    radial-gradient(circle at 70% -20%, #f5861f 0, transparent 40%);
-  opacity: 0.28;
+    radial-gradient(circle at -10% 20%, #00b6c9 0, transparent 38%),
+    radial-gradient(circle at 110% 80%, #f5861f 0, transparent 40%);
+  opacity: 0.22;
   pointer-events: none;
-  animation: bg-orbit 20s linear infinite alternate;
+  animation: bg-orbit 26s linear infinite alternate;
 }
 
 @keyframes bg-orbit {
@@ -51,7 +49,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 24px;
-  background: rgba(61, 65, 71, 0.96); /* card grey */
+  background: rgba(39, 42, 46, 0.96);
   border-bottom: 2px solid #f5861f;
   backdrop-filter: blur(18px);
 }
@@ -66,7 +64,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 0, #00b6c9, #4b4f54 55%, #4b4f54);
+  background: radial-gradient(circle at 30% 0, #00b6c9, #15171a 55%, #15171a);
   padding: 2px;
   box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9);
 }
@@ -175,7 +173,7 @@ body {
 }
 
 .section-alt {
-  background: radial-gradient(circle at top, #3b3f44, #262a30 60%, #1c1f24);
+  background: radial-gradient(circle at top, #1c2024, #181b1f 60%, #15171a);
   border-top: 1px solid rgba(15, 23, 42, 0.9);
   border-bottom: 1px solid rgba(15, 23, 42, 0.9);
 }
@@ -208,7 +206,7 @@ body {
   align-items: start;
 }
 
-/* hero title matches card */
+/* hero title */
 .hero-title-glow {
   font-size: 2.5rem;
   margin-top: 0;
@@ -226,6 +224,12 @@ body {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: #e5e7eb;
+}
+
+/* smooth fade between phrases */
+.typewriter-fade {
+  opacity: 0.35;
+  transition: opacity 0.22s ease;
 }
 
 /* left column copy */
@@ -255,9 +259,24 @@ body {
 #info-panel,
 .directory-card,
 .sample-card,
+.pillars-strip,
 .pillar-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease,
     border-color 0.25s ease, background 0.25s ease;
+}
+
+/* generic teal card look */
+.map-card,
+#info-panel,
+.service-card,
+.contact-card,
+.contact-form,
+.info-card,
+.directory-card,
+.sample-card,
+.pillars-strip,
+.pillar-card {
+  background: #032d33; /* deep teal */
 }
 
 .service-card:hover,
@@ -291,37 +310,12 @@ body {
   color: #e5e7eb;
 }
 
-/* Map card */
-.hero-map {
-  width: 100%;
-}
-
+/* Map card & info panel borders */
 .map-card {
-  background: #111827;
-  border-radius: 22px;
-  padding: 0;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
-  border: 1px solid #00b6c9;
-  overflow: hidden;
+  border: 1px solid #f5861f;
 }
 
-#map {
-  width: 100%;
-  height: 380px;
-}
-
-/* Dark Leaflet tint */
-.leaflet-container {
-  background: #020617;
-}
-
-.leaflet-tile-pane {
-  filter: brightness(0.6) contrast(1.15) saturate(1.2) hue-rotate(-12deg);
-}
-
-/* Info panel */
 #info-panel {
-  background: radial-gradient(circle at top left, #343840, #111827);
   border-radius: 22px;
   padding: 18px;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
@@ -344,6 +338,25 @@ body {
   padding-left: 18px;
   font-size: 0.9rem;
   color: #e5e7eb;
+}
+
+/* Map */
+.hero-map {
+  width: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 380px;
+}
+
+/* Dark Leaflet tint */
+.leaflet-container {
+  background: #020617;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.6) contrast(1.15) saturate(1.2) hue-rotate(-12deg);
 }
 
 /* Buttons */
@@ -384,7 +397,6 @@ body {
 }
 
 .info-card {
-  background: #111827;
   border-radius: 16px;
   padding: 14px;
   border-top: 3px solid #00b6c9;
@@ -404,7 +416,6 @@ body {
 }
 
 .service-card {
-  background: #111827;
   border-radius: 16px;
   padding: 14px;
   border-top: 3px solid #f5861f;
@@ -420,7 +431,6 @@ body {
 }
 
 .contact-card {
-  background: #111827;
   border-radius: 16px;
   padding: 14px;
   border-top: 3px solid #00b6c9;
@@ -428,7 +438,6 @@ body {
 }
 
 .contact-form {
-  background: #111827;
   border-radius: 16px;
   padding: 16px;
   border-top: 3px solid #f5861f;
@@ -517,7 +526,6 @@ body {
 }
 
 .directory-card {
-  background: radial-gradient(circle at top left, #111827, #020617 70%);
   border-radius: 14px;
   padding: 12px;
   border-left: 3px solid #00b6c9;
@@ -541,10 +549,9 @@ body {
 }
 
 .sample-card {
-  background: #111827;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #4b5563;
+  border: 1px solid #00b6c9;
   display: flex;
   flex-direction: column;
 }
@@ -575,9 +582,8 @@ body {
   position: relative;
   margin-top: 22px;
   padding: 10px 34px;
-  background: radial-gradient(circle at top left, #111827, #020617 55%);
   border-radius: 20px;
-  border: 1px solid rgba(0, 182, 201, 0.4);
+  border: 1px solid rgba(245, 134, 31, 0.8);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
   overflow: hidden;
 }
@@ -608,9 +614,8 @@ body {
 .pillar-card {
   min-width: 210px;
   max-width: 220px;
-  background: radial-gradient(circle at top, #111827, #020617 75%);
   border-radius: 16px;
-  border: 1px solid #1f2937;
+  border: 1px solid #00b6c9;
   padding: 12px 10px 14px;
   display: flex;
   flex-direction: column;
