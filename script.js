@@ -490,6 +490,24 @@ function applyDirectoryFilters() {
     );
   }
 
+  // Sort by brand priority for display
+  filtered.sort((a, b) => {
+    const getPriority = (brand) => {
+      const idx = brandPriorityOrder.indexOf(brand);
+      return idx === -1 ? brandPriorityOrder.length : idx;
+    };
+
+    const brandA = a.brand || a.client;
+    const brandB = b.brand || b.client;
+
+    const pa = getPriority(brandA);
+    const pb = getPriority(brandB);
+
+    if (pa !== pb) return pa - pb;
+    // If same priority, fall back to city A–Z
+    return (a.city || "").localeCompare(b.city || "");
+  });
+
   renderDirectoryResults(filtered);
 }
 
