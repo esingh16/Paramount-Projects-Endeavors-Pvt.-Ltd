@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- moving background behind everything -->
+    <div class="bg-orbit-layer"></div>
+
     <!-- Header -->
     <header class="site-header">
       <div class="brand">
@@ -84,7 +87,6 @@
 
         <p class="hero-typewriter">
           <span id="typewriter-text"></span>
-          <span class="typewriter-caret">|</span>
         </p>
       </div>
 
@@ -491,24 +493,44 @@
       }
     </script>
 
-    <!-- Typewriter for subtitle -->
+    <!-- Typewriter for subtitle (slower, no caret, loops phrases) -->
     <script>
-      const text = "Transforming Vision into Action";
-      const target = document.getElementById("typewriter-text");
+      const phrases = [
+        "Transforming Vision into Action",
+        "Single-window coordination across India",
+        "From shell to store opening"
+      ];
+      const typeTarget = document.getElementById("typewriter-text");
 
-      if (target) {
-        let i = 0;
-        const speed = 55;
+      if (typeTarget) {
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        const typeSpeed = 90; // slower typing
+        const pauseBetween = 1400;
 
-        function type() {
-          if (i <= text.length) {
-            target.textContent = text.slice(0, i);
-            i += 1;
-            setTimeout(type, speed);
+        function typeLoop() {
+          const current = phrases[phraseIndex];
+
+          if (!deleting && charIndex <= current.length) {
+            typeTarget.textContent = current.slice(0, charIndex);
+            charIndex += 1;
+            setTimeout(typeLoop, typeSpeed);
+          } else if (!deleting && charIndex > current.length) {
+            deleting = true;
+            setTimeout(typeLoop, pauseBetween);
+          } else if (deleting && charIndex >= 0) {
+            typeTarget.textContent = current.slice(0, charIndex);
+            charIndex -= 1;
+            setTimeout(typeLoop, typeSpeed * 0.7);
+          } else {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(typeLoop, typeSpeed);
           }
         }
 
-        window.addEventListener("load", type);
+        window.addEventListener("load", typeLoop);
       }
     </script>
 
