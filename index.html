@@ -493,7 +493,7 @@
       }
     </script>
 
-    <!-- Typewriter for subtitle (slower, no caret, loops phrases) -->
+    <!-- Typewriter for subtitle (smooth loop, no cursor) -->
     <script>
       const phrases = [
         "Transforming Vision into Action",
@@ -506,8 +506,9 @@
         let phraseIndex = 0;
         let charIndex = 0;
         let deleting = false;
-        const typeSpeed = 90; // slower typing
+        const typeSpeed = 90;
         const pauseBetween = 1400;
+        const fadeDuration = 220;
 
         function typeLoop() {
           const current = phrases[phraseIndex];
@@ -517,15 +518,19 @@
             charIndex += 1;
             setTimeout(typeLoop, typeSpeed);
           } else if (!deleting && charIndex > current.length) {
-            deleting = true;
-            setTimeout(typeLoop, pauseBetween);
+            setTimeout(() => {
+              typeTarget.classList.add("typewriter-fade");
+              deleting = true;
+              setTimeout(typeLoop, fadeDuration);
+            }, pauseBetween);
           } else if (deleting && charIndex >= 0) {
             typeTarget.textContent = current.slice(0, charIndex);
             charIndex -= 1;
             setTimeout(typeLoop, typeSpeed * 0.7);
           } else {
-            deleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
+            deleting = false;
+            typeTarget.classList.remove("typewriter-fade");
             setTimeout(typeLoop, typeSpeed);
           }
         }
