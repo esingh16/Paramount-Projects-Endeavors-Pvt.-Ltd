@@ -217,6 +217,15 @@ body {
     0 0 26px rgba(0, 0, 0, 0.9);
 }
 
+/* hero subheading on left */
+.hero-subheading {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #cbd5f5;
+}
+
 /* typewriter line – fixed width, no layout shift */
 .hero-typewriter {
   margin: 0;
@@ -225,11 +234,11 @@ body {
   text-transform: uppercase;
   color: #e5e7eb;
   display: inline-block;
-  min-width: 30ch;      /* reserve space for longest phrase */
+  min-width: 30ch;      /* reserve space for longest line */
   text-align: center;
 }
 
-/* smooth fade between phrases */
+/* smooth fade (used when switching, even though we no longer delete) */
 .typewriter-fade {
   opacity: 0.35;
   transition: opacity 0.22s ease;
