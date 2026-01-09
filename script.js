@@ -193,6 +193,16 @@ const clientsDirectory = [
   { brand: "Hazelnut Factory", client: "Hazelnut Factory", city: "Meerut", region: "North", location: "Meerut" }
 ];
 
+// Brand display priority: Dr Agarwal's, BK, THF, McD, Croma, Domino's, then others
+const brandPriorityOrder = [
+  "Dr. Agarwal's",
+  "Burger King",
+  "Hazelnut Factory",
+  "McDonald's",
+  "Croma",
+  "Domino's"
+];
+
 // 2. Map city aggregation
 
 function buildCityAggregation() {
@@ -398,7 +408,15 @@ function initDirectoryFilters() {
 
   const brands = Array.from(
     new Set(clientsDirectory.map((p) => p.brand || p.client).filter(Boolean))
-  ).sort();
+  ).sort((a, b) => {
+    const ia = brandPriorityOrder.indexOf(a);
+    const ib = brandPriorityOrder.indexOf(b);
+    const pa = ia === -1 ? brandPriorityOrder.length : ia;
+    const pb = ib === -1 ? brandPriorityOrder.length : ib;
+    if (pa !== pb) return pa - pb;
+    return a.localeCompare(b);
+  });
+
   brands.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b;
@@ -475,7 +493,7 @@ function applyDirectoryFilters() {
   renderDirectoryResults(filtered);
 }
 
-// UPDATED: only show city and brand in each card
+// Only show city and brand in each card
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
   summaryEl.textContent = `${items.length} client site(s) matching current filters`;
