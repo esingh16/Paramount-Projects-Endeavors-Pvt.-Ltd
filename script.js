@@ -563,7 +563,6 @@ const sampleImages = [
   { file: "subway.png", label: "Subway" },
   { file: "images/taco.png", label: "Taco Bell" },
   { file: "images/hazelnut.png", label: "The Hazelnut Factory" },
-  { file: "images/timezone.png", label: "Timezone" },
   { file: "images/derby.png", label: "Derby" },
   { file: "images/timezone.png", label: "Timezone" },
   { file: "images/tulli.png", label: "Tulli Turmeric" },
