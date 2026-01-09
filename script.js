@@ -475,6 +475,7 @@ function applyDirectoryFilters() {
   renderDirectoryResults(filtered);
 }
 
+// UPDATED: only show city and brand in each card
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
   summaryEl.textContent = `${items.length} client site(s) matching current filters`;
@@ -490,36 +491,16 @@ function renderDirectoryResults(items) {
     card.className = "directory-card";
     card.setAttribute("data-aos", "fade-up");
 
-    const header = document.createElement("div");
-    header.className = "directory-card-header";
-
     const title = document.createElement("div");
     title.className = "directory-card-title";
-    title.textContent = p.location || "Location not specified";
-
-    const metaRight = document.createElement("div");
-    metaRight.className = "directory-card-meta";
-    metaRight.textContent = p.city || "";
-
-    header.appendChild(title);
-    header.appendChild(metaRight);
-
-    const subtitle = document.createElement("div");
-    subtitle.className = "directory-card-subtitle";
-    subtitle.textContent = `${p.city || "City NA"} • ${p.region || "Region NA"}`;
+    title.textContent = p.city || "City NA";
 
     const brandEl = document.createElement("div");
     brandEl.className = "directory-card-brand";
     brandEl.textContent = p.brand || p.client || "";
 
-    const meta = document.createElement("div");
-    meta.className = "directory-card-meta";
-    meta.textContent = `Client: ${p.client || "-"}`;
-
-    card.appendChild(header);
-    card.appendChild(subtitle);
+    card.appendChild(title);
     card.appendChild(brandEl);
-    card.appendChild(meta);
 
     resultsContainer.appendChild(card);
   });
