@@ -1,4 +1,5 @@
 // script.js
+
 // Unified clients data, map, directory, sample work, contact
 
 // 1. Clients directory data (no years)
@@ -139,7 +140,7 @@ const clientsDirectory = [
   { brand: "DIY", client: "DIY", city: "Amritsar", region: "North", location: "Amritsar" },
   { brand: "DIY", client: "DIY", city: "Nagpur", region: "West", location: "Nagpur" },
 
-  // Talli Turmeric (brand mention only; add cities when available)
+  // Talli Turmeric
   { brand: "Talli Turmeric", client: "Talli Turmeric", city: "Mumbai", region: "West", location: "Mumbai" },
 
   // Izumi
@@ -175,7 +176,7 @@ const clientsDirectory = [
   // Pepe Jeans
   { brand: "Pepe Jeans", client: "Pepe Jeans", city: "Kolkata", region: "East", location: "Kolkata" },
 
-  // Dr. Agarwal
+  // Dr. Agarwal's
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Virar", region: "West", location: "Virar" },
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Hennur", region: "South", location: "Hennur" },
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Lucknow", region: "North", location: "Lucknow" },
@@ -222,9 +223,7 @@ function buildCityAggregation() {
   return Array.from(cityMap.values());
 }
 
-// Basic city → coordinates mapping
-// Approximate; extend or tweak as needed.
-
+// Basic city → coordinates mapping (approximate)
 const cityCoordinates = {
   "Pune": [18.5204, 73.8567],
   "Baramati": [18.1517, 74.5777],
@@ -354,6 +353,7 @@ if (mapElement) {
       cityCoordinates[c.city] ||
       cityCoordinates[`${c.city} ${c.brand}`] ||
       null;
+
     if (!coords) return;
 
     const marker = L.circleMarker(coords, {
@@ -407,7 +407,11 @@ function initDirectoryFilters() {
   if (!resultsContainer) return;
 
   const brands = Array.from(
-    new Set(clientsDirectory.map((p) => p.brand || p.client).filter(Boolean))
+    new Set(
+      clientsDirectory
+        .map((p) => p.brand || p.client)
+        .filter(Boolean)
+    )
   ).sort((a, b) => {
     const ia = brandPriorityOrder.indexOf(a);
     const ib = brandPriorityOrder.indexOf(b);
@@ -475,43 +479,34 @@ function applyDirectoryFilters() {
       (p) => (p.brand || p.client) === brandVal
     );
   }
-
   if (cityVal) {
     filtered = filtered.filter((p) => p.city === cityVal);
   }
-
   if (regionVal) {
     filtered = filtered.filter((p) => p.region === regionVal);
   }
-
   if (query) {
     filtered = filtered.filter((p) =>
       (p.location || "").toLowerCase().includes(query)
     );
   }
 
-  // Sort by brand priority for display
   filtered.sort((a, b) => {
     const getPriority = (brand) => {
       const idx = brandPriorityOrder.indexOf(brand);
       return idx === -1 ? brandPriorityOrder.length : idx;
     };
-
     const brandA = a.brand || a.client;
     const brandB = b.brand || b.client;
-
     const pa = getPriority(brandA);
     const pb = getPriority(brandB);
-
     if (pa !== pb) return pa - pb;
-    // If same priority, fall back to city A–Z
     return (a.city || "").localeCompare(b.city || "");
   });
 
   renderDirectoryResults(filtered);
 }
 
-// Only show city and brand in each card
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
   summaryEl.textContent = `${items.length} client site(s) matching current filters`;
@@ -537,7 +532,6 @@ function renderDirectoryResults(items) {
 
     card.appendChild(title);
     card.appendChild(brandEl);
-
     resultsContainer.appendChild(card);
   });
 }
@@ -604,7 +598,6 @@ function renderSampleWork() {
     actions.appendChild(downloadLink);
     body.appendChild(title);
     body.appendChild(actions);
-
     card.appendChild(img);
     card.appendChild(body);
     grid.appendChild(card);
