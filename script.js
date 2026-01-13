@@ -10,7 +10,7 @@ const clientsDirectory = [
   { brand: "Domino's", client: "Domino's", city: "Pune", region: "West", location: "Pune" },
   { brand: "Domino's", client: "Domino's", city: "Baramati", region: "West", location: "Baramati" },
   { brand: "Domino's", client: "Domino's", city: "Mumbai", region: "West", location: "Mumbai" },
-  { brand: "Domino's", client: "Domino's", city: "Surat", region: "West", location: "Surat" },
+  { brand: "Domino's", client: "Domino's", city: "Surat", "region": "West", location: "Surat" },
   { brand: "Domino's", client: "Domino's", city: "Goa", region: "West", location: "Goa" },
   { brand: "Domino's", client: "Domino's", city: "Satara", region: "West", location: "Satara" },
   { brand: "Domino's", client: "Domino's", city: "New Delhi", region: "North", location: "New Delhi" },
