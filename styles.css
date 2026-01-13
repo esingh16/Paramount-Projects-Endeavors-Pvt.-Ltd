@@ -1,18 +1,13 @@
-/* styles.css – matte dark grey, teal cards with orange accents */
-
 /* Reset */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #f3f4f6;
-  background: #15171a; /* dark matte grey */
+  background: #15171a;
 }
 
 /* animated background layer */
@@ -76,20 +71,6 @@ body {
   object-fit: cover;
 }
 
-.logo-circle .logo-letter {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: #111827;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e5e7eb;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transform: translateY(-1px);
-}
-
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -148,8 +129,11 @@ body {
   background: #111827;
   border: 1px solid #6b7280;
   padding: 3px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    border-color 0.18s ease, background 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
 }
 
 .social-icon img {
@@ -173,7 +157,8 @@ body {
 }
 
 .section-alt {
-  background: radial-gradient(circle at top, #1c2024, #181b1f 60%, #15171a);
+  background:
+    radial-gradient(circle at top, #1c2024, #181b1f 60%, #15171a);
   border-top: 1px solid rgba(15, 23, 42, 0.9);
   border-bottom: 1px solid rgba(15, 23, 42, 0.9);
 }
@@ -186,7 +171,7 @@ body {
   font-size: 0.98rem;
 }
 
-/* Hero: header + 3-column body */
+/* Hero header & body */
 .section-hero {
   display: flex;
   flex-direction: column;
@@ -196,14 +181,6 @@ body {
 /* centred header row */
 .hero-header {
   text-align: center;
-}
-
-/* three-column body */
-.hero-body {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-  align-items: start;
 }
 
 /* hero title */
@@ -217,16 +194,7 @@ body {
     0 0 26px rgba(0, 0, 0, 0.9);
 }
 
-/* hero subheading on left */
-.hero-subheading {
-  margin: 0 0 8px;
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #cbd5f5;
-}
-
-/* typewriter line – fixed width, no layout shift */
+/* typewriter line */
 .hero-typewriter {
   margin: 0;
   font-size: 0.9rem;
@@ -234,19 +202,29 @@ body {
   text-transform: uppercase;
   color: #e5e7eb;
   display: inline-block;
-  min-width: 30ch;      /* reserve space for longest line */
+  min-width: 30ch;
   text-align: center;
 }
 
-/* smooth fade (used when switching, even though we no longer delete) */
-.typewriter-fade {
-  opacity: 0.35;
-  transition: opacity 0.22s ease;
+/* three-column body */
+.hero-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
 }
 
 /* left column copy */
 .hero-left {
   text-align: left;
+}
+
+.hero-subheading {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #cbd5f5;
 }
 
 .hero-lead {
@@ -261,45 +239,6 @@ body {
   gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
-}
-
-/* Shared card transitions */
-.service-card,
-.info-card,
-.contact-card,
-.map-card,
-#info-panel,
-.directory-card,
-.sample-card,
-.pillars-strip,
-.pillar-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease, background 0.25s ease;
-}
-
-/* generic teal card look */
-.map-card,
-#info-panel,
-.service-card,
-.contact-card,
-.contact-form,
-.info-card,
-.directory-card,
-.sample-card,
-.pillars-strip,
-.pillar-card {
-  background: #032d33; /* deep teal */
-}
-
-.service-card:hover,
-.info-card:hover,
-.contact-card:hover,
-.directory-card:hover,
-.sample-card:hover,
-.pillar-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.78);
-  border-color: #00b6c9;
 }
 
 /* Stat cards */
@@ -322,13 +261,16 @@ body {
   color: #e5e7eb;
 }
 
-/* Map card & info panel borders */
+/* Map card & info panel */
 .hero-map {
   width: 100%;
 }
 
 .map-card {
   border: 1px solid #f5861f;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #032d33;
 }
 
 #map {
@@ -342,14 +284,20 @@ body {
 }
 
 .leaflet-tile-pane {
-  filter: brightness(0.6) contrast(1.15) saturate(1.2) hue-rotate(-12deg);
+  filter:
+    brightness(0.6)
+    contrast(1.15)
+    saturate(1.2)
+    hue-rotate(-12deg);
 }
 
+/* info panel */
 #info-panel {
   border-radius: 22px;
   padding: 18px;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
   border: 1px solid #f5861f;
+  background: #032d33;
 }
 
 #info-title {
@@ -370,6 +318,54 @@ body {
   color: #e5e7eb;
 }
 
+.small-note {
+  font-size: 0.8rem;
+  color: #cbd5f5;
+  margin-top: 8px;
+}
+
+/* Shared card transitions */
+.service-card,
+.info-card,
+.contact-card,
+.map-card,
+#info-panel,
+.directory-card,
+.sample-card,
+.pillars-strip,
+.pillar-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* generic teal card look */
+.map-card,
+#info-panel,
+.service-card,
+.contact-card,
+.contact-form,
+.info-card,
+.directory-card,
+.sample-card,
+.pillars-strip,
+.pillar-card {
+  background: #032d33;
+}
+
+.service-card:hover,
+.info-card:hover,
+.contact-card:hover,
+.directory-card:hover,
+.sample-card:hover,
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.78);
+  border-color: #00b6c9;
+}
+
 /* Buttons */
 .pill-button {
   background: linear-gradient(120deg, #f5861f, #00b6c9);
@@ -386,7 +382,10 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
 }
 
 .pill-button:hover {
@@ -399,26 +398,7 @@ body {
   border: 1px solid #f5861f;
 }
 
-/* Services / info cards */
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
-}
-
-.info-card {
-  border-radius: 16px;
-  padding: 14px;
-  border-top: 3px solid #00b6c9;
-}
-
-.small-note {
-  font-size: 0.8rem;
-  color: #cbd5f5;
-  margin-top: 8px;
-}
-
+/* Services */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -548,6 +528,12 @@ body {
 .directory-card-title {
   font-size: 0.98rem;
   font-weight: 600;
+  color: #f9fafb;
+}
+
+.directory-card-brand {
+  font-size: 0.85rem;
+  color: #e5e7eb;
 }
 
 /* Sample work gallery */
@@ -586,6 +572,11 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   color: #f9fafb;
+}
+
+.sample-actions {
+  display: flex;
+  gap: 8px;
 }
 
 /* Pillars of Paramount */
@@ -633,7 +624,6 @@ body {
   align-items: center;
 }
 
-/* circular avatars with more headroom */
 .pillar-card img {
   width: 110px;
   height: 110px;
@@ -674,8 +664,11 @@ body {
   cursor: pointer;
   font-size: 1.1rem;
   padding: 0;
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    border-color 0.18s ease, background 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
 }
 
 .pillars-nav-left {
@@ -706,6 +699,173 @@ body {
   color: #9ca3af;
   font-size: 0.8rem;
   border-top: 2px solid #f5861f;
+}
+
+/* Archana AI Assistant widget */
+#archana-chat-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 300;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(120deg, #f5861f, #00b6c9);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.85);
+}
+
+.archana-toggle-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #020617;
+}
+
+#archana-chat-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 70px;
+  width: 320px;
+  max-height: 430px;
+  display: none;
+  flex-direction: column;
+  background: #020617;
+  border-radius: 18px;
+  border: 1px solid #f5861f;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
+  z-index: 310;
+  overflow: hidden;
+}
+
+.archana-header {
+  padding: 10px 12px;
+  background: radial-gradient(circle at top left, #00b6c9, #111827);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.archana-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.archana-header-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #020617;
+  border: 1px solid rgba(15, 23, 42, 0.9);
+}
+
+.archana-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.archana-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e5f0ff;
+}
+
+.archana-subtitle {
+  font-size: 0.74rem;
+  color: #cbd5f5;
+}
+
+#archana-close {
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#archana-messages {
+  padding: 10px 12px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  background: #020617;
+}
+
+.archana-message {
+  margin-bottom: 8px;
+}
+
+.archana-message-bot span,
+.archana-message-user span {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.archana-message-bot {
+  text-align: left;
+  color: #cbd5f5;
+}
+
+.archana-message-bot span {
+  background: #032d33;
+  border-left: 3px solid #00b6c9;
+}
+
+.archana-message-user {
+  text-align: right;
+  color: #f9fafb;
+}
+
+.archana-message-user span {
+  background: #f5861f;
+}
+
+#archana-form {
+  display: flex;
+  padding: 8px;
+  gap: 6px;
+  border-top: 1px solid #1f2933;
+  background: #020617;
+}
+
+#archana-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #f9fafb;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+
+#archana-input:focus {
+  outline: none;
+  border-color: #00b6c9;
+}
+
+#archana-form button {
+  border-radius: 999px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(120deg, #f5861f, #00b6c9);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 /* Responsive */
@@ -757,5 +917,18 @@ body {
 
   .pillar-card {
     min-width: 190px;
+  }
+}
+
+/* Small screens: nudge widget inward a bit */
+@media (max-width: 480px) {
+  #archana-chat-toggle {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  #archana-chat-widget {
+    right: 8px;
+    width: 88vw;
   }
 }
