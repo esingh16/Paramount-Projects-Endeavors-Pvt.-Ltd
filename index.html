@@ -5,19 +5,14 @@
     <title>Paramount Project Endeavors Pvt. Ltd.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Leaflet CSS -->
+    <!-- Leaflet CSS (no integrity / crossorigin) -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIINhmNHrzRCf9tDmiZyoHS5obTRR9BMY= "
-      crossorigin=""
     />
 
     <!-- AOS CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -29,27 +24,22 @@
     <header class="site-header">
       <div class="brand">
         <div class="logo-circle">
-          <img
-            src="images/logo.png"
-            alt="Paramount Logo"
-            class="logo-image"
-          />
+          <img src="images/logo.png" alt="Paramount Logo" class="logo-image" />
         </div>
         <div class="brand-text">
           <span class="brand-name">PARAMOUNT PROJECT ENDEAVORS PVT. LTD.</span>
-          <span class="brand-tagline">
-            Turnkey interiors · Rollout coordination · Pan-India delivery
-          </span>
+          <span class="brand-tagline"
+            >Turnkey interiors · Rollout coordination · Pan-India
+            delivery</span
+          >
         </div>
       </div>
-
       <nav class="main-nav">
         <a href="#about">About</a>
         <a href="#projects">Best Projects</a>
         <a href="#clients">Our Clients</a>
         <a href="#pillars">Pillars</a>
         <a href="#contact">Contact</a>
-
         <!-- social icons -->
         <a
           href="https://www.linkedin.com/in/paramount-projects-25942b25b"
@@ -81,11 +71,13 @@
       </nav>
     </header>
 
-    <!-- Hero About -->
+    <!-- Hero / About -->
     <section id="about" class="section section-hero">
       <!-- Top centred title + typewriter -->
       <div class="hero-header" data-aos="fade-down">
-        <h1 class="hero-title-glow">Paramount Project Endeavors Private Limited</h1>
+        <h1 class="hero-title-glow">
+          Paramount Project Endeavors Private Limited
+        </h1>
         <p class="hero-typewriter">
           <span id="typewriter-text"></span>
         </p>
@@ -97,21 +89,38 @@
         <div class="hero-left" data-aos="fade-right">
           <h2 class="hero-subheading">Coordination &amp; Execution</h2>
           <p class="hero-lead">
-            Paramount manages the day-to-day coordination between landlords, design teams, contractors,
-            vendors and client teams so projects move smoothly and close out within agreed timelines.
+            Paramount manages the day-to-day coordination between landlords,
+            design teams, contractors, vendors and client teams so projects move
+            smoothly and close out within agreed timelines.
           </p>
+
+          <ul class="list">
+            <li>
+              Single point of coordination from shell possession to store
+              opening.
+            </li>
+            <li>
+              Structured rollout playbooks so each new outlet builds on the last
+              one.
+            </li>
+            <li>
+              On-ground supervision, checklists and photographic documentation
+              to close snag lists.
+            </li>
+          </ul>
+
           <div class="hero-stats">
             <div class="stat-card">
               <div class="stat-number">Projects across India</div>
               <div class="stat-label">
-                Multi-city experience from metros to tier-2 emerging locations
+                Multi-city experience from metros to tier-2 emerging locations.
               </div>
             </div>
             <div class="stat-card">
               <div class="stat-number">City-wise presence</div>
               <div class="stat-label">
-                Markers for brands such as Dr Agarwals Eye Hospital, Burger King, The Hazelnut Factory,
-                Mr DIY and more
+                Markers for brands such as Dr Agarwals Eye Hospital, Burger
+                King, The Hazelnut Factory, Mr DIY and more.
               </div>
             </div>
           </div>
@@ -128,29 +137,40 @@
         <aside id="info-panel" data-aos="fade-left">
           <h2 id="info-title">One team, End-To-End Solutions</h2>
           <p id="info-content">
-            Paramount coordinates between landlords, architects, contractors and vendors as a single
-            project spine executing drawings, BOQs and approvals into predictable site handovers.
+            Paramount coordinates between landlords, architects, contractors and
+            vendors as a single project spine executing drawings, BOQs and
+            approvals into predictable site handovers.
           </p>
           <ul class="list">
-            <li>One window for civil works, interiors and MEP services.</li>
-            <li>Standardised scopes, checklists and formats so every new outlet starts on the shoulders of the last one.</li>
-            <li>Ground-level supervision with clear reporting, risk flags and closure documentation for every site.</li>
+            <li>
+              One window for civil works, interiors and MEP services.
+            </li>
+            <li>
+              Standardised scopes, checklists and formats so every new outlet
+              starts on the shoulders of the last one.
+            </li>
+            <li>
+              Ground-level supervision with clear reporting, risk flags and
+              closure documentation for every site.
+            </li>
           </ul>
           <p class="small-note">
-            The map and directory together show how this model scales from single sites to multi-city rollout programmes.
+            The map and directory together show how this model scales from
+            single sites to multi-city rollout programmes.
           </p>
         </aside>
       </div>
     </section>
 
-    <!-- Our clients locations -->
+    <!-- Our clients & locations -->
     <section id="clients" class="section section-alt">
       <h2>Our clients &amp; locations</h2>
       <p>
-        Explore Paramount’s client network across Indian cities for brands such as
-        Dr Agarwals Eye Hospital, KFC, Burger King, McDonalds, Chaayos, Croma, The Hazelnut Factory,
-        Mr DIY, Dominos, TWC and others. Filter by brand, city or region, or search by locality.
-        Click a city on the map to pre-filter this list.
+        Explore Paramount’s client network across Indian cities for brands such
+        as Dr Agarwal’s Eye Hospital, KFC, Burger King, McDonald’s, Chaayos,
+        Croma, The Hazelnut Factory, Mr DIY, Domino’s, TWC and others. Filter by
+        brand, city or region, or search by locality. Click a city on the map to
+        pre-filter this list.
       </p>
 
       <div class="directory-filters">
@@ -193,28 +213,32 @@
         <article class="service-card" data-aos="fade-up">
           <h3>End-to-end interior execution</h3>
           <p>
-            Executed civil, interior and MEP works from shell to store opening, with clear sequencing and milestone sign-offs.
+            Executed civil, interior and MEP works from shell to store opening,
+            with clear sequencing and milestone sign-offs.
           </p>
         </article>
 
         <article class="service-card" data-aos="fade-up" data-aos-delay="80">
           <h3>Vendor &amp; stakeholder interfaces</h3>
           <p>
-            Interfaces with client vendors, landlords, mall teams and agencies to keep drawings, deliveries and approvals aligned.
+            Interfaces with client vendors, landlords, mall teams and agencies
+            to keep drawings, deliveries and approvals aligned.
           </p>
         </article>
 
         <article class="service-card" data-aos="fade-up" data-aos-delay="140">
-          <h3>Multi-city rollout management</h3>
+          <h3>Multicity rollout management</h3>
           <p>
-            Parallel openings managed through standardized checklists, local networks and robust progress reporting.
+            Parallel openings managed through standardized checklists, local
+            networks and robust progress reporting.
           </p>
         </article>
 
         <article class="service-card" data-aos="fade-up" data-aos-delay="200">
           <h3>Brand &amp; quality assurance</h3>
           <p>
-            Attention to detailing so finishes, layouts and services match brand standards across formats and locations.
+            Attention to detailing so finishes, layouts and services match brand
+            standards across formats and locations.
           </p>
         </article>
       </div>
@@ -224,8 +248,9 @@
     <section id="projects" class="section">
       <h2>Some of our best projects</h2>
       <p>
-        A curated snapshot of completed outlets that represent the quality and variety of work delivered
-        across QSR, retail and experience formats. Images are indicative and do not list individual sites.
+        A curated snapshot of completed outlets that represent the quality and
+        variety of work delivered across QSR, retail and experience formats.
+        Images are indicative and do not list individual sites.
       </p>
       <div id="sample-work-grid" class="sample-grid"></div>
     </section>
@@ -233,51 +258,63 @@
     <!-- Pillars of Paramount -->
     <section id="pillars" class="section section-alt">
       <h2>Pillars of Paramount</h2>
-      <p>The leadership and specialist heads who transform vision into action.</p>
+      <p>
+        The leadership and specialist heads who transform vision into action.
+      </p>
 
       <div class="pillars-strip" data-aos="fade-up">
         <button
           class="pillars-nav pillars-nav-left"
           aria-label="Scroll left"
-        >
-          ‹
-        </button>
+        ></button>
 
         <div class="pillars-track">
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="0">
             <img src="images/pradeep.png" alt="Pradeep Singh" />
             <div class="pillar-name">Pradeep Singh</div>
-            <div class="pillar-role">Director Business &amp; Project Management</div>
+            <div class="pillar-role">
+              Director Business &amp; Project Management
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="40">
             <img src="images/alok.png" alt="Alok Mishra" />
             <div class="pillar-name">Alok Mishra</div>
-            <div class="pillar-role">Director Contracts &amp; Finance</div>
+            <div class="pillar-role">
+              Director Contracts &amp; Finance
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="80">
             <img src="images/vishal.png" alt="Vishal Singh" />
             <div class="pillar-name">Vishal Singh</div>
-            <div class="pillar-role">Director Project &amp; Maintenance</div>
+            <div class="pillar-role">
+              Director Project &amp; Maintenance
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="120">
             <img src="images/abhishek.png" alt="Abhishek Singh" />
             <div class="pillar-name">Abhishek Singh</div>
-            <div class="pillar-role">Head Project North &amp; East</div>
+            <div class="pillar-role">
+              Head Project North &amp; East
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="160">
             <img src="images/mangana.png" alt="Mangana Ram" />
             <div class="pillar-name">Mangana Ram</div>
-            <div class="pillar-role">Head Project South &amp; West</div>
+            <div class="pillar-role">
+              Head Project South &amp; West
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="200">
             <img src="images/radhe.png" alt="Radhe Mahato" />
             <div class="pillar-name">Radhe Mahato</div>
-            <div class="pillar-role">Head Procurement &amp; Vendor Development</div>
+            <div class="pillar-role">
+              Head Procurement &amp; Vendor Development
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="240">
@@ -295,13 +332,17 @@
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="320">
             <img src="images/gaurav.png" alt="Gaurav Rajput" />
             <div class="pillar-name">Gaurav Rajput</div>
-            <div class="pillar-role">Head AC &amp; Ventilation System</div>
+            <div class="pillar-role">
+              Head AC &amp; Ventilation System
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="360">
             <img src="images/amarjeet.png" alt="Amarjeet Nishad" />
             <div class="pillar-name">Amarjeet Nishad</div>
-            <div class="pillar-role">Head Plumbing &amp; Drainage System</div>
+            <div class="pillar-role">
+              Head Plumbing &amp; Drainage System
+            </div>
           </article>
 
           <article class="pillar-card" data-aos="fade-up" data-aos-delay="400">
@@ -320,9 +361,7 @@
         <button
           class="pillars-nav pillars-nav-right"
           aria-label="Scroll right"
-        >
-          ›
-        </button>
+        ></button>
       </div>
     </section>
 
@@ -330,7 +369,8 @@
     <section id="contact" class="section">
       <h2>Get in touch</h2>
       <p>
-        Reach out to discuss upcoming rollouts, fit-out requirements or long-term coordination support across India.
+        Reach out to discuss upcoming rollouts, fit-out requirements or
+        long-term coordination support across India.
       </p>
 
       <div class="contact-grid">
@@ -338,7 +378,7 @@
           <h3>Head Office · Mumbai</h3>
           <p>
             <a
-              href="https://www.google.com/maps/search?api=1&query=13A,3rd+Floor,+Ajay+Apartments,+Next+to+Ruia+Hall,+Anand+Road,+Malad+West,+Mumbai-400064"
+              href="https://www.google.com/maps/search?api=1&query=13A%2C+3rd+Floor%2C+Ajay+Apartments%2C+Next+to+Ruia+Hall%2C+Anand+Road%2C+Malad+West%2C+Mumbai+-+400064"
               target="_blank"
               rel="noopener noreferrer"
               class="address-link"
@@ -349,10 +389,12 @@
           </p>
           <p>Mobile: +91 9920479027</p>
           <p>
-            Email:
-            <a href="mailto:info@ppepl.co.in" class="address-link">
-              info@ppepl.co.in
-            </a>
+            Email
+            <a
+              href="mailto:info@ppepl.co.in"
+              class="address-link"
+              >info@ppepl.co.in</a
+            >
           </p>
         </article>
 
@@ -360,13 +402,13 @@
           <h3>North Office · New Delhi</h3>
           <p>
             <a
-              href="https://www.google.com/maps/search?api=1&query=Plot+No.7060,+1st+Floor,+Mangolpur+Kalan,+Pocket+5,+Sector+2+Rohini,+New+Delhi-110085"
+              href="https://www.google.com/maps/search?api=1&query=Plot+No.+70%2F60%2C+1st+Floor%2C+Mangolpur+Kalan%2C+Pocket+5%2C+Sector+2+Rohini%2C+New+Delhi+-+110+085"
               target="_blank"
               rel="noopener noreferrer"
               class="address-link"
             >
-              Plot No. 7060, 1st Floor, Mangolpur Kalan, Pocket 5,
-              Sector 2 Rohini, New Delhi - 110 085.
+              Plot No. 70/60, 1st Floor, Mangolpur Kalan, Pocket 5, Sector 2
+              Rohini, New Delhi - 110 085.
             </a>
           </p>
         </article>
@@ -381,22 +423,23 @@
             <label for="name">Name</label>
             <input id="name" name="name" type="text" required />
           </div>
-
           <div class="form-row">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" required />
           </div>
-
           <div class="form-row">
             <label for="phone">Phone</label>
             <input id="phone" name="phone" type="tel" />
           </div>
-
           <div class="form-row">
             <label for="message">Project enquiry details</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+            ></textarea>
           </div>
-
           <button type="submit" class="pill-button">Submit enquiry</button>
         </form>
       </div>
@@ -410,25 +453,39 @@
       </span>
     </footer>
 
-    <!-- Archana AI Assistant Widget -->
-    <button id="archana-chat-toggle" aria-label="Open Archana chat">
-      <img src="images/chatbot.png" alt="Archana chatbot" class="archana-toggle-icon" />
+    <!-- Archana chatbot UI -->
+    <button
+      id="archana-chat-toggle"
+      aria-label="Open Archana chat"
+      class="archana-toggle"
+    >
+      <img
+        src="images/chatbot.png"
+        alt="Archana chatbot"
+        class="archana-toggle-icon"
+      />
       <span>Archana</span>
     </button>
 
-    <div id="archana-chat-widget" aria-live="polite">
+    <div id="archana-chat-widget" class="archana-widget" aria-live="polite">
       <div class="archana-header">
         <div class="archana-header-left">
-          <img src="images/chatbot.png" alt="Archana chatbot" class="archana-header-icon" />
+          <img
+            src="images/chatbot.png"
+            alt="Archana chatbot"
+            class="archana-header-icon"
+          />
           <div class="archana-header-text">
             <span class="archana-title">Archana – AI Assistant</span>
-            <span class="archana-subtitle">Ask about projects, services, locations</span>
+            <span class="archana-subtitle"
+              >Ask about projects, services, locations</span
+            >
           </div>
         </div>
         <button id="archana-close" aria-label="Close chat">×</button>
       </div>
-      <div id="archana-messages"></div>
-      <form id="archana-form">
+      <div id="archana-messages" class="archana-messages"></div>
+      <form id="archana-form" class="archana-form">
         <input
           id="archana-input"
           type="text"
@@ -440,20 +497,16 @@
       </form>
     </div>
 
-    <!-- Leaflet -->
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2Z9VMkNiyxNV1lvTlZBo6U="
-      crossorigin=""
-    ></script>
+    <!-- Leaflet JS (no integrity / crossorigin) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- AOS -->
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 700, once: true });
     </script>
 
-    <!-- Pillars scroll drag -->
+    <!-- Pillars scroll / drag -->
     <script>
       const track = document.querySelector(".pillars-track");
       const leftBtn = document.querySelector(".pillars-nav-left");
@@ -499,7 +552,7 @@
       }
     </script>
 
-    <!-- Typewriter for subtitle TWO lines, no delete, no shake -->
+    <!-- Typewriter for subtitle -->
     <script>
       const lines = [
         "Transforming Vision into Action",
@@ -515,7 +568,6 @@
 
         function typeLine() {
           const current = lines[lineIndex];
-
           if (charIndex < current.length) {
             typeTarget.textContent = current.slice(0, charIndex);
             charIndex += 1;
