@@ -9,8 +9,7 @@
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIINhmNHrzRCf9tDmiZyoHS5obTRR9BMY=
-"
+      integrity="sha256-p4NxAoJBhIINhmNHrzRCf9tDmiZyoHS5obTRR9BMY="
       crossorigin=""
     />
     <!-- AOS CSS -->
@@ -257,8 +256,15 @@
           ‹
         </button>
         <div class="pillars-track">
-          <!-- cards as in your original file (truncated here for brevity) -->
-          <!-- ... keep all your existing pillar-card articles ... -->
+          <!-- keep all your existing pillar-card articles -->
+          <!-- Example (one card): -->
+          <!--
+          <article class="pillar-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="images/pradeep.png" alt="Pradeep Singh" />
+            <div class="pillar-name">Pradeep Singh</div>
+            <div class="pillar-role">Director – Business & Project Management</div>
+          </article>
+          -->
         </div>
         <button
           class="pillars-nav pillars-nav-right"
@@ -350,13 +356,15 @@
       </span>
     </footer>
 
-    <!-- Archana chatbot widget (Deep Chat web model) -->
-    <div class="archana-widget">
+    <!-- Archana chatbot launcher + widget -->
+    <div class="archana-launcher" id="archana-launcher">
+      <img src="images/chatbot.png" alt="Chat with Archana" />
+    </div>
+    <div class="archana-widget" id="archana-widget">
       <deep-chat
         webModel="true"
         introPanel='{"message":"Hi, I am Archana. Ask me about Paramount, our services and projects."}'
-      >
-      </deep-chat>
+      ></deep-chat>
     </div>
 
     <!-- Leaflet -->
@@ -417,7 +425,7 @@
       }
     </script>
 
-    <!-- Typewriter for subtitle TWO lines, no delete -->
+    <!-- Typewriter for subtitle -->
     <script>
       const lines = [
         "Transforming Vision into Action",
@@ -436,18 +444,27 @@
             typeTarget.textContent = current.slice(0, charIndex);
             charIndex += 1;
             setTimeout(typeLine, typeSpeed);
-          } else {
-            if (lineIndex < lines.length - 1) {
-              setTimeout(() => {
-                lineIndex += 1;
-                charIndex = 0;
-                typeTarget.textContent = "";
-                typeLine();
-              }, linePause);
-            }
+          } else if (lineIndex < lines.length - 1) {
+            setTimeout(() => {
+              lineIndex += 1;
+              charIndex = 0;
+              typeTarget.textContent = "";
+              typeLine();
+            }, linePause);
           }
         }
+
         window.addEventListener("load", typeLine);
+      }
+    </script>
+
+    <!-- Archana widget open/close -->
+    <script>
+      const launcherEl = document.getElementById("archana-launcher");
+      if (launcherEl) {
+        launcherEl.addEventListener("click", () => {
+          document.body.classList.toggle("archana-widget-open");
+        });
       }
     </script>
 
