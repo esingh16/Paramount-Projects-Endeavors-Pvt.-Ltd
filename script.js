@@ -639,6 +639,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("archana-form");
   const input = document.getElementById("archana-input");
   const messages = document.getElementById("archana-messages");
+  const quickReplies = document.getElementById("archana-quick-replies");
 
   if (!toggle || !widget || !form || !input || !messages) return;
 
@@ -665,6 +666,40 @@ document.addEventListener("DOMContentLoaded", () => {
     return div;
   }
 
+  async function sendMessage(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+
+    appendMessage(trimmed, "user");
+
+    const thinkingNode = addThinking();
+
+    try {
+      const res = await fetch(API_BASE + "/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed })
+      });
+
+      if (thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+
+      if (!res.ok) {
+        appendMessage("Sorry, Archana is unavailable at the moment.", "bot");
+        return;
+      }
+
+      const data = await res.json();
+      appendMessage(data.reply || "I could not generate a response.", "bot");
+    } catch (err) {
+      if (thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+      appendMessage("Network error. Please try again.", "bot");
+    }
+  }
+
   toggle.addEventListener("click", () => {
     widget.style.display = "flex";
     input.focus();
@@ -685,35 +720,16 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const text = input.value.trim();
     if (!text) return;
-
-    appendMessage(text, "user");
     input.value = "";
-
-    const thinkingNode = addThinking();
-
-    try {
-      const res = await fetch(API_BASE + "/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text })
-      });
-
-      if (thinkingNode.parentNode) {
-        thinkingNode.parentNode.removeChild(thinkingNode);
-      }
-
-      if (!res.ok) {
-        appendMessage("Sorry, Archana is unavailable at the moment.", "bot");
-        return;
-      }
-
-      const data = await res.json();
-      appendMessage(data.reply || "I could not generate a response.", "bot");
-    } catch (err) {
-      if (thinkingNode.parentNode) {
-        thinkingNode.parentNode.removeChild(thinkingNode);
-      }
-      appendMessage("Network error. Please try again.", "bot");
-    }
+    await sendMessage(text);
   });
+
+  if (quickReplies) {
+    quickReplies.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-question]");
+      if (!btn) return;
+      const q = btn.getAttribute("data-question") || "";
+      sendMessage(q);
+    });
+  }
 })();
