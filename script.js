@@ -1,4 +1,5 @@
 // script.js
+
 // Unified clients data, map, directory, sample work, contact
 
 // 1. Clients directory data (no years)
@@ -139,7 +140,7 @@ const clientsDirectory = [
   { brand: "DIY", client: "DIY", city: "Amritsar", region: "North", location: "Amritsar" },
   { brand: "DIY", client: "DIY", city: "Nagpur", region: "West", location: "Nagpur" },
 
-  // Talli Turmeric (brand mention only; add cities when available)
+  // Talli Turmeric
   { brand: "Talli Turmeric", client: "Talli Turmeric", city: "Mumbai", region: "West", location: "Mumbai" },
 
   // Izumi
@@ -204,9 +205,9 @@ const brandPriorityOrder = [
 ];
 
 // 2. Map city aggregation
-
 function buildCityAggregation() {
   const cityMap = new Map();
+
   clientsDirectory.forEach((p) => {
     if (!p.city) return;
     const key = p.city.toLowerCase();
@@ -219,12 +220,11 @@ function buildCityAggregation() {
     }
     cityMap.get(key).clients.push(p);
   });
+
   return Array.from(cityMap.values());
 }
 
-// Basic city → coordinates mapping
-// Approximate; extend or tweak as needed.
-
+// Basic city → coordinates mapping (approximate)
 const cityCoordinates = {
   "Pune": [18.5204, 73.8567],
   "Baramati": [18.1517, 74.5777],
@@ -263,7 +263,6 @@ const cityCoordinates = {
   "Hyderabad": [17.385, 78.4867],
   "Vashi": [19.0771, 73.0297],
   "Hubli": [15.3647, 75.124],
-  "Pressto": [19.2183, 72.9781],
   "Amritsar": [31.634, 74.8723],
   "Huda City": [28.4595, 77.0266],
   "Saket": [28.5286, 77.2197],
@@ -289,8 +288,6 @@ const cityCoordinates = {
   "Khatauli": [29.2784, 77.7323],
   "Manipal": [13.352, 74.7923],
   "Kadugodi": [12.996, 77.7586],
-  "Hyderabad Sapphire": [17.385, 78.4867],
-  "Kanpur Sapphire": [26.4499, 80.3319],
   "Alfredo": [19.076, 72.8777],
   "Rajouri": [28.649, 77.1177],
   "Najafgarh": [28.609, 76.9798],
@@ -317,7 +314,6 @@ const cityCoordinates = {
   "Kochi": [9.9312, 76.2673],
   "Rajkot": [22.3039, 70.8022],
   "Jamnagar": [22.4707, 70.0577],
-  "Kanpur LBF": [26.4499, 80.3319],
   "Virar": [19.4559, 72.8114],
   "Hennur": [13.028, 77.642],
   "Agra": [27.1767, 78.0081],
@@ -326,7 +322,6 @@ const cityCoordinates = {
 };
 
 // 3. Map initialisation
-
 let map;
 const mapElement = document.getElementById("map");
 
@@ -354,6 +349,7 @@ if (mapElement) {
       cityCoordinates[c.city] ||
       cityCoordinates[`${c.city} ${c.brand}`] ||
       null;
+
     if (!coords) return;
 
     const marker = L.circleMarker(coords, {
@@ -369,7 +365,7 @@ if (mapElement) {
     ).join(", ");
 
     marker.bindPopup(
-      `<strong>${c.city}</strong><br>Brands: ${brands}`
+      `<strong>${c.city}</strong><br/>Brands: ${brands}`
     );
 
     marker.onclick = () => {
@@ -394,7 +390,6 @@ if (mapElement) {
 }
 
 // 4. Directory filters and rendering
-
 const brandFilter = document.getElementById("filter-brand");
 const cityFilter = document.getElementById("filter-city");
 const regionFilter = document.getElementById("filter-region");
@@ -427,6 +422,7 @@ function initDirectoryFilters() {
   const cities = Array.from(
     new Set(clientsDirectory.map((p) => p.city).filter(Boolean))
   ).sort();
+
   cities.forEach((c) => {
     const opt = document.createElement("option");
     opt.value = c;
@@ -437,6 +433,7 @@ function initDirectoryFilters() {
   const regions = Array.from(
     new Set(clientsDirectory.map((p) => p.region).filter(Boolean))
   ).sort();
+
   regions.forEach((r) => {
     const opt = document.createElement("option");
     opt.value = r;
@@ -448,7 +445,6 @@ function initDirectoryFilters() {
   cityFilter.addEventListener("change", applyDirectoryFilters);
   regionFilter.addEventListener("change", applyDirectoryFilters);
   searchInput.addEventListener("input", applyDirectoryFilters);
-
   clearBtn.addEventListener("click", () => {
     brandFilter.value = "";
     cityFilter.value = "";
@@ -502,8 +498,8 @@ function applyDirectoryFilters() {
 
     const pa = getPriority(brandA);
     const pb = getPriority(brandB);
-
     if (pa !== pb) return pa - pb;
+
     // If same priority, fall back to city A–Z
     return (a.city || "").localeCompare(b.city || "");
   });
@@ -537,15 +533,13 @@ function renderDirectoryResults(items) {
 
     card.appendChild(title);
     card.appendChild(brandEl);
-
     resultsContainer.appendChild(card);
   });
 }
 
-// 5. Sample work gallery (full images + download)
-
+// 5. Sample work gallery (updated paths under images/)
 const sampleImages = [
-  { file: "images/alfredos.png", label: "Alfredo's" },
+  { file: "images/alfredos.png", label: "Alfredos" },
   { file: "images/amoeba.png", label: "Amoeba" },
   { file: "bk.png", label: "Burger King" },
   { file: "images/burma.png", label: "Burma Burma" },
@@ -604,7 +598,6 @@ function renderSampleWork() {
     actions.appendChild(downloadLink);
     body.appendChild(title);
     body.appendChild(actions);
-
     card.appendChild(img);
     card.appendChild(body);
     grid.appendChild(card);
@@ -612,7 +605,6 @@ function renderSampleWork() {
 }
 
 // 6. DOM ready
-
 document.addEventListener("DOMContentLoaded", () => {
   if (resultsContainer) {
     initDirectoryFilters();
@@ -636,3 +628,92 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ---- Archana AI Assistant frontend ----
+(function () {
+  const API_BASE = "https://archana-backend.onrender.com";
+
+  const toggle = document.getElementById("archana-chat-toggle");
+  const widget = document.getElementById("archana-chat-widget");
+  const closeBtn = document.getElementById("archana-close");
+  const form = document.getElementById("archana-form");
+  const input = document.getElementById("archana-input");
+  const messages = document.getElementById("archana-messages");
+
+  if (!toggle || !widget || !form || !input || !messages) return;
+
+  function appendMessage(text, from) {
+    const div = document.createElement("div");
+    div.className =
+      "archana-message " +
+      (from === "user" ? "archana-message-user" : "archana-message-bot");
+    const span = document.createElement("span");
+    span.textContent = text;
+    div.appendChild(span);
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addThinking() {
+    const div = document.createElement("div");
+    div.className = "archana-message archana-message-bot";
+    const span = document.createElement("span");
+    span.textContent = "Thinking...";
+    div.appendChild(span);
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  toggle.addEventListener("click", () => {
+    widget.style.display = "flex";
+    input.focus();
+    if (!toggle.dataset.greeted) {
+      appendMessage(
+        "Namaste, I am Archana, AI assistant for Paramount Project Endeavors. How can I help you?",
+        "bot"
+      );
+      toggle.dataset.greeted = "true";
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    widget.style.display = "none";
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+
+    appendMessage(text, "user");
+    input.value = "";
+
+    const thinkingNode = addThinking();
+
+    try {
+      const res = await fetch(API_BASE + "/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      });
+
+      if (thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+
+      if (!res.ok) {
+        appendMessage("Sorry, Archana is unavailable at the moment.", "bot");
+        return;
+      }
+
+      const data = await res.json();
+      appendMessage(data.reply || "I could not generate a response.", "bot");
+    } catch (err) {
+      if (thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+      appendMessage("Network error. Please try again.", "bot");
+    }
+  });
+})();
