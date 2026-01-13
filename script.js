@@ -1,4 +1,5 @@
 // script.js
+
 // Unified clients data, map, directory, sample work, contact
 
 // 1. Clients directory data (no years)
@@ -113,7 +114,7 @@ const clientsDirectory = [
   // Keer Hotels
   { brand: "Keer Hotels", client: "Keer Hotels", city: "Alfredo", region: "West", location: "Alfredo" },
 
-  // DIY / Alfredo DIY
+  // DIY
   { brand: "DIY", client: "DIY", city: "Dwarka", region: "North", location: "Dwarka" },
   { brand: "DIY", client: "DIY", city: "Rajouri", region: "North", location: "Rajouri" },
   { brand: "DIY", client: "DIY", city: "Najafgarh", region: "North", location: "Najafgarh" },
@@ -139,7 +140,7 @@ const clientsDirectory = [
   { brand: "DIY", client: "DIY", city: "Amritsar", region: "North", location: "Amritsar" },
   { brand: "DIY", client: "DIY", city: "Nagpur", region: "West", location: "Nagpur" },
 
-  // Talli Turmeric (brand mention only; add cities when available)
+  // Talli Turmeric
   { brand: "Talli Turmeric", client: "Talli Turmeric", city: "Mumbai", region: "West", location: "Mumbai" },
 
   // Izumi
@@ -175,7 +176,7 @@ const clientsDirectory = [
   // Pepe Jeans
   { brand: "Pepe Jeans", client: "Pepe Jeans", city: "Kolkata", region: "East", location: "Kolkata" },
 
-  // Dr. Agarwal
+  // Dr. Agarwal's
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Virar", region: "West", location: "Virar" },
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Hennur", region: "South", location: "Hennur" },
   { brand: "Dr. Agarwal's", client: "Dr. Agarwal's", city: "Lucknow", region: "North", location: "Lucknow" },
@@ -193,7 +194,7 @@ const clientsDirectory = [
   { brand: "Hazelnut Factory", client: "Hazelnut Factory", city: "Meerut", region: "North", location: "Meerut" }
 ];
 
-// Brand display priority: Dr Agarwal's, BK, THF, McD, Croma, Domino's, then others
+// Brand display priority
 const brandPriorityOrder = [
   "Dr. Agarwal's",
   "Burger King",
@@ -204,7 +205,6 @@ const brandPriorityOrder = [
 ];
 
 // 2. Map city aggregation
-
 function buildCityAggregation() {
   const cityMap = new Map();
   clientsDirectory.forEach((p) => {
@@ -222,111 +222,108 @@ function buildCityAggregation() {
   return Array.from(cityMap.values());
 }
 
-// Basic city → coordinates mapping
-// Approximate; extend or tweak as needed.
-
+// Basic city → coordinates mapping (approximate)
 const cityCoordinates = {
-  "Pune": [18.5204, 73.8567],
-  "Baramati": [18.1517, 74.5777],
-  "Mumbai": [19.076, 72.8777],
-  "Surat": [21.1702, 72.8311],
-  "Goa": [15.2993, 74.124],
-  "Satara": [17.6914, 74.0003],
+  Pune: [18.5204, 73.8567],
+  Baramati: [18.1517, 74.5777],
+  Mumbai: [19.076, 72.8777],
+  Surat: [21.1702, 72.8311],
+  Goa: [15.2993, 74.124],
+  Satara: [17.6914, 74.0003],
   "New Delhi": [28.6139, 77.209],
-  "Delhi": [28.6139, 77.209],
-  "Badlapur": [19.155, 73.265],
-  "Dehradun": [30.3165, 78.0322],
-  "Bhiwani": [28.793, 76.1391],
-  "Muzaffarnagar": [29.4727, 77.7085],
-  "Mandi": [31.708, 76.932],
-  "Gorakhpur": [26.7606, 83.3732],
-  "Gurgaon": [28.4595, 77.0266],
-  "Shahjahanpur": [27.8815, 79.9109],
-  "Bhilwara": [25.3463, 74.6364],
-  "Rishikesh": [30.0869, 78.2676],
-  "Kashipur": [29.213, 78.9567],
-  "Faridabad": [28.4089, 77.3178],
-  "Kanpur": [26.4499, 80.3319],
-  "Maliya": [23.0846, 70.7455],
-  "Jaipur": [26.9124, 75.7873],
-  "Ambala": [30.3752, 76.7821],
-  "Mugalsarai": [25.2837, 83.1198],
-  "Varanasi": [25.3176, 82.9739],
-  "Nagpur": [21.1458, 79.0882],
-  "Faridkot": [30.676, 74.7539],
-  "Lucknow": [26.8467, 80.9462],
-  "Ludhiana": [30.9009, 75.8573],
-  "Thane": [19.2183, 72.9781],
-  "Korum": [19.2183, 72.9781],
-  "Chandigarh": [30.7333, 76.7794],
-  "Chennai": [13.0827, 80.2707],
-  "Hyderabad": [17.385, 78.4867],
-  "Vashi": [19.0771, 73.0297],
-  "Hubli": [15.3647, 75.124],
-  "Pressto": [19.2183, 72.9781],
-  "Amritsar": [31.634, 74.8723],
+  Delhi: [28.6139, 77.209],
+  Badlapur: [19.155, 73.265],
+  Dehradun: [30.3165, 78.0322],
+  Bhiwani: [28.793, 76.1391],
+  Muzaffarnagar: [29.4727, 77.7085],
+  Mandi: [31.708, 76.932],
+  Gorakhpur: [26.7606, 83.3732],
+  Gurgaon: [28.4595, 77.0266],
+  Shahjahanpur: [27.8815, 79.9109],
+  Bhilwara: [25.3463, 74.6364],
+  Rishikesh: [30.0869, 78.2676],
+  Kashipur: [29.213, 78.9567],
+  Faridabad: [28.4089, 77.3178],
+  Kanpur: [26.4499, 80.3319],
+  Maliya: [23.0846, 70.7455],
+  Jaipur: [26.9124, 75.7873],
+  Ambala: [30.3752, 76.7821],
+  Mugalsarai: [25.2837, 83.1198],
+  Varanasi: [25.3176, 82.9739],
+  Nagpur: [21.1458, 79.0882],
+  Faridkot: [30.676, 74.7539],
+  Lucknow: [26.8467, 80.9462],
+  Ludhiana: [30.9009, 75.8573],
+  Thane: [19.2183, 72.9781],
+  Korum: [19.2183, 72.9781],
+  Chandigarh: [30.7333, 76.7794],
+  Chennai: [13.0827, 80.2707],
+  Hyderabad: [17.385, 78.4867],
+  Vashi: [19.0771, 73.0297],
+  Hubli: [15.3647, 75.124],
+  Pressto: [19.2183, 72.9781],
+  Amritsar: [31.634, 74.8723],
   "Huda City": [28.4595, 77.0266],
-  "Saket": [28.5286, 77.2197],
-  "Dholakun": [28.6139, 77.209],
-  "Dwarka": [28.5921, 77.046],
-  "Noida": [28.5355, 77.391],
-  "Manesar": [28.357, 76.9383],
-  "Ghaziabad": [28.6692, 77.4538],
-  "Kolkata": [22.5726, 88.3639],
-  "Prayagraj": [25.4358, 81.8463],
-  "Guwahati": [26.1445, 91.7362],
-  "Siliguri": [26.7271, 88.3953],
-  "Mathura": [27.4924, 77.6737],
-  "Mangalore": [12.9141, 74.856],
-  "Hassan": [13.0072, 76.0962],
-  "Vidyaranyapura": [13.065, 77.551],
-  "Ranchi": [23.3441, 85.3096],
-  "Patna": [25.5941, 85.1376],
-  "Gangtok": [27.3389, 88.6065],
+  Saket: [28.5286, 77.2197],
+  Dholakun: [28.6139, 77.209],
+  Dwarka: [28.5921, 77.046],
+  Noida: [28.5355, 77.391],
+  Manesar: [28.357, 76.9383],
+  Ghaziabad: [28.6692, 77.4538],
+  Kolkata: [22.5726, 88.3639],
+  Prayagraj: [25.4358, 81.8463],
+  Guwahati: [26.1445, 91.7362],
+  Siliguri: [26.7271, 88.3953],
+  Mathura: [27.4924, 77.6737],
+  Mangalore: [12.9141, 74.856],
+  Hassan: [13.0072, 76.0962],
+  Vidyaranyapura: [13.065, 77.551],
+  Ranchi: [23.3441, 85.3096],
+  Patna: [25.5941, 85.1376],
+  Gangtok: [27.3389, 88.6065],
   "Lake Town": [22.606, 88.4023],
-  "Dimapur": [25.9117, 93.7266],
-  "Itanagar": [27.0844, 93.6053],
-  "Khatauli": [29.2784, 77.7323],
-  "Manipal": [13.352, 74.7923],
-  "Kadugodi": [12.996, 77.7586],
+  Dimapur: [25.9117, 93.7266],
+  Itanagar: [27.0844, 93.6053],
+  Khatauli: [29.2784, 77.7323],
+  Manipal: [13.352, 74.7923],
+  Kadugodi: [12.996, 77.7586],
   "Hyderabad Sapphire": [17.385, 78.4867],
   "Kanpur Sapphire": [26.4499, 80.3319],
-  "Alfredo": [19.076, 72.8777],
-  "Rajouri": [28.649, 77.1177],
-  "Najafgarh": [28.609, 76.9798],
-  "Bhopal": [23.2599, 77.4126],
-  "Zirakpur": [30.6425, 76.8173],
-  "Bareilly": [28.367, 79.4304],
-  "Ganganagar": [29.9038, 73.8772],
-  "Bhuj": [23.2419, 69.6669],
-  "Nikol": [23.0275, 72.6625],
-  "Patiala": [30.3398, 76.3869],
-  "Bilaspur": [22.0797, 82.1391],
-  "Hanumangarh": [29.581, 74.3294],
-  "Jodhpur": [26.2389, 73.0243],
-  "Ahmedabad": [23.0225, 72.5714],
-  "Akola": [20.7002, 77.0082],
-  "Rudrapur": [28.987, 79.415],
-  "Nashik": [19.9975, 73.7898],
-  "Jalgaon": [21.0077, 75.5626],
-  "Palakkad": [10.7867, 76.6548],
-  "Hathijan": [22.955, 72.668],
-  "Cuttack": [20.4625, 85.8828],
+  Alfredo: [19.076, 72.8777],
+  Rajouri: [28.649, 77.1177],
+  Najafgarh: [28.609, 76.9798],
+  Bhopal: [23.2599, 77.4126],
+  Zirakpur: [30.6425, 76.8173],
+  Bareilly: [28.367, 79.4304],
+  Ganganagar: [29.9038, 73.8772],
+  Bhuj: [23.2419, 69.6669],
+  Nikol: [23.0275, 72.6625],
+  Patiala: [30.3398, 76.3869],
+  Bilaspur: [22.0797, 82.1391],
+  Hanumangarh: [29.581, 74.3294],
+  Jodhpur: [26.2389, 73.0243],
+  Ahmedabad: [23.0225, 72.5714],
+  Akola: [20.7002, 77.0082],
+  Rudrapur: [28.987, 79.415],
+  Nashik: [19.9975, 73.7898],
+  Jalgaon: [21.0077, 75.5626],
+  Palakkad: [10.7867, 76.6548],
+  Hathijan: [22.955, 72.668],
+  Cuttack: [20.4625, 85.8828],
   "Nana Chiloda": [23.073, 72.665],
-  "Vadodara": [22.3072, 73.1812],
-  "Kochi": [9.9312, 76.2673],
-  "Rajkot": [22.3039, 70.8022],
-  "Jamnagar": [22.4707, 70.0577],
+  Vadodara: [22.3072, 73.1812],
+  Kochi: [9.9312, 76.2673],
+  Rajkot: [22.3039, 70.8022],
+  Jamnagar: [22.4707, 70.0577],
   "Kanpur LBF": [26.4499, 80.3319],
-  "Virar": [19.4559, 72.8114],
-  "Hennur": [13.028, 77.642],
-  "Agra": [27.1767, 78.0081],
-  "Meerut": [28.9845, 77.7064],
-  "Bangalore": [12.9716, 77.5946]
+  Virar: [19.4559, 72.8114],
+  Hennur: [13.028, 77.642],
+  Agra: [27.1767, 78.0081],
+  Meerut: [28.9845, 77.7064],
+  Bangalore: [12.9716, 77.5946]
 };
 
 // 3. Map initialisation
-
 let map;
 const mapElement = document.getElementById("map");
 
@@ -339,7 +336,9 @@ if (mapElement) {
     inertiaDeceleration: 2000
   }).setView([22.9734, 78.6569], 5);
 
-  L.control.zoom({ position: "bottomright" }).addTo(map);
+  L.control
+    .zoom({ position: "bottomright" })
+    .addTo(map);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -394,7 +393,6 @@ if (mapElement) {
 }
 
 // 4. Directory filters and rendering
-
 const brandFilter = document.getElementById("filter-brand");
 const cityFilter = document.getElementById("filter-city");
 const regionFilter = document.getElementById("filter-region");
@@ -427,6 +425,7 @@ function initDirectoryFilters() {
   const cities = Array.from(
     new Set(clientsDirectory.map((p) => p.city).filter(Boolean))
   ).sort();
+
   cities.forEach((c) => {
     const opt = document.createElement("option");
     opt.value = c;
@@ -437,6 +436,7 @@ function initDirectoryFilters() {
   const regions = Array.from(
     new Set(clientsDirectory.map((p) => p.region).filter(Boolean))
   ).sort();
+
   regions.forEach((r) => {
     const opt = document.createElement("option");
     opt.value = r;
@@ -490,32 +490,25 @@ function applyDirectoryFilters() {
     );
   }
 
-  // Sort by brand priority for display
   filtered.sort((a, b) => {
     const getPriority = (brand) => {
       const idx = brandPriorityOrder.indexOf(brand);
       return idx === -1 ? brandPriorityOrder.length : idx;
     };
-
     const brandA = a.brand || a.client;
     const brandB = b.brand || b.client;
-
     const pa = getPriority(brandA);
     const pb = getPriority(brandB);
-
     if (pa !== pb) return pa - pb;
-    // If same priority, fall back to city A–Z
     return (a.city || "").localeCompare(b.city || "");
   });
 
   renderDirectoryResults(filtered);
 }
 
-// Only show city and brand in each card
 function renderDirectoryResults(items) {
   resultsContainer.innerHTML = "";
   summaryEl.textContent = `${items.length} client site(s) matching current filters`;
-
   if (!items.length) {
     resultsContainer.innerHTML =
       "<p>No client locations match the selected filters.</p>";
@@ -537,13 +530,11 @@ function renderDirectoryResults(items) {
 
     card.appendChild(title);
     card.appendChild(brandEl);
-
     resultsContainer.appendChild(card);
   });
 }
 
-// 5. Sample work gallery (full images + download)
-
+// 5. Sample work gallery
 const sampleImages = [
   { file: "images/alfredos.png", label: "Alfredo's" },
   { file: "images/amoeba.png", label: "Amoeba" },
@@ -573,7 +564,6 @@ const sampleImages = [
 function renderSampleWork() {
   const grid = document.getElementById("sample-work-grid");
   if (!grid) return;
-
   grid.innerHTML = "";
   sampleImages.forEach((item) => {
     const card = document.createElement("article");
@@ -604,7 +594,6 @@ function renderSampleWork() {
     actions.appendChild(downloadLink);
     body.appendChild(title);
     body.appendChild(actions);
-
     card.appendChild(img);
     card.appendChild(body);
     grid.appendChild(card);
@@ -612,7 +601,6 @@ function renderSampleWork() {
 }
 
 // 6. DOM ready
-
 document.addEventListener("DOMContentLoaded", () => {
   if (resultsContainer) {
     initDirectoryFilters();
