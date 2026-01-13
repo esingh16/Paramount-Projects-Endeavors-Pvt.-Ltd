@@ -1,13 +1,18 @@
+/* styles.css – matte dark grey, teal cards with orange accents */
+
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   color: #f3f4f6;
-  background: #15171a;
+  background: #15171a; /* dark matte grey */
 }
 
 /* animated background layer */
@@ -69,6 +74,20 @@ body {
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+}
+
+.logo-circle .logo-letter {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transform: translateY(-1px);
 }
 
 .brand-text {
@@ -157,8 +176,7 @@ body {
 }
 
 .section-alt {
-  background:
-    radial-gradient(circle at top, #1c2024, #181b1f 60%, #15171a);
+  background: radial-gradient(circle at top, #1c2024, #181b1f 60%, #15171a);
   border-top: 1px solid rgba(15, 23, 42, 0.9);
   border-bottom: 1px solid rgba(15, 23, 42, 0.9);
 }
@@ -171,7 +189,7 @@ body {
   font-size: 0.98rem;
 }
 
-/* Hero header & body */
+/* Hero: header + 3-column body */
 .section-hero {
   display: flex;
   flex-direction: column;
@@ -181,6 +199,14 @@ body {
 /* centred header row */
 .hero-header {
   text-align: center;
+}
+
+/* three-column body */
+.hero-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
 }
 
 /* hero title */
@@ -194,7 +220,16 @@ body {
     0 0 26px rgba(0, 0, 0, 0.9);
 }
 
-/* typewriter line */
+/* hero subheading on left */
+.hero-subheading {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #cbd5f5;
+}
+
+/* typewriter line – fixed width, no layout shift */
 .hero-typewriter {
   margin: 0;
   font-size: 0.9rem;
@@ -202,29 +237,19 @@ body {
   text-transform: uppercase;
   color: #e5e7eb;
   display: inline-block;
-  min-width: 30ch;
+  min-width: 30ch; /* reserve space for longest line */
   text-align: center;
 }
 
-/* three-column body */
-.hero-body {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-  align-items: start;
+/* smooth fade (if used) */
+.typewriter-fade {
+  opacity: 0.35;
+  transition: opacity 0.22s ease;
 }
 
 /* left column copy */
 .hero-left {
   text-align: left;
-}
-
-.hero-subheading {
-  margin: 0 0 8px;
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #cbd5f5;
 }
 
 .hero-lead {
@@ -239,89 +264,6 @@ body {
   gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
-}
-
-/* Stat cards */
-.stat-card {
-  background: radial-gradient(circle at top left, #00b6c966, #111827);
-  border-radius: 16px;
-  padding: 10px 14px;
-  border-left: 3px solid #f5861f;
-  min-width: 120px;
-}
-
-.stat-number {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #00b6c9;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: #e5e7eb;
-}
-
-/* Map card & info panel */
-.hero-map {
-  width: 100%;
-}
-
-.map-card {
-  border: 1px solid #f5861f;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #032d33;
-}
-
-#map {
-  width: 100%;
-  height: 380px;
-}
-
-/* Dark Leaflet tint */
-.leaflet-container {
-  background: #020617;
-}
-
-.leaflet-tile-pane {
-  filter:
-    brightness(0.6)
-    contrast(1.15)
-    saturate(1.2)
-    hue-rotate(-12deg);
-}
-
-/* info panel */
-#info-panel {
-  border-radius: 22px;
-  padding: 18px;
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
-  border: 1px solid #f5861f;
-  background: #032d33;
-}
-
-#info-title {
-  margin-top: 0;
-  font-size: 1rem;
-  color: #f9fafb;
-}
-
-#info-content {
-  font-size: 0.9rem;
-  color: #e5e7eb;
-  margin-bottom: 12px;
-}
-
-.list {
-  padding-left: 18px;
-  font-size: 0.9rem;
-  color: #e5e7eb;
-}
-
-.small-note {
-  font-size: 0.8rem;
-  color: #cbd5f5;
-  margin-top: 8px;
 }
 
 /* Shared card transitions */
@@ -352,7 +294,7 @@ body {
 .sample-card,
 .pillars-strip,
 .pillar-card {
-  background: #032d33;
+  background: #032d33; /* deep teal */
 }
 
 .service-card:hover,
@@ -364,6 +306,74 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 22px 45px rgba(0, 0, 0, 0.78);
   border-color: #00b6c9;
+}
+
+/* Stat cards */
+.stat-card {
+  background: radial-gradient(circle at top left, #00b6c966, #111827);
+  border-radius: 16px;
+  padding: 10px 14px;
+  border-left: 3px solid #f5861f;
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00b6c9;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+/* Map card & info panel borders */
+.hero-map {
+  width: 100%;
+}
+
+.map-card {
+  border: 1px solid #f5861f;
+}
+
+#map {
+  width: 100%;
+  height: 380px;
+}
+
+/* Dark Leaflet tint */
+.leaflet-container {
+  background: #020617;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.6) contrast(1.15) saturate(1.2) hue-rotate(-12deg);
+}
+
+#info-panel {
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
+  border: 1px solid #f5861f;
+}
+
+#info-title {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #f9fafb;
+}
+
+#info-content {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+}
+
+.list {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #e5e7eb;
 }
 
 /* Buttons */
@@ -398,7 +408,27 @@ body {
   border: 1px solid #f5861f;
 }
 
-/* Services */
+/* Small note text */
+.small-note {
+  font-size: 0.8rem;
+  color: #cbd5f5;
+  margin-top: 8px;
+}
+
+/* Services / info cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.info-card {
+  border-radius: 16px;
+  padding: 14px;
+  border-top: 3px solid #00b6c9;
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -528,12 +558,6 @@ body {
 .directory-card-title {
   font-size: 0.98rem;
   font-weight: 600;
-  color: #f9fafb;
-}
-
-.directory-card-brand {
-  font-size: 0.85rem;
-  color: #e5e7eb;
 }
 
 /* Sample work gallery */
@@ -572,11 +596,6 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   color: #f9fafb;
-}
-
-.sample-actions {
-  display: flex;
-  gap: 8px;
 }
 
 /* Pillars of Paramount */
@@ -624,6 +643,7 @@ body {
   align-items: center;
 }
 
+/* circular avatars with more headroom */
 .pillar-card img {
   width: 110px;
   height: 110px;
@@ -701,58 +721,61 @@ body {
   border-top: 2px solid #f5861f;
 }
 
-/* Archana AI Assistant widget */
-#archana-chat-toggle {
+/* Archana chatbot */
+.archana-toggle {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 300;
+  bottom: 18px;
+  right: 18px;
+  border-radius: 999px;
+  border: none;
+  background: #032d33;
+  color: #f9fafb;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: linear-gradient(120deg, #f5861f, #00b6c9);
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
+  gap: 6px;
   padding: 8px 14px;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.85);
+  font-size: 0.85rem;
+  z-index: 90;
 }
 
 .archana-toggle-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px;
   object-fit: cover;
-  background: #020617;
 }
 
-#archana-chat-widget {
+.archana-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+}
+
+.archana-widget {
   position: fixed;
-  right: 18px;
   bottom: 70px;
+  right: 18px;
   width: 320px;
-  max-height: 430px;
+  max-height: 460px;
   display: none;
   flex-direction: column;
-  background: #020617;
   border-radius: 18px;
-  border: 1px solid #f5861f;
+  background: #020617;
+  border: 1px solid #00b6c9;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
-  z-index: 310;
   overflow: hidden;
+  z-index: 100;
+  font-size: 0.85rem;
 }
 
 .archana-header {
-  padding: 10px 12px;
-  background: radial-gradient(circle at top left, #00b6c9, #111827);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  padding: 8px 10px;
+  background: radial-gradient(circle at top left, #00b6c9, #020617);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
 }
 
 .archana-header-left {
@@ -767,7 +790,6 @@ body {
   border-radius: 999px;
   object-fit: cover;
   background: #020617;
-  border: 1px solid rgba(15, 23, 42, 0.9);
 }
 
 .archana-header-text {
@@ -776,68 +798,83 @@ body {
 }
 
 .archana-title {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e5f0ff;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .archana-subtitle {
-  font-size: 0.74rem;
-  color: #cbd5f5;
+  font-size: 0.72rem;
+  color: #e5e7eb;
+  opacity: 0.9;
 }
 
 #archana-close {
-  background: transparent;
   border: none;
-  color: #e5e7eb;
+  background: transparent;
+  color: #f9fafb;
   font-size: 1.1rem;
   cursor: pointer;
 }
 
-#archana-messages {
-  padding: 10px 12px;
+/* Quick replies inside Archana */
+.archana-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #020617;
+}
+
+.archana-quick-replies button {
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.archana-quick-replies button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.archana-messages {
   flex: 1;
+  padding: 8px 10px;
   overflow-y: auto;
-  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   background: #020617;
 }
 
 .archana-message {
-  margin-bottom: 8px;
-}
-
-.archana-message-bot span,
-.archana-message-user span {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 12px;
-}
-
-.archana-message-bot {
-  text-align: left;
-  color: #cbd5f5;
-}
-
-.archana-message-bot span {
-  background: #032d33;
-  border-left: 3px solid #00b6c9;
+  max-width: 90%;
+  padding: 6px 9px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 .archana-message-user {
-  text-align: right;
-  color: #f9fafb;
+  align-self: flex-end;
+  background: #00b6c9;
+  color: #020617;
 }
 
-.archana-message-user span {
-  background: #f5861f;
+.archana-message-bot {
+  align-self: flex-start;
+  background: #111827;
+  color: #e5e7eb;
 }
 
-#archana-form {
+.archana-form {
   display: flex;
-  padding: 8px;
   gap: 6px;
-  border-top: 1px solid #1f2933;
+  padding: 8px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: #020617;
 }
 
@@ -845,10 +882,10 @@ body {
   flex: 1;
   border-radius: 999px;
   border: 1px solid #4b5563;
-  background: #111827;
-  color: #f9fafb;
   padding: 6px 10px;
   font-size: 0.8rem;
+  background: #020617;
+  color: #f9fafb;
 }
 
 #archana-input:focus {
@@ -856,15 +893,13 @@ body {
   border-color: #00b6c9;
 }
 
-#archana-form button {
+.archana-form button {
   border-radius: 999px;
   border: none;
+  background: #00b6c9;
+  color: #020617;
   padding: 6px 12px;
   font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: linear-gradient(120deg, #f5861f, #00b6c9);
-  color: #ffffff;
   cursor: pointer;
 }
 
@@ -918,17 +953,14 @@ body {
   .pillar-card {
     min-width: 190px;
   }
-}
 
-/* Small screens: nudge widget inward a bit */
-@media (max-width: 480px) {
-  #archana-chat-toggle {
-    right: 12px;
-    bottom: 12px;
+  .archana-widget {
+    right: 8px;
+    left: 8px;
+    width: auto;
   }
 
-  #archana-chat-widget {
+  .archana-toggle {
     right: 8px;
-    width: 88vw;
   }
 }
